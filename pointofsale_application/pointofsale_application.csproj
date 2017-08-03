@@ -63,6 +63,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DatabaseAccess.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="ReceiptGen.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Transaction.cs" />
