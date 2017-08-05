@@ -22,7 +22,6 @@ namespace pointofsale_application
             set { total = value; }
         }
         private int ID;
-
         List<Object> cartList = new List<Object>();
         
 
