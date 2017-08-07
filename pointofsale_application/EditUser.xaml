@@ -8,8 +8,8 @@
         Title="EditUser" Height="370.588" Width="542.647">
     <Grid Margin="1,0,-1,0">
         <Label x:Name="EditUser" Content="Edit User" HorizontalAlignment="Left" Margin="205,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.199,0.372"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65" Margin="32,111,-197,0" Stroke="Black" VerticalAlignment="Top" Width="457"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65" Margin="32,193,-197,0" Stroke="Black" VerticalAlignment="Top" Width="457"/>
+        <Rectangle x:Name="Panel" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65" Margin="32,111,-197,0" Stroke="Black" VerticalAlignment="Top" Width="457"/>
+        <Rectangle x:Name="Panel1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65" Margin="32,193,-197,0" Stroke="Black" VerticalAlignment="Top" Width="457"/>
         <Button x:Name="AddUser" Content="Add" HorizontalAlignment="Left" Margin="423.298,20,-206.298,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Promote" Content="Promote/Demote" HorizontalAlignment="Left" Margin="392.298,131,-175.298,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="ActiveDeactive" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="171,215,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.228,0.464"/>
