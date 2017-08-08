@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
-        Title="Jurassic Bar" Height="370" Width="542">
+        Title="Jurassic Bar" Height="382" Width="550">
     <Grid Background="#787a79">
         <Label Content="Edit Products" VerticalAlignment="Center" FontWeight="Medium" FontSize="18" 
                Height="30" Width="118" Margin="172,20,162,293"></Label>
@@ -14,86 +14,149 @@
         <Image Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="55" Margin="10,10,0,0" 
                VerticalAlignment="Top" Width="62"/>
         <TabControl TabStripPlacement="Left" Margin="0,70,0,0" BorderBrush="#b1b7b7">
-            <TabItem Header="Beer" Name="beer" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="beerID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="beerName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="beerPrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="beerQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="beerDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Beer" x:Name="beer" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="beerID" Width="50" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="beerName" Width="105" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="beerPrice" Width="70" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="beerQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="beerDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
-            <TabItem Header="Wine" Name="wine" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="wineID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="wineName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="winePrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="wineQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="wineDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Wine" x:Name="wine" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="wineID" Width="50" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="wineName" Width="105" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="winePrice" Width="70" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="wineQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="wineDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
-            <TabItem Header="Whiskey" Name="whiskey" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="whiskeyID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="whiskeyName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="whiskeyPrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="whiskeyQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="whiskeyDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Whiskey" x:Name="whiskey" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="whiskeyID" Width="50" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="whiskeyName" Width="105" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="whiskeyPrice" Width="70" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="whiskeyQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="whiskeyDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
-            <TabItem Header="Vodka" Name="vodka" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="vodkaID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="vodkaName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="vodkaPrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="vodkaQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="vodkaDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Vodka" x:Name="vodka" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="vodkaID" Width="50" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="vodkaName" Width="105" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="vodkaPrice" Width="70" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="vodkaQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="vodkaDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
-            <TabItem Header="Gin" Name="gin" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="ginID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="ginName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="ginPrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="ginQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="ginDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Gin" x:Name="gin" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="ginID" Width="50" Height="20" Margin="0,0,5,0" 
+                             BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="ginName" Width="105" Height="20" Margin="0,0,5,0" 
+                             BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="ginPrice" Width="70" Height="20" Margin="0,0,5,0" 
+                             BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="ginQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                             BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="ginDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
-            <TabItem Header="Tequila" Name="teq" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="teqID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="teqName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="teqPrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="teqQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="teqDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Tequila" x:Name="teq" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="teqID" Width="50" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="teqName" Width="105" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="teqPrice" Width="70" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="teqQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="teqDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
-            <TabItem Header="Rum" Name="rum" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="rumID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="rumName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="rumPrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="rumQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="rumDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Rum" x:Name="rum" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="rumID" Width="50" Height="20" Margin="0,0,5,0" 
+                                BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="rumName" Width="105" Height="20" Margin="0,0,5,0" 
+                                BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="rumPrice" Width="70" Height="20" Margin="0,0,5,0" 
+                                BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="rumQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                                BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="rumDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
-            <TabItem Header="Other" Name="other" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="otherID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="otherName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="otherPrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="otherQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="otherDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Other" x:Name="other" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="otherID" Width="50" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="otherName" Width="105" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="otherPrice" Width="70" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="otherQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="otherDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
-            <TabItem Header="Fossils" Name="fossils" Height="30" BorderBrush="#b1b7b7">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="fossilsID" Width="50" Height="20" Margin="0,0,5,0">ID:</TextBox>
-                    <TextBox Name="fossilsName" Width="110" Height="20" Margin="0,0,5,0">Name:</TextBox>
-                    <TextBox Name="fossilsPrice" Width="70" Height="20" Margin="0,0,5,0">Price:</TextBox>
-                    <TextBox Name="fossilsQuant" Width="80" Height="20" Margin="0,0,5,0">Quantity:</TextBox>
-                    <TextBox Name="fossilsDesc" Width="109" Height="50" Margin="0,106,0,77">Description:</TextBox>
-                </StackPanel>
+            <TabItem Header="Fossils" x:Name="fossils" Height="30" BorderBrush="#464543">
+                <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="fossilsID" Width="50" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
+                        <TextBox Name="fossilsName" Width="105" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Name:</TextBox>
+                        <TextBox Name="fossilsPrice" Width="70" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Price:</TextBox>
+                        <TextBox Name="fossilsQuant" Width="80" Height="20" Margin="0,0,5,0" 
+                                 BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
+                        <TextBox Name="fossilsDesc" Width="105" Height="50" BorderBrush="#464543" 
+                                 IsReadOnly="True">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
         </TabControl>
     </Grid>
