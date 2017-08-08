@@ -21,8 +21,8 @@
         <Button Name="Clear_Button" Content="Clear" HorizontalAlignment="Left" Margin="355,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
         <Button Name="Num0" Content="0" HorizontalAlignment="Left" Margin="502,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
         <Button Name="Enter_Button" Content="Enter" HorizontalAlignment="Left" Margin="646,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <TextBox HorizontalAlignment="Left" Height="37" Margin="355,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" FontSize="35"/>
-        <Image Name="Logo" Source="C:\Users\awenc\Desktop\POSA\POSSystem\pointofsale_application\Images\jurassic bar2.png" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="307"/>
-
+        <TextBox Name="textBoxEmpID" HorizontalAlignment="Left" Height="37" Margin="355,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" FontSize="35"/>
+        <Image Name="Logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="307"/>
+        <Label Name="errormessage">Error Message</Label>
     </Grid>
 </Window>

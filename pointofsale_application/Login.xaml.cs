@@ -32,12 +32,12 @@ namespace pointofsale_application
         {
             if (textBoxEmpID.Text.Length == 0 || textBoxEmpID.Text.Length != 6)
             {
-                errormessage.Text = "Enter employee id.";
+                errormessage.Content = "Enter employee id.";
                 textBoxEmpID.Focus();
             }
             else if (!Regex.IsMatch(textBoxEmpID.Text, @"^[0-9]+$") || textBoxEmpID.Text.Length != 6)
             {
-                errormessage.Text = "Enter a valid employee id.";
+                errormessage.Content = "Enter a valid employee id.";
                 textBoxEmpID.Select(0, textBoxEmpID.Text.Length);
                 textBoxEmpID.Focus();
             }
@@ -62,7 +62,7 @@ namespace pointofsale_application
                 }
                 else
                 {
-                    errormessage.Text = "Invalid Identification.  Enter an existing employee id.";
+                    errormessage.Content = "Invalid Identification.  Enter an existing employee id.";
                 }
                 con.Close();
             }
