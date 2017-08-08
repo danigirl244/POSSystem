@@ -1,4 +1,4 @@
-﻿<Window x:Class="pointofsale_application.EditUser"
+﻿<Window x:Name="Edit_User_Window" x:Class="pointofsale_application.EditUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,21 +6,21 @@
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
         Title="EditUser" Height="370.588" Width="542.647">
-    <Grid Margin="1,0,-1,0" Background="#787A79">
+    <Grid x:Name="Edit_User_WindowGrid" Margin="1,0,-1,0" Background="#787A79">
         <Label x:Name="nEditUser" Content="Edit User" HorizontalAlignment="Center" Margin="228,11,224,0" VerticalAlignment="Top" RenderTransformOrigin="1.199,0.372" Foreground="Black" FontWeight="Bold" FontSize="16" Width="83"/>
-        <Rectangle x:Name="Panel" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65" Margin="32,111,-197,0" Stroke="Black" VerticalAlignment="Top" Width="457"/>
-        <Rectangle x:Name="Panel1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65" Margin="32,193,-197,0" Stroke="Black" VerticalAlignment="Top" Width="457"/>
-        <Button x:Name="AddUser" Content="Add" HorizontalAlignment="Left" Margin="423,20,0,0" VerticalAlignment="Top" Width="87" Height="37" Background="#464543"/>
-        <Button x:Name="Promote" Content="Promote/Demote" HorizontalAlignment="Left" Margin="382,131,0,0" VerticalAlignment="Top" Width="85" Background="#464543" Height="29"/>
-        <Button x:Name="ActiveDeactive" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="171,213,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="0.228,0.464" Background="#464543" Height="28"/>
-        <Button x:Name="Promote2" Content="Promote/Demote" HorizontalAlignment="Left" Margin="382,214,0,0" VerticalAlignment="Top" Width="85" Background="#464543" RenderTransformOrigin="0.437,0.181" Height="26"/>
-        <Label x:Name="ID2" Content="23021" HorizontalAlignment="Left" Margin="32,213,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Name" Content="New Name:" HorizontalAlignment="Left" Margin="114,131,0,0" VerticalAlignment="Top" Width="75"/>
+        <Rectangle x:Name="Panel" Fill="#B1B7B7" HorizontalAlignment="Left" Height="72" Margin="24,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="476"/>
+        <Rectangle x:Name="Panel1" Fill="#B1B7B7" HorizontalAlignment="Left" Height="72" Margin="24,207,0,0" Stroke="Black" VerticalAlignment="Top" Width="476"/>
+        <Button x:Name="AddUser" Content="Add" HorizontalAlignment="Left" Margin="423,20,0,0" VerticalAlignment="Top" Width="87" Height="37" Background="#464543" Foreground="#B1B7B7"/>
+        <Button x:Name="Promote" Content="Promote/Demote" HorizontalAlignment="Left" Margin="382,126,0,0" VerticalAlignment="Top" Width="99" Background="#464543" Height="36" Foreground="#B1B7B7"/>
+        <Button x:Name="ActiveDeactive" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="158,224,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.228,0.464" Background="#464543" Height="36" Foreground="#B1B7B7"/>
+        <Button x:Name="Promote2" Content="Promote/Demote" HorizontalAlignment="Left" Margin="382,222,0,0" VerticalAlignment="Top" Width="99" Background="#464543" RenderTransformOrigin="0.437,0.181" Height="36" Foreground="#B1B7B7"/>
+        <Label x:Name="ID2" Content="23021" HorizontalAlignment="Left" Margin="32,227,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Name" Content="New Name:" HorizontalAlignment="Left" Margin="96,132,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="ID" Content="ID" HorizontalAlignment="Left" Margin="32,131,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Name1" Content="Tyler" HorizontalAlignment="Left" Margin="96,213,0,0" VerticalAlignment="Top" Width="75"/>
-        <RadioButton x:Name="BasicRButton" Content="Basic" HorizontalAlignment="Left" Margin="228,137,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Name1" Content="Tyler" HorizontalAlignment="Left" Margin="96,227,0,0" VerticalAlignment="Top" Width="75"/>
+        <RadioButton x:Name="BasicRButton" Content="Basic" HorizontalAlignment="Left" Margin="214,137,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="AdminRButton" Content="Admin" HorizontalAlignment="Left" Margin="294,137,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Permission" Content="Permission: Basic" HorizontalAlignment="Left" Margin="268,215,-76,0" VerticalAlignment="Top"/>
+        <Label x:Name="Permission" Content="Permission: Basic" HorizontalAlignment="Left" Margin="268,229,0,0" VerticalAlignment="Top"/>
         <Image Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="96" Margin="10,10,0,0" VerticalAlignment="Top" Width="107"/>
 
     </Grid>
