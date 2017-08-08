@@ -10,7 +10,7 @@
         <Button Name="AddProduct" Content="Add Product" FontSize="22" Foreground="#B1B7B7" Background="#464543" Width="175" Height="65" Margin="767,41,10,465"></Button>
         <TabControl x:Name="Products" TabStripPlacement="Left" Margin="0,120,0,0" Height="450">
             <TabItem Header="Beer" Name="beer" Height="50" FontSize="18">
-                <Border Background="White" BorderThickness="5" BorderBrush="#464543" Margin="17,130,17,130">
+                <Border Background="White" BorderThickness="3" BorderBrush="#464543" Margin="17,130,17,130">
                     <StackPanel Orientation="Horizontal" Margin="15">
                         <TextBox Name="beerID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
                         <TextBox Name="beerName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
@@ -21,13 +21,15 @@
                 </Border>
             </TabItem>
             <TabItem Header="Vodka" Name="vodka" Height="50" FontSize="18">
-                <StackPanel Orientation="Horizontal" Margin="15">
-                    <TextBox Name="vodkaID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
-                    <TextBox Name="vodkaName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
-                    <TextBox Name="vodkaPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
-                    <TextBox Name="vodkaQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
-                    <TextBox Name="vodkaDes" Width="200" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
-                </StackPanel>
+                <Border Background="White" BorderThickness="3" BorderBrush="#464543" Margin="17,130,17,130">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="vodkaID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                        <TextBox Name="vodkaName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                        <TextBox Name="vodkaPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                        <TextBox Name="vodkaQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                        <TextBox Name="vodkaDes" Width="154" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                    </StackPanel>
+                </Border>
             </TabItem>
             <TabItem Header="Whiskey" Name="whiskey" Height="50" FontSize="18">
                 <StackPanel Orientation="Horizontal" Margin="15">
