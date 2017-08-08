@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="Edit Inventory" Height="370" Width="542">
     <Grid Background="#787a79">
-        
+        <Button Content="Add Product" Width="100" Height="30" Margin="424,35,10,274" 
+                Background="#464543" Foreground="#b1b7b7"></Button>
+        <Image HorizontalAlignment="Left" Height="55" Margin="10,10,0,0" VerticalAlignment="Top" Width="62"/>
+        <TabControl TabStripPlacement="Left" Margin="0,70,0,0">
+            <TabItem Header="Beer" Height="30">
+
+            </TabItem>
+            <TabItem Header="Wine" Height="30">
+
+            </TabItem>
+            <TabItem Header="Whiskey" Height="30">
+
+            </TabItem>
+            <TabItem Header="Vodka" Height="30">
+
+            </TabItem>
+            <TabItem Header="Gin" Height="30">
+
+            </TabItem>
+            <TabItem Header="Tequila" Height="30">
+
+            </TabItem>
+            <TabItem Header="Rum" Height="30">
+
+            </TabItem>
+            <TabItem Header="Other" Height="30">
+
+            </TabItem>
+            <TabItem Header="Fossils" Height="30">
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

@@ -62,11 +62,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditUser.xaml">
+    <Page Include="EditInventory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HomePage.xaml">
+    <Page Include="EditUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,11 +89,11 @@
     <Compile Include="DeletePopUp.xaml.cs">
       <DependentUpon>DeletePopUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditInventory.xaml.cs">
+      <DependentUpon>EditInventory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditUser.xaml.cs">
       <DependentUpon>EditUser.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
