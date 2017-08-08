@@ -16,7 +16,7 @@
         <TabControl TabStripPlacement="Left" Margin="0,70,0,0" BorderBrush="#b1b7b7">
             <TabItem Header="Beer" x:Name="beer" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="beerID" Width="50" Height="20" Margin="0,0,5,0" 
                                  BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="beerName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -27,12 +27,13 @@
                                  BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="beerDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteBeer" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
             <TabItem Header="Wine" x:Name="wine" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="wineID" Width="50" Height="20" Margin="0,0,5,0" 
                                  BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="wineName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -43,12 +44,13 @@
                                  BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="wineDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteWine" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
             <TabItem Header="Whiskey" x:Name="whiskey" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="whiskeyID" Width="50" Height="20" Margin="0,0,5,0" 
                                  BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="whiskeyName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -59,12 +61,13 @@
                                  BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="whiskeyDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteWhiskey" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
             <TabItem Header="Vodka" x:Name="vodka" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="vodkaID" Width="50" Height="20" Margin="0,0,5,0" 
                                  BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="vodkaName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -75,12 +78,13 @@
                                  BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="vodkaDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteVodka" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
             <TabItem Header="Gin" x:Name="gin" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="ginID" Width="50" Height="20" Margin="0,0,5,0" 
                              BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="ginName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -91,12 +95,13 @@
                              BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="ginDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteGin" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
             <TabItem Header="Tequila" x:Name="teq" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="teqID" Width="50" Height="20" Margin="0,0,5,0" 
                                  BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="teqName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -107,12 +112,13 @@
                                  BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="teqDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteTeq" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
             <TabItem Header="Rum" x:Name="rum" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="rumID" Width="50" Height="20" Margin="0,0,5,0" 
                                 BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="rumName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -123,12 +129,13 @@
                                 BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="rumDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteRum" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
             <TabItem Header="Other" x:Name="other" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="otherID" Width="50" Height="20" Margin="0,0,5,0" 
                                  BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="otherName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -139,12 +146,13 @@
                                  BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="otherDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteOther" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
             <TabItem Header="Fossils" x:Name="fossils" Height="30" BorderBrush="#464543">
                 <Border Height="86" VerticalAlignment="Bottom" Margin="2,0,2,175" BorderThickness="2" BorderBrush="#464543">
-                    <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel Orientation="Horizontal" Margin="10">
                         <TextBox Name="fossilsID" Width="50" Height="20" Margin="0,0,5,0" 
                                  BorderBrush="#464543" IsReadOnly="True">ID:</TextBox>
                         <TextBox Name="fossilsName" Width="105" Height="20" Margin="0,0,5,0" 
@@ -155,6 +163,7 @@
                                  BorderBrush="#464543" IsReadOnly="True">Quantity:</TextBox>
                         <TextBox Name="fossilsDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  IsReadOnly="True">Description:</TextBox>
+                        <Button x:Name="deleteFossils" Height="20" Width="15" Margin="5">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
