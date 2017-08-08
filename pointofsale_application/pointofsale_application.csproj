@@ -62,6 +62,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CheckOutPopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DeletePopUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +99,9 @@
     </Compile>
     <Compile Include="CashOut.xaml.cs">
       <DependentUpon>CashOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOutPopUp.xaml.cs">
+      <DependentUpon>CheckOutPopUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="DatabaseAccess.cs" />
     <Compile Include="DeletePopUp.xaml.cs">

@@ -30,6 +30,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="474,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="258" TextAlignment="Center" FontSize="36" Text="PlaceHolder"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Remaining Balance:" VerticalAlignment="Top" Margin="516,10,0,0" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="532,42,0,0" TextWrapping="Wrap" Text="Change Due:" VerticalAlignment="Top" FontSize="20"/>
+        <Image Source="Images/jurassic bar2.png" HorizontalAlignment="Left" Height="129" VerticalAlignment="Top" Width="151" Margin="10,10,0,0"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="-597,447,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
 
