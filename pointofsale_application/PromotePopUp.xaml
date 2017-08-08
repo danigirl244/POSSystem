@@ -8,8 +8,8 @@
         Title="PromotePopUp" Height="173.11" Width="300">
     <Grid x:Name="PromoteGrid" Background="#787A79">
         <Label x:Name="PromotePrompt" Content="Are you sure you want to promote/demote?" HorizontalAlignment="Left" Margin="27,28,0,0" VerticalAlignment="Top" Height="29"/>
-        <Button x:Name="YButton" Content="Yes" HorizontalAlignment="Left" Margin="59,85,0,0" VerticalAlignment="Top" Width="75" Background="#464543" Foreground="#B1B7B7"/>
-        <Button x:Name="NButton" Content="No" HorizontalAlignment="Left" Margin="166,85,0,0" VerticalAlignment="Top" Width="75" Background="#464543" Foreground="#B1B7B7"/>
+        <Button x:Name="YButton" Content="Yes" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" Width="75" Background="#464543" Foreground="#B1B7B7"/>
+        <Button x:Name="NButton" Content="No" HorizontalAlignment="Left" Margin="163,95,0,0" VerticalAlignment="Top" Width="75" Background="#464543" Foreground="#B1B7B7"/>
 
     </Grid>
 </Window>
