@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
         Title="PromotePopUp" Height="173.11" Width="300">
-    <Grid>
+    <Grid Background="#787A79">
         <Label x:Name="PromotePrompt" Content="Are you sure you want to promote/demote?" HorizontalAlignment="Left" Margin="27,28,0,0" VerticalAlignment="Top" Height="29"/>
-        <Button x:Name="YButton" Content="Yes" HorizontalAlignment="Left" Margin="58,85,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="NButton" Content="No" HorizontalAlignment="Left" Margin="166,85,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="YButton" Content="Yes" HorizontalAlignment="Left" Margin="59,85,0,0" VerticalAlignment="Top" Width="75" Background="#464543"/>
+        <Button x:Name="NButton" Content="No" HorizontalAlignment="Left" Margin="166,85,0,0" VerticalAlignment="Top" Width="75" Background="#464543"/>
 
     </Grid>
 </Window>
