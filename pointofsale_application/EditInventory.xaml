@@ -5,6 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
-        
+        Title="EditInventory" Height="610" Width="960">
+    <Grid Background="#787A79">
+        <Button Name="AddProduct" Content="Add Product" FontSize="22" Foreground="#B1B7B7" Background="#464543" Width="175" Height="65" Margin="767,41,10,465"></Button>
+        <TabControl x:Name="Products" TabStripPlacement="Left" Margin="0,120,0,0" Height="450">
+            <TabItem Header="Beer" Name="beer" Height="50" FontSize="18">
+                <Border Background="White" BorderThickness="3" BorderBrush="#464543" Margin="17,130,17,130">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="beerID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                        <TextBox Name="beerName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                        <TextBox Name="beerPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                        <TextBox Name="beerQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                        <TextBox Name="beerDes" Width="154" Height="75" FontSize="16" BorderBrush="Black" Margin="0,34">Description:</TextBox>
+                    </StackPanel>
+                </Border>
+            </TabItem>
+            <TabItem Header="Vodka" Name="vodka" Height="50" FontSize="18">
+                <Border Background="White" BorderThickness="3" BorderBrush="#464543" Margin="17,130,17,130">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <TextBox Name="vodkaID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                        <TextBox Name="vodkaName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                        <TextBox Name="vodkaPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                        <TextBox Name="vodkaQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                        <TextBox Name="vodkaDes" Width="154" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                    </StackPanel>
+                </Border>
+            </TabItem>
+            <TabItem Header="Whiskey" Name="whiskey" Height="50" FontSize="18">
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <TextBox Name="whiskeyID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                    <TextBox Name="whiskeyName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                    <TextBox Name="whiskeyPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                    <TextBox Name="whiskeyQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                    <TextBox Name="whiskeyDes" Width="200" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Wine" Name="wine" Height="50" FontSize="18">
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <TextBox Name="wineID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                    <TextBox Name="wineName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                    <TextBox Name="winePrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                    <TextBox Name="wineQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                    <TextBox Name="wineDes" Width="200" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Gin" Name="gin" Height="50" FontSize="18">
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <TextBox Name="ginID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                    <TextBox Name="ginName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                    <TextBox Name="ginPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                    <TextBox Name="ginQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                    <TextBox Name="ginDes" Width="200" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Tequila" Name="tequila" Height="50" FontSize="18">
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <TextBox Name="teqID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                    <TextBox Name="teqName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                    <TextBox Name="teqPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                    <TextBox Name="teqQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                    <TextBox Name="teqDes" Width="200" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Rum" Name="rum" Height="50" FontSize="18">
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <TextBox Name="rumID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                    <TextBox Name="rumName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                    <TextBox Name="rumPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                    <TextBox Name="rumQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                    <TextBox Name="rumDes" Width="200" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Other" Name="other" Height="50" FontSize="18">
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <TextBox Name="otherID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                    <TextBox Name="otherName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                    <TextBox Name="otherPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                    <TextBox Name="otherQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                    <TextBox Name="otherDes" Width="200" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Fossils" Name="fossils" Height="50" FontSize="18">
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <TextBox Name="fossilsID" Width="75" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">ID:</TextBox>
+                    <TextBox Name="fossilsName" Width="205" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Name:</TextBox>
+                    <TextBox Name="fossilsPrice" Width="111" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Price: $</TextBox>
+                    <TextBox Name="fossilsQuant" Width="125" Height="25" FontSize="16" Margin="0,0,30,0" BorderBrush="Black">Quantity:</TextBox>
+                    <TextBox Name="fossilsDes" Width="200" Height="75" FontSize="16" BorderBrush="Black">Description:</TextBox>
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
     </Grid>
 </Window>
