@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
-        Title="Jurassic Bar" Height="382" Width="550">
+        Title="Jurassic Bar" Height="382" Width="560">
     <Grid Background="#787a79">
         <Label Content="Edit Products" VerticalAlignment="Center" FontWeight="Medium" FontSize="18" 
                Height="30" Width="118" Margin="172,20,162,293"></Label>
