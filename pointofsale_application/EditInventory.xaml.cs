@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace pointofsale_application
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for EditInventory.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class EditInventory : Window
     {
-        public Window1()
+        public EditInventory()
         {
             InitializeComponent();
         }

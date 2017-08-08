@@ -54,6 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EditInventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -71,6 +75,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DatabaseAccess.cs" />
+    <Compile Include="EditInventory.xaml.cs">
+      <DependentUpon>EditInventory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditUser.xaml.cs">
       <DependentUpon>EditUser.xaml</DependentUpon>
     </Compile>
