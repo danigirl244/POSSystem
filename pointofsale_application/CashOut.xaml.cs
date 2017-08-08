@@ -22,6 +22,13 @@ namespace pointofsale_application
         public CashOut()
         {
             InitializeComponent();
+           
+           
+        }
+
+        private void CheckOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine +  " Change Due:", "Check Out");
         }
     }
 }
