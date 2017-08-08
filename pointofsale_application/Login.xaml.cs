@@ -56,8 +56,6 @@ namespace pointofsale_application
                 if (dataSet.Tables[0].Rows.Count > 0)
                 {
                     string username = dataSet.Tables[0].Rows[0]["FirstName"].ToString() + " " + dataSet.Tables[0].Rows[0]["LastName"].ToString();//This can be change/removed depending on the data being stored
-                    menu.TextBlockName.Text = username;
-                    menu.Show();
                     Close();
                 }
                 else
