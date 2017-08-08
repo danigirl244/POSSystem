@@ -15,7 +15,7 @@
             <TabItem Header="8/19/2017" Background="#464543" Foreground="#B1B7B7"></TabItem>
             <TabItem Header="8/20/2017" Background="#464543" Foreground="#B1B7B7"></TabItem>
         </TabControl>
-        <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="102"/>
+        <Image Source="C:\Users\awenc\Desktop\POSA\POSSystem\pointofsale_application\Images\jurassic bar2.png" HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="102"/>
         <TextBlock HorizontalAlignment="Left" Margin="258,27,0,0" TextWrapping="Wrap" Text="Till Count:" VerticalAlignment="Top" Height="31" Width="137" FontSize="25"/>
         <TextBox Name="Till_Count" HorizontalAlignment="Left" Height="31" Margin="395,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131" FontSize="25"/>
         <Button Content="#103" HorizontalAlignment="Left" Margin="107,95,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
