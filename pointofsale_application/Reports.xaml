@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
-        Title="Jurassic Bar" Height="700" Width="1050">
+        Title="Jurassic Bar" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
         <TabControl Background="#787A79" TabStripPlacement="Left" Margin="0,74,228.2,0.4">
             <TabItem Header="8/15/2017" Background="#464543" Foreground="#B1B7B7"></TabItem>
