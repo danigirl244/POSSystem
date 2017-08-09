@@ -8,5 +8,7 @@ namespace pointofsale_application
 {
     class ReceiptGen
     {
+
     }
+
 }
