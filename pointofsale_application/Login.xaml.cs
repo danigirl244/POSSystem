@@ -95,5 +95,60 @@ namespace pointofsale_application
             homepage.Show();
 
         }
+
+        private void Clear_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num0_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num6_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num7_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num8_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Num9_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
