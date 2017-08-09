@@ -22,48 +22,69 @@ namespace pointofsale_application
     /// </summary>
     public partial class Login : Window
     {
-        public Login()
+        DatabaseAccess db = new DatabaseAccess();
+        
+        public Login(int input, object db)
         {
-            InitializeComponent();
-        }
-        Menu menu = new Menu();
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            if (textBoxEmpID.Text.Length == 0 || textBoxEmpID.Text.Length != 6)
+            
+            SqlCommand idlookup = new SqlCommand();//Needs sql query
+            idlookup.CommandType = CommandType.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = idlookup;
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            if (dataSet.Tables[0].Rows.Count == 1)
             {
-                errormessage.Content = "Enter employee id.";
-                textBoxEmpID.Focus();
-            }
-            else if (!Regex.IsMatch(textBoxEmpID.Text, @"^[0-9]+$") || textBoxEmpID.Text.Length != 6)
-            {
-                errormessage.Content = "Enter a valid employee id.";
-                textBoxEmpID.Select(0, textBoxEmpID.Text.Length);
-                textBoxEmpID.Focus();
-            }
-            else
-            {
-                string empID = textBoxEmpID.Text;
-
-                SqlConnection con = new SqlConnection("<Specific info required from Database team>");
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Employees where EmpID='" + empID + "'", con);//Not sure if table name or column names are correct
-                cmd.CommandType = CommandType.Text;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = cmd;
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet);
-                if (dataSet.Tables[0].Rows.Count > 0)
+                if (Validation(input, db))
                 {
-                    string username = dataSet.Tables[0].Rows[0]["FirstName"].ToString() + " " + dataSet.Tables[0].Rows[0]["LastName"].ToString();//This can be change/removed depending on the data being stored
-                    Close();
+                    Status(input, db);
+                    //Save Employee Info into employee object
                 }
                 else
                 {
-                    errormessage.Content = "Invalid Identification.  Enter an existing employee id.";
+                    //Error Invalid Employee Id
                 }
-                con.Close();
             }
+            else
+            {
+                //Incorrect Input Message
+            }
+        }
+       
+        public bool Validation(int input, object db)
+        {
+            bool valid = false;
+            SqlCommand activelookup = new SqlCommand();//Needs sql query
+            activelookup.CommandType = CommandType.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = activelookup;
+            DataSet data = new DataSet();
+            adapter.Fill(data);
+            if (data.ToString().Equals(""))
+            {
+                valid = true;
+            }
+            return valid;
+        }
+
+        public string Status(int input, object db)
+        {
+            String status;
+            SqlCommand permlookup = new SqlCommand();//Needs sql query
+            permlookup.CommandType = CommandType.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = permlookup;
+            DataSet data = new DataSet();
+            adapter.Fill(data);
+            if (data.ToString().Equals(""))
+            {
+                status = "admin";
+            }
+            else
+            {
+                status = "basic";
+            }
+            return status;
         }
     }
 }
