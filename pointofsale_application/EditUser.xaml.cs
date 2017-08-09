@@ -19,9 +19,45 @@ namespace pointofsale_application
     /// </summary>
     public partial class EditUser : Window
     {
+        
         public EditUser()
         {
             InitializeComponent();
+        }
+
+        
+private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to do this?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
+
+            }
+           
+
+        }
+
+        private void Promote_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to do this?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+
+            }
+        }
+
+        private void Promote2_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to do this?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
