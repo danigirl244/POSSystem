@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
-        Title="Jurassic Bar" HorizontalAlignment="Center" Height="700" Width="1050">
+        Title="Jurassic Bar" HorizontalAlignment="Center" Height="700" Width="1050"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
         <DockPanel VerticalAlignment="Top" Height="85">
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" />

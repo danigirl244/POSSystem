@@ -5,9 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
-        Title="Cash Out" Height="700" Width="1050"
-        WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        Title="Cash Out" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
         <Button Content="$100" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="56,568,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
         <Button Content="$50" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,482,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
