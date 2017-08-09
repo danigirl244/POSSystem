@@ -6,202 +6,200 @@
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
         Title="Jurassic Bar" HorizontalAlignment="Center" Height="700" Width="1050">
-    <Grid>
+    <Grid Background="#787A79">
         <DockPanel VerticalAlignment="Top" Height="85">
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
-            <TextBlock Name="WindowTitleBar" Margin="225,0,0,0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Home Page</TextBlock>
+            <TextBlock Foreground="White" Name="WindowTitleBar" Margin="225,0,0,0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Home Page</TextBlock>
             <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Login" HorizontalAlignment="Right" Margin="0,0,20,0"/>
         </DockPanel>
         <DockPanel Margin="0, 85, 0, 0">
-            <Border BorderThickness="1" BorderBrush="Black">
-                <TabControl Name="LefthandTabs" TabStripPlacement="Left">
-                    <TabItem Header="Best Sellers" FontSize="16" Width="130">
-                        <Label Width="600">
-                            <WrapPanel Name="BestSellersList" Margin="13">
-                                <Button Width="85" Height="50" Margin="14">BS 1</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 2</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 3</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 4</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 5</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 6</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 7</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 8</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 9</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 10</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 11</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 12</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 13</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 14</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 15</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 16</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 17</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 18</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 19</Button>
-                                <Button Width="85" Height="50" Margin="14">BS 20</Button>
-                            </WrapPanel>
-                        </Label>
-                    </TabItem>
-                    <TabItem Header="Beer" FontSize="16">
-                        <Label Width="600">
-                            <WrapPanel Name="BeerList" Margin="13">
-                                <Button Width="85" Height="50" Margin="14">Beer 1</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 2</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 3</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 4</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 5</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 6</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 7</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 8</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 9</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 10</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 11</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 12</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 13</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 14</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 15</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 16</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 17</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 18</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 19</Button>
-                                <Button Width="85" Height="50" Margin="14">Beer 20</Button>
-                            </WrapPanel>
-                        </Label>
-                    </TabItem>
-                    <TabItem Header="Wine" FontSize="16">
-                        <Label Width="600">
-                            <WrapPanel Name="WineList" Margin="13">
-                                <Button Width="85" Height="50" Margin="14">Wine 1</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 2</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 3</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 4</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 5</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 6</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 7</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 8</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 9</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 10</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 11</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 12</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 13</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 14</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 15</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 16</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 17</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 18</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 19</Button>
-                                <Button Width="85" Height="50" Margin="14">Wine 20</Button>
-                            </WrapPanel>
-                        </Label>
-                    </TabItem>
-                    <TabItem Header="Vodka" FontSize="16">
-                        <Label Width="600">
-                            <WrapPanel Name="VodkaList" Margin="13">
-                                <Button Width="85" Height="50" Margin="14">Vodka 1</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 2</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 3</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 4</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 5</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 6</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 7</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 8</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 9</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 10</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 11</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 12</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 13</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 14</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 15</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 16</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 17</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 18</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 19</Button>
-                                <Button Width="85" Height="50" Margin="14">Vodka 20</Button>
-                            </WrapPanel>
-                        </Label>
-                    </TabItem>
-                    <TabItem Header="Gin" FontSize="16">
-                        <Label Width="600">
-                            <WrapPanel Name="GinList" Margin="13">
-                                <Button Width="85" Height="50" Margin="14">Gin 1</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 2</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 3</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 4</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 5</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 6</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 7</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 8</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 9</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 10</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 11</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 12</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 13</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 14</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 15</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 16</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 17</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 18</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 19</Button>
-                                <Button Width="85" Height="50" Margin="14">Gin 20</Button>
-                            </WrapPanel>
-                        </Label>
-                    </TabItem>
-                    <TabItem Header="Whisky" FontSize="16">
-                        <Label Width="600">
-                            <WrapPanel Name="WhiskyList" Margin="13">
-                                <Button Width="85" Height="50" Margin="14">Whisky 1</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 2</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 3</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 4</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 5</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 6</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 7</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 8</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 9</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 10</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 11</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 12</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 13</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 14</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 15</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 16</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 17</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 18</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 19</Button>
-                                <Button Width="85" Height="50" Margin="14">Whisky 20</Button>
-                            </WrapPanel>
-                        </Label>
-                    </TabItem>
-                    <TabItem Header="Tequila" FontSize="16">
-                        <Label Width="600">
-                            <WrapPanel Name="TequilaList" Margin="13">
-                                <Button Width="85" Height="50" Margin="14">Tequila 1</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 2</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 3</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 4</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 5</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 6</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 7</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 8</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 9</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 10</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 11</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 12</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 13</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 14</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 15</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 16</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 17</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 18</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 19</Button>
-                                <Button Width="85" Height="50" Margin="14">Tequila 20</Button>
-                            </WrapPanel>
-                        </Label>
-                    </TabItem>
-                </TabControl>
-            </Border>
-            <Border BorderThickness="1" BorderBrush="Black">
-                <TextBlock HorizontalAlignment="Right" Width="300">Receipt Stuff Goes Here</TextBlock>
-            </Border>
+            <TabControl Name="LefthandTabs" TabStripPlacement="Left">
+                <TabItem Header="Best Sellers" FontSize="16" Width="130">
+                    <Label Width="600">
+                        <WrapPanel Name="BestSellersList" Margin="13">
+                            <Button Width="85" Height="50" Margin="14">BS 1</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 2</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 3</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 4</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 5</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 6</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 7</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 8</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 9</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 10</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 11</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 12</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 13</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 14</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 15</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 16</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 17</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 18</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 19</Button>
+                            <Button Width="85" Height="50" Margin="14">BS 20</Button>
+                        </WrapPanel>
+                    </Label>
+                </TabItem>
+                <TabItem Header="Beer" FontSize="16">
+                    <Label Width="600">
+                        <WrapPanel Name="BeerList" Margin="13">
+                            <Button Width="85" Height="50" Margin="14">Beer 1</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 2</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 3</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 4</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 5</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 6</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 7</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 8</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 9</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 10</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 11</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 12</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 13</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 14</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 15</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 16</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 17</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 18</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 19</Button>
+                            <Button Width="85" Height="50" Margin="14">Beer 20</Button>
+                        </WrapPanel>
+                    </Label>
+                </TabItem>
+                <TabItem Header="Wine" FontSize="16">
+                    <Label Width="600">
+                        <WrapPanel Name="WineList" Margin="13">
+                            <Button Width="85" Height="50" Margin="14">Wine 1</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 2</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 3</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 4</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 5</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 6</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 7</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 8</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 9</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 10</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 11</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 12</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 13</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 14</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 15</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 16</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 17</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 18</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 19</Button>
+                            <Button Width="85" Height="50" Margin="14">Wine 20</Button>
+                        </WrapPanel>
+                    </Label>
+                </TabItem>
+                <TabItem Header="Vodka" FontSize="16">
+                    <Label Width="600">
+                        <WrapPanel Name="VodkaList" Margin="13">
+                            <Button Width="85" Height="50" Margin="14">Vodka 1</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 2</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 3</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 4</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 5</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 6</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 7</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 8</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 9</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 10</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 11</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 12</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 13</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 14</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 15</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 16</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 17</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 18</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 19</Button>
+                            <Button Width="85" Height="50" Margin="14">Vodka 20</Button>
+                        </WrapPanel>
+                    </Label>
+                </TabItem>
+                <TabItem Header="Gin" FontSize="16">
+                    <Label Width="600">
+                        <WrapPanel Name="GinList" Margin="13">
+                            <Button Width="85" Height="50" Margin="14">Gin 1</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 2</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 3</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 4</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 5</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 6</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 7</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 8</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 9</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 10</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 11</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 12</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 13</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 14</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 15</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 16</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 17</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 18</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 19</Button>
+                            <Button Width="85" Height="50" Margin="14">Gin 20</Button>
+                        </WrapPanel>
+                    </Label>
+                </TabItem>
+                <TabItem Header="Whisky" FontSize="16">
+                    <Label Width="600">
+                        <WrapPanel Name="WhiskyList" Margin="13">
+                            <Button Width="85" Height="50" Margin="14">Whisky 1</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 2</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 3</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 4</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 5</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 6</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 7</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 8</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 9</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 10</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 11</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 12</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 13</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 14</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 15</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 16</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 17</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 18</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 19</Button>
+                            <Button Width="85" Height="50" Margin="14">Whisky 20</Button>
+                        </WrapPanel>
+                    </Label>
+                </TabItem>
+                <TabItem Header="Tequila" FontSize="16">
+                    <Label Width="600">
+                        <WrapPanel Name="TequilaList" Margin="13">
+                            <Button Width="85" Height="50" Margin="14">Tequila 1</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 2</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 3</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 4</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 5</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 6</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 7</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 8</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 9</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 10</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 11</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 12</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 13</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 14</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 15</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 16</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 17</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 18</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 19</Button>
+                            <Button Width="85" Height="50" Margin="14">Tequila 20</Button>
+                        </WrapPanel>
+                    </Label>
+                </TabItem>
+            </TabControl>
+            <DataGrid Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="300" Height="500" VerticalAlignment="Top">
+            </DataGrid>
         </DockPanel>
+        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14">Checkout</Button>
     </Grid>
 </Window>
