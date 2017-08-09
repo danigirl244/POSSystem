@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Windows.Navigation;
 
 namespace pointofsale_application
 {
@@ -64,6 +65,14 @@ namespace pointofsale_application
                 }
                 con.Close();
             }
+        }
+
+        private void Enter_Button_Click(object sender, RoutedEventArgs e)
+        {
+            HomePage homepage = new HomePage();
+            this.Close();
+            homepage.Show();
+
         }
     }
 }
