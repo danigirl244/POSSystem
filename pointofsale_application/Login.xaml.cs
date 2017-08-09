@@ -25,7 +25,12 @@ namespace pointofsale_application
     {
         DatabaseAccess db = new DatabaseAccess();
         
-        public Login(int input, object db)
+        public Login()
+        {
+            InitializeComponent();
+        }
+
+        private void Enter_Button_Click(object sender, RoutedEventArgs e)
         {
             
             SqlCommand idlookup = new SqlCommand();//Needs sql query
