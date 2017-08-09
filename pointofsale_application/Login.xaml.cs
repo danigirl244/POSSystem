@@ -23,32 +23,50 @@ namespace pointofsale_application
     /// </summary>
     public partial class Login : Window
     {
-        DatabaseAccess db = new DatabaseAccess();
         
-        public Login(int input, object db)
+        public Login()
         {
-            
-            SqlCommand idlookup = new SqlCommand();//Needs sql query
-            idlookup.CommandType = CommandType.Text;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = idlookup;
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            if (dataSet.Tables[0].Rows.Count == 1)
+            InitializeComponent();
+        }
+        DatabaseAccess db = new DatabaseAccess();
+
+        private void Enter_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (textBoxEmpID.Text.Length == 0 || textBoxEmpID.Text.Length != 5)
             {
-                if (Validation(input, db))
-                {
-                    Status(input, db);
-                    //Save Employee Info into employee object
-                }
-                else
-                {
-                    //Error Invalid Employee Id
-                }
+                //errormessage.Text = "Enter employee id.";
+                //textBoxEmpID.Focus();
+            }
+            else if (!Regex.IsMatch(textBoxEmpID.Text, @"^[0-9]+$") || textBoxEmpID.Text.Length != 5)
+            {
+                //errormessage.Text = "Enter a valid employee id.";
+                //textBoxEmpID.Select(0, textBoxEmpID.Text.Length);
+                //textBoxEmpID.Focus();
             }
             else
             {
-                //Incorrect Input Message
+                SqlCommand idlookup = new SqlCommand();//Needs sql query
+                idlookup.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = idlookup;
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+                if (dataSet.Tables[0].Rows.Count == 1)
+                {
+                    if (Validation(input, db))
+                    {
+                        Status(input, db);
+                        //Save Employee Info into employee object
+                    }
+                    else
+                    {
+                        //Error Invalid Employee Id
+                    }
+                }
+                else
+                {
+                    //Incorrect Input Message
+                }
             }
         }
        

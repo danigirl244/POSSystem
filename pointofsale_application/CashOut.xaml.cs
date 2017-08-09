@@ -23,12 +23,26 @@ namespace pointofsale_application
         {
             InitializeComponent();
            
-           
         }
 
         private void CheckOutButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine +  " Change Due:", "Check Out");
+            HomePage window1 = new HomePage();
+            window1.Show();
+            this.Close();
+            
+
+
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult Cancelled = MessageBox.Show("Transaction Cancelled");
+            HomePage window1 = new HomePage();
+            window1.Show();
+            this.Close();
         }
     }
 }
