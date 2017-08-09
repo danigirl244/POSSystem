@@ -82,10 +82,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Compile Include="ActivatePopUp.xaml.cs">
       <DependentUpon>ActivatePopUp.xaml</DependentUpon>
     </Compile>
@@ -111,9 +107,6 @@
     </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="PromotePopUp.xaml.cs">
       <DependentUpon>PromotePopUp.xaml</DependentUpon>

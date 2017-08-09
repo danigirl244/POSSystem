@@ -36,5 +36,13 @@ namespace pointofsale_application
 
 
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult Cancelled = MessageBox.Show("Transaction Cancelled");
+            HomePage window1 = new HomePage();
+            window1.Show();
+            this.Close();
+        }
     }
 }

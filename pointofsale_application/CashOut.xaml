@@ -7,31 +7,31 @@
         mc:Ignorable="d"
         Title="Cash Out" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
-        <Button Content="$100" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="56,568,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
-        <Button Content="$50" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,482,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
-        <Button Content="$25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,396,0,0" Background="#464543" Foreground="#B1B7B7" Height="76" FontSize="14"/>
-        <Button Content="$20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,309,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
-        <Button Content="$10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,223,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
-        <Button Content="$5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,137,0,0" Background="#464543" Foreground="#B1B7B7" Height="79" FontSize="16"/>
+        <Button x:Name="HundredButton" Content="$100" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="56,568,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
+        <Button x:Name="FiftyButton" Content="$50" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,482,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
+        <Button x:Name="Twenty_fiveButton" Content="$25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,396,0,0" Background="#464543" Foreground="#B1B7B7" Height="76" FontSize="14"/>
+        <Button x:Name="TwentyButton" Content="$20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,309,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
+        <Button x:Name="TenButton" Content="$10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,223,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16"/>
+        <Button x:Name="FiveButton" Content="$5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="54,137,0,0" Background="#464543" Foreground="#B1B7B7" Height="79" FontSize="16"/>
         <Button x:Name="CheckOutButton" Content="Check Out" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258" Margin="474,568,0,0" Background="#464543" Foreground="#B1B7B7" Height="79" FontSize="16" Click="CheckOutButton_Click" />
-        <Button Content="Add Amount" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258" Margin="474,480,0,0" Background="#464543" Foreground="#B1B7B7" Height="79" FontSize="16" />
-        <Button Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="474,375,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16"/>
-        <Button Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,375,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,375,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="474,300,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,300,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,300,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="474,223,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,223,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,223,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="474,144,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,144,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <Button Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,144,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
-        <TextBlock HorizontalAlignment="Left" Margin="474,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="258" TextAlignment="Center" FontSize="36" Text="" Background="White"/>
-        <TextBlock Name="RemainingBalanceBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Remaining Balance:" VerticalAlignment="Top" Margin="474,10,0,0" FontSize="20"/>
-        <TextBlock Name="ChangeDueBox" HorizontalAlignment="Left" Margin="474,42,0,0" TextWrapping="Wrap" Text="Change Due:" VerticalAlignment="Top" FontSize="20"/>
-        <Image Source="Images/jurassic bar2.png" HorizontalAlignment="Left" Height="129" VerticalAlignment="Top" Width="151" Margin="10,10,0,0"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="-597,447,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="AddAmountButton" Content="Add Amount" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258" Margin="474,480,0,0" Background="#464543" Foreground="#B1B7B7" Height="79" FontSize="16" />
+        <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="474,375,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16"/>
+        <Button x:Name="PeriodButton" Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,375,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="ZeroButton" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,375,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="SevenButton" Content="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="474,300,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="NineButton" Content="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,300,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="EightButton" Content="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,300,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="FourButton" Content="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="474,223,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="SixButton" Content="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,223,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="FiveButton1" Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,223,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="OneButton" Content="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="474,144,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="ThreeButton" Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,144,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="TwoButton" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,144,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
+        <Button x:Name="CancelButton" Content="Cancel Order" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CancelButton_Click"/>
+        <TextBlock x:Name="InputBlock" HorizontalAlignment="Left" Margin="474,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="258" TextAlignment="Center" FontSize="36" Text="" Background="White"/>
+        <TextBlock x:Name="RemainingBalanceBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Remaining Balance:" VerticalAlignment="Top" Margin="474,10,0,0" FontSize="20"/>
+        <TextBlock x:Name="ChangeDueBlock" HorizontalAlignment="Left" Margin="474,42,0,0" TextWrapping="Wrap" Text="Change Due:" VerticalAlignment="Top" FontSize="20"/>
+        <Image x:Name="Logo" Source="Images/jurassic bar2.png" HorizontalAlignment="Left" Height="129" VerticalAlignment="Top" Width="151" Margin="10,10,0,0"/>
     </Grid>
 </Window>
 
