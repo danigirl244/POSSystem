@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pointofsale_application"
         mc:Ignorable="d"
-        Title="Jurassic Bar" Height="700" Width="1050">
+        Title="Jurassic Bar" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
+        <Frame x:Name="Login_Frame"></Frame>
+            <Label x:Name="errormessage"/>
         <TextBlock HorizontalAlignment="Left" Margin="443,109,0,0" TextWrapping="Wrap" Text="Enter Login ID" VerticalAlignment="Top" Height="48" Width="227" FontSize="35" Foreground="#B1B7B7"/>
-
-        <Button Name="Num7" Content="7" HorizontalAlignment="Left" Margin="355,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num8" Content="8" HorizontalAlignment="Left" Margin="502,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num9" Content="9" HorizontalAlignment="Left" Margin="646,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num4" Content="4" HorizontalAlignment="Left" Margin="355,331,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num5" Content="5" HorizontalAlignment="Left" Margin="502,331,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num6" Content="6" HorizontalAlignment="Left" Margin="646,331,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num1" Content="1" HorizontalAlignment="Left" Margin="355,396,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num2" Content="2" HorizontalAlignment="Left" Margin="502,394,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num3" Content="3" HorizontalAlignment="Left" Margin="646,396,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Clear_Button" Content="Clear" HorizontalAlignment="Left" Margin="355,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Num0" Content="0" HorizontalAlignment="Left" Margin="502,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <Button Name="Enter_Button" Content="Enter" HorizontalAlignment="Left" Margin="646,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
-        <TextBox Name="textBoxEmpID" HorizontalAlignment="Left" Height="37" Margin="355,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" FontSize="35"/>
-        <Image Name="Logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="307"/>
-        <Label Name="errormessage">Error Message</Label>
+        <Button x:Name="Num7" Content="7" HorizontalAlignment="Left" Margin="355,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num8" Content="8" HorizontalAlignment="Left" Margin="502,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num9" Content="9" HorizontalAlignment="Left" Margin="646,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num4" Content="4" HorizontalAlignment="Left" Margin="355,331,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num5" Content="5" HorizontalAlignment="Left" Margin="502,331,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num6" Content="6" HorizontalAlignment="Left" Margin="646,331,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num1" Content="1" HorizontalAlignment="Left" Margin="355,396,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num2" Content="2" HorizontalAlignment="Left" Margin="502,394,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num3" Content="3" HorizontalAlignment="Left" Margin="646,396,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Clear_Button" Content="Clear" HorizontalAlignment="Left" Margin="355,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Num0" Content="0" HorizontalAlignment="Left" Margin="502,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
+        <Button x:Name="Enter_Button" Content="Enter" HorizontalAlignment="Left" Margin="646,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543" Click="Enter_Button_Click"/>
+        <TextBox x:Name="textBoxEmpID" HorizontalAlignment="Left" Height="37" Margin="355,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" FontSize="35"/>
+        <Image x:Name="Logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="307"/>
     </Grid>
 </Window>
