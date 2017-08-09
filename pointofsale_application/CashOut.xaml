@@ -28,8 +28,8 @@
         <Button Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="649,144,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
         <Button Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="562,144,0,0" Background="#464543" Foreground="#B1B7B7" Height="72" FontSize="16" />
         <TextBlock HorizontalAlignment="Left" Margin="474,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="258" TextAlignment="Center" FontSize="36" Text="" Background="White"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Remaining Balance:" VerticalAlignment="Top" Margin="474,10,0,0" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="474,42,0,0" TextWrapping="Wrap" Text="Change Due:" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock Name="RemainingBalanceBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Remaining Balance:" VerticalAlignment="Top" Margin="474,10,0,0" FontSize="20"/>
+        <TextBlock Name="ChangeDueBox" HorizontalAlignment="Left" Margin="474,42,0,0" TextWrapping="Wrap" Text="Change Due:" VerticalAlignment="Top" FontSize="20"/>
         <Image Source="Images/jurassic bar2.png" HorizontalAlignment="Left" Height="129" VerticalAlignment="Top" Width="151" Margin="10,10,0,0"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="-597,447,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
