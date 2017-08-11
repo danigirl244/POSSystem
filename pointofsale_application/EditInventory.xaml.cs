@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +32,47 @@ namespace pointofsale_application
             {
 
             }
+        }
+
+        //create separate onClick method that calls these methods with the parameters
+
+        public void createItem(int qty, double price, string name, string desc, string category)
+        {
+            //ensuring that these values arent null
+            //Don't know if it's necessary
+            if (qty != null && price != null && name != null && desc != null && category != null)
+            {
+                //connect to database
+                //Insert new item into inventory table according to the information entered
+                //might need dbo. before inventory
+                //syntax might be incorrect for command
+                SqlCommand insertItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0");
+                insertItem.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.InsertCommand = insertItem;
+                //Might not need adapter if not pulling information from the database
+                //DataSet dataSet = new DataSet();
+                //adapter.Fill(dataSet);
+            }
+
+        }
+
+        //Is there a button to edit an item?
+        public void editItem(int itemID)
+        {
+
+        }
+
+        public void deleteItem(int itemID)
+        {
+            //connect to database
+            //delete from inventory table according to the itemId of the button pushed
+            //syntax might be incorrect for command
+            SqlCommand deleteItem = new SqlCommand("DELETE FROM Inventory WHERE SKU = " + itemID + ";");
+            deleteItem.CommandType = CommandType.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.DeleteCommand = deleteItem;
+
         }
     }
 }
