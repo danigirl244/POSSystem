@@ -26,9 +26,17 @@ namespace pointofsale_application
             InitializeComponent();
         }
 
-        private void deleteBeer_Click(object sender, RoutedEventArgs e)
+        private void delete_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to permanently delete this product?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+
+            }
+        }
+
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
 
             }
