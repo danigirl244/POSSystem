@@ -10,11 +10,11 @@
         <DockPanel VerticalAlignment="Top" Height="85">
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <TextBlock Foreground="White" Name="WindowTitleBar" Margin="225,0,0,0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Home Page</TextBlock>
-            <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+            <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LoginButton_Click"/>
         </DockPanel>
         <DockPanel Margin="0, 85, 0, 0">
             <TabControl Name="LefthandTabs" TabStripPlacement="Left">
-                <TabItem Header="Best Sellers" FontSize="16" Width="130">
+                <TabItem Name="BestSellersTab" Header="Best Sellers" FontSize="16" Width="130">
                     <Label Width="600">
                         <WrapPanel Name="BestSellersList" Margin="13">
                             <Button Width="85" Height="50" Margin="14">BS 1</Button>
@@ -40,7 +40,7 @@
                         </WrapPanel>
                     </Label>
                 </TabItem>
-                <TabItem Header="Beer" FontSize="16">
+                <TabItem Name="BeerTab" Header="Beer" FontSize="16">
                     <Label Width="600">
                         <WrapPanel Name="BeerList" Margin="13">
                             <Button Width="85" Height="50" Margin="14">Beer 1</Button>
@@ -66,7 +66,7 @@
                         </WrapPanel>
                     </Label>
                 </TabItem>
-                <TabItem Header="Wine" FontSize="16">
+                <TabItem Name="WineTab" Header="Wine" FontSize="16">
                     <Label Width="600">
                         <WrapPanel Name="WineList" Margin="13">
                             <Button Width="85" Height="50" Margin="14">Wine 1</Button>
@@ -92,7 +92,7 @@
                         </WrapPanel>
                     </Label>
                 </TabItem>
-                <TabItem Header="Vodka" FontSize="16">
+                <TabItem Name="VodkaTab" Header="Vodka" FontSize="16">
                     <Label Width="600">
                         <WrapPanel Name="VodkaList" Margin="13">
                             <Button Width="85" Height="50" Margin="14">Vodka 1</Button>
@@ -118,7 +118,7 @@
                         </WrapPanel>
                     </Label>
                 </TabItem>
-                <TabItem Header="Gin" FontSize="16">
+                <TabItem Name="GinTab" Header="Gin" FontSize="16">
                     <Label Width="600">
                         <WrapPanel Name="GinList" Margin="13">
                             <Button Width="85" Height="50" Margin="14">Gin 1</Button>
@@ -144,7 +144,7 @@
                         </WrapPanel>
                     </Label>
                 </TabItem>
-                <TabItem Header="Whisky" FontSize="16">
+                <TabItem Name="WhiskyTab" Header="Whisky" FontSize="16">
                     <Label Width="600">
                         <WrapPanel Name="WhiskyList" Margin="13">
                             <Button Width="85" Height="50" Margin="14">Whisky 1</Button>
@@ -170,7 +170,7 @@
                         </WrapPanel>
                     </Label>
                 </TabItem>
-                <TabItem Header="Tequila" FontSize="16">
+                <TabItem Name="TequilaTab" Header="Tequila" FontSize="16">
                     <Label Width="600">
                         <WrapPanel Name="TequilaList" Margin="13">
                             <Button Width="85" Height="50" Margin="14">Tequila 1</Button>
@@ -200,6 +200,6 @@
             <DataGrid Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="300" Height="500" VerticalAlignment="Top">
             </DataGrid>
         </DockPanel>
-        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14">Checkout</Button>
+        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click">Checkout</Button>
     </Grid>
 </Window>
