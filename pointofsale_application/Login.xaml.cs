@@ -29,6 +29,7 @@ namespace pointofsale_application
             InitializeComponent();
         }
         DatabaseAccess db = new DatabaseAccess();
+       
 
         private void Enter_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -46,13 +47,7 @@ namespace pointofsale_application
             }
             else
             {
-                SqlCommand idlookup = new SqlCommand("Select UserID from Users where UserID = '" + input + "'");//Needs sql query for looking up empID and validating it
-                idlookup.CommandType = CommandType.Text;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = idlookup;
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet);
-                if (dataSet.Tables[0].Rows.Count == 1)
+               if (db.AccessDB("select * from Users where UserID = " + textBoxEmpID.Text))
                 {
                     if (Validation(input, db))
                     {
