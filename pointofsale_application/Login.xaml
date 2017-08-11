@@ -41,6 +41,9 @@
         <TextBox Name="textBoxEmpID" HorizontalAlignment="Left" Height="37" Margin="355,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" FontSize="35"/>
         <Image Name="Logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="307"/>
         <Label Name="errormessage">Error Message</Label>
+<<<<<<< HEAD
+>>>>>>> parent of 8c08f22... URI is changed back to Login page
+=======
 >>>>>>> parent of 8c08f22... URI is changed back to Login page
     </Grid>
 </Window>
