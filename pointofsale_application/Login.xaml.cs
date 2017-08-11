@@ -23,7 +23,7 @@ namespace pointofsale_application
     /// </summary>
     public partial class Login : Window
     {
-        
+        StringBuilder sb = new StringBuilder("", 5);
         public Login()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace pointofsale_application
             }
             else
             {
-                SqlCommand idlookup = new SqlCommand();//Needs sql query
+                SqlCommand idlookup = new SqlCommand("Select UserID from Users where UserID = '" + input + "'");//Needs sql query for looking up empID and validating it
                 idlookup.CommandType = CommandType.Text;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = idlookup;
@@ -74,7 +74,7 @@ namespace pointofsale_application
         public bool Validation(int input, object db)
         {
             bool valid = false;
-            SqlCommand activelookup = new SqlCommand();//Needs sql query
+            SqlCommand activelookup = new SqlCommand("Select isActive from Users where UserID = '" + input + "'");//Needs sql query checking the isActive field in the Users table
             activelookup.CommandType = CommandType.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = activelookup;
@@ -90,7 +90,7 @@ namespace pointofsale_application
         public string Status(int input, object db)
         {
             String status;
-            SqlCommand permlookup = new SqlCommand();//Needs sql query
+            SqlCommand permlookup = new SqlCommand("Select [Permissions] from Users where UserID = '" + input + "'");//Needs sql query to check the permissions a user has (Permissions)
             permlookup.CommandType = CommandType.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = permlookup;
@@ -111,57 +111,68 @@ namespace pointofsale_application
 
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Clear();
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num0_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('0');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num1_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('1');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num2_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('2');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num3_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('3');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num4_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('4');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num5_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('5');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num6_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('6');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num7_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('7');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num8_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('8');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num9_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('9');
+            textBoxEmpID.Text = sb.ToString();
         }
     }
 }
