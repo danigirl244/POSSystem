@@ -40,27 +40,30 @@ namespace pointofsale_application
         {
             //ensuring that these values arent null
             //Don't know if it's necessary
-            if (qty != null && price != null && name != null && desc != null && category != null)
-            {
-                //connect to database
-                //Insert new item into inventory table according to the information entered
-                //might need dbo. before inventory
-                //syntax might be incorrect for command
-                SqlCommand insertItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0");
-                insertItem.CommandType = CommandType.Text;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.InsertCommand = insertItem;
-                //Might not need adapter if not pulling information from the database
-                //DataSet dataSet = new DataSet();
-                //adapter.Fill(dataSet);
-            }
+            //connect to database
+            //Insert new item into inventory table according to the information entered
+            //might need dbo. before inventory
+            //syntax might be incorrect for command
+            SqlCommand insertItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0");
+            insertItem.CommandType = CommandType.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.InsertCommand = insertItem;
+            //Might not need adapter if not pulling information from the database
+            //DataSet dataSet = new DataSet();
+            //adapter.Fill(dataSet);
+            
 
         }
 
         //Is there a button to edit an item?
-        public void editItem(int itemID)
+        public void editItem(int itemID, int qty, double price, string name, string desc, string category)
         {
-
+            //connect to database
+            //Using an update command according to the itemID to update editted fields
+            SqlCommand editItemCom = new SqlCommand("UPDATE Inventory SET QTYOnHand = " + qty + ", Price = " + price + ", Name = " + name + ", [Desc] = " + desc + ", Category = " + category + " WHERE SKU = " + itemID + ";");
+            editItemCom.CommandType = CommandType.Text;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.UpdateCommand = editItemCom;
         }
 
         public void deleteItem(int itemID)
