@@ -16,7 +16,7 @@ namespace pointofsale_application
         SqlConnection myConnection = new SqlConnection("user id=admin;" +
                                "password=adminpassword;server=possystem.cyjrzrk7ktbi.us-west-1.rds.amazonaws.com,1433;" +
                                "Trusted_Connection=yes;" +
-                               "database=POSSystem; " +
+                               "database=POSSystem;" +
                                "connection timeout=30");
 
         public void ConnectDB()
@@ -31,19 +31,32 @@ namespace pointofsale_application
             }
         }
 
-        public void AccessDB(string command)
+        public bool AccessDB(string command)
         {
+            ConnectDB();
+
             try
             {
                 SqlDataReader myReader = null;
                 SqlCommand myCommand = new SqlCommand(command,
                                                          myConnection);
                 myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    if (myReader.HasRows == true)
+                    {
+                        return true;
+                    }
+
+                }
+                return false;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return false;
             }
+
         }
         public void CloseDB()
         {
