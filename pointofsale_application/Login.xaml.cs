@@ -46,7 +46,7 @@ namespace pointofsale_application
             }
             else
             {
-                SqlCommand idlookup = new SqlCommand();//Needs sql query
+                SqlCommand idlookup = new SqlCommand("Select UserID from Users where UserID = '" + input + "'");//Needs sql query for looking up empID and validating it
                 idlookup.CommandType = CommandType.Text;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = idlookup;
@@ -74,7 +74,7 @@ namespace pointofsale_application
         public bool Validation(int input, object db)
         {
             bool valid = false;
-            SqlCommand activelookup = new SqlCommand();//Needs sql query
+            SqlCommand activelookup = new SqlCommand("Select isActive from Users where UserID = '" + input + "'");//Needs sql query checking the isActive field in the Users table
             activelookup.CommandType = CommandType.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = activelookup;
@@ -90,7 +90,7 @@ namespace pointofsale_application
         public string Status(int input, object db)
         {
             String status;
-            SqlCommand permlookup = new SqlCommand();//Needs sql query
+            SqlCommand permlookup = new SqlCommand("Select [Permissions] from Users where UserID = '" + input + "'");//Needs sql query to check the permissions a user has (Permissions)
             permlookup.CommandType = CommandType.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = permlookup;
