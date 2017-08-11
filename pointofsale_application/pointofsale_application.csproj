@@ -108,6 +108,10 @@
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PromotePopUp.xaml.cs">
       <DependentUpon>PromotePopUp.xaml</DependentUpon>
     </Compile>
@@ -116,6 +120,10 @@
       <DependentUpon>Reports.xaml</DependentUpon>
     </Compile>
     <Compile Include="Transaction.cs" />
+    <Page Include="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PromotePopUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

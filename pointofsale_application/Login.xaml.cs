@@ -30,7 +30,7 @@ namespace pointofsale_application
         }
         DatabaseAccess db = new DatabaseAccess();
 
-        private void Enter_Button_Click(object sender, RoutedEventArgs e)
+        private void Enter_Button_Click(object sender, RoutedEventArgs e, int input)
         {
             if (textBoxEmpID.Text.Length == 0 || textBoxEmpID.Text.Length != 5)
             {
@@ -106,13 +106,6 @@ namespace pointofsale_application
             return status;
         }
 
-        private void Enter_Button_Click(object sender, RoutedEventArgs e)
-        {
-            HomePage homepage = new HomePage();
-            this.Close();
-            homepage.Show();
-
-        }
 
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
