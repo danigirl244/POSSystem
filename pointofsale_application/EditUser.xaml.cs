@@ -72,8 +72,8 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
                 //connect to database
                 //might need to add dbo. before Users
                 //creates a new employee with predetermined values
-                //syntax might be incorrect for command
-                SqlCommand insertUser = new SqlCommand("INSERT INTO Users (UserID, EmployeeName, EmployeeRank, isActive) VALUES (" + empName + ", " + empRank + ", " + isActive + ");");
+                //syntax might be incorrect for command. Will the empId be auto generated?
+                SqlCommand insertUser = new SqlCommand("INSERT INTO Users (EmployeeName, EmployeeRank, isActive) VALUES (" + empName + ", " + empRank + ", " + isActive + ");");
                 insertUser.CommandType = CommandType.Text;
                 //might be able to make this a global class variable so it doesn't have to keep being called like this
                 SqlDataAdapter adapter = new SqlDataAdapter();
