@@ -16,10 +16,8 @@ namespace pointofsale_application
 
         public DatabaseAccess()
         {
-            connection = new SqlConnection()
-            {
-                ConnectionString = @"Data Source=.     \SQLEXPRESS;AttachDbFilename=|DataDirectory|DatabaseName.mdf;Integrated Security=True;User Instance=True"
-            };
+            connection = new SqlConnection();
+
             command = new SqlCommand()
             {
                 Connection = connection,

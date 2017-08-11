@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="Jurassic Bar" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
-        <Label x:Name="errormessage"/>
         <TextBlock HorizontalAlignment="Left" Margin="443,109,0,0" TextWrapping="Wrap" Text="Enter Login ID" VerticalAlignment="Top" Height="48" Width="227" FontSize="35" Foreground="#B1B7B7"/>
         <Button Name="Num7" Content="7" HorizontalAlignment="Left" Margin="355,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
         <Button Name="Num8" Content="8" HorizontalAlignment="Left" Margin="502,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543"/>
