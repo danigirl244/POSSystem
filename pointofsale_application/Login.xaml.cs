@@ -112,6 +112,7 @@ namespace pointofsale_application
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
             sb.Clear();
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num0_Click(object sender, RoutedEventArgs e)
