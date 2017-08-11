@@ -23,7 +23,7 @@ namespace pointofsale_application
     /// </summary>
     public partial class Login : Window
     {
-        
+        StringBuilder sb = new StringBuilder("", 5);
         public Login()
         {
             InitializeComponent();
@@ -111,57 +111,57 @@ namespace pointofsale_application
 
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Clear();
         }
 
         private void Num0_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('0');
         }
 
         private void Num1_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('1');
         }
 
         private void Num2_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('2');
         }
 
         private void Num3_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('3');
         }
 
         private void Num4_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('4');
         }
 
         private void Num5_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('5');
         }
 
         private void Num6_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('6');
         }
 
         private void Num7_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('8');
         }
 
         private void Num8_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('8');
         }
 
         private void Num9_Click(object sender, RoutedEventArgs e)
         {
-
+            sb.Append('9');
         }
     }
 }
