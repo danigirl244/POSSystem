@@ -49,7 +49,7 @@ namespace pointofsale_application
         public HomePage()
         {
             InitializeComponent();
-            InitializeItemList();
+            //InitializeItemList();
             
         }
 
@@ -122,6 +122,20 @@ namespace pointofsale_application
             total = subtotal + taxTotal;
 
             return total;
+        }
+
+        private void BasicCashoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            CashOut window1 = new CashOut();
+            window1.Show();
+            this.Close();
+        }
+
+        private void BasicLogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Login window1 = new Login();
+            window1.Show();
+            this.Close();
         }
     }
 }
