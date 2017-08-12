@@ -12,10 +12,14 @@
             <TextBlock Foreground="White" Name="WindowTitleBar" Margin="225,0,0,0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Home Page</TextBlock>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Button x:Name="BasicLogoutButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="BasicLogoutButton_Click"/>
 =======
             <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LoginButton_Click"/>
 >>>>>>> 6aeab2271db9b358124369d544bb2ebc7697bc27
+=======
+            <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LoginButton_Click"/>
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
 =======
             <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LoginButton_Click"/>
 >>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
@@ -222,10 +226,14 @@
         </DockPanel>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Button Name="BasicCashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,10" Click="BasicCashoutButton_Click">Checkout</Button>
 =======
         <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click">Checkout</Button>
 >>>>>>> 6aeab2271db9b358124369d544bb2ebc7697bc27
+=======
+        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click">Checkout</Button>
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
 =======
         <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click">Checkout</Button>
 >>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295

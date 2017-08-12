@@ -8,8 +8,12 @@
         Title="Jurassic Bar" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Label x:Name="errormessage">
         </Label>
+=======
+        <TextBlock Height="50" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="400" Margin="350,575,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
 =======
         <TextBlock Height="50" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="400" Margin="350,575,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
 >>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
