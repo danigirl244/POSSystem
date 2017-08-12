@@ -44,5 +44,15 @@ namespace pointofsale_application
             window1.Show();
             this.Close();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to log out?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                this.Close();
+            }
+        }
     }
 }
