@@ -124,6 +124,26 @@ namespace pointofsale_application
             return total;
         }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        private void BasicCashoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            CashOut window1 = new CashOut();
+            window1.Show();
+            this.Close();
+        }
+
+        private void BasicLogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Login window1 = new Login();
+            window1.Show();
+            this.Close();
+=======
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         private void CashoutButton_Click(object sender, RoutedEventArgs e)
         {
             CashOut cash = new CashOut();
@@ -140,6 +160,13 @@ namespace pointofsale_application
                 this.Close();
             }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 6aeab2271db9b358124369d544bb2ebc7697bc27
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
     }
 }
