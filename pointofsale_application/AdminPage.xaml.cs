@@ -21,7 +21,7 @@ namespace pointofsale_application
     {
         public Window1()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

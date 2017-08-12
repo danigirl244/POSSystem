@@ -64,17 +64,17 @@ namespace pointofsale_application
                     //Incorrect Input Message
                 }
             }
-<<<<<<< HEAD
+
 
             HomePage hm = new HomePage();
             this.Close();
             hm.Show();
 
-=======
+
             HomePage homepage = new HomePage();
             homepage.Show();
             this.Close();
->>>>>>> 909ae9f508b9c6645fdb79b3e36038b3cb235641
+
         }
        
         public bool Validation(int input, object db)
