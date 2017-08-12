@@ -10,14 +10,26 @@
         <DockPanel VerticalAlignment="Top" Height="85">
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <TextBlock Foreground="White" Name="WindowTitleBar" Margin="225,0,0,0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Home Page</TextBlock>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <Button x:Name="BasicLogoutButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="BasicLogoutButton_Click"/>
+=======
             <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LoginButton_Click"/>
+>>>>>>> 6aeab2271db9b358124369d544bb2ebc7697bc27
+=======
+            <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LoginButton_Click"/>
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+            <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LoginButton_Click"/>
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         </DockPanel>
         <DockPanel Margin="0, 85, 0, 0">
             <TabControl Name="LefthandTabs" TabStripPlacement="Left">
                 <TabItem Name="BestSellersTab" Header="Best Sellers" FontSize="16" Width="130">
                     <Label Width="600">
                         <WrapPanel Name="BestSellersList" Margin="13">
-                            <Button Width="85" Height="50" Margin="14">BS 1</Button>
+                            <Button Width="86" Height="50" Margin="14">BS 1</Button>
                             <Button Width="85" Height="50" Margin="14">BS 2</Button>
                             <Button Width="85" Height="50" Margin="14">BS 3</Button>
                             <Button Width="85" Height="50" Margin="14">BS 4</Button>
@@ -197,9 +209,33 @@
                     </Label>
                 </TabItem>
             </TabControl>
-            <DataGrid Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="300" Height="500" VerticalAlignment="Top">
-            </DataGrid>
+            <StackPanel Orientation="Vertical" Background="White" Height="500" VerticalAlignment="Top">
+                <TextBlock Name="OrderNumberBlock" Height="20" VerticalAlignment="Top" Background="White" HorizontalAlignment="Center" Margin="10, 0, 0, 0"><Bold>Order Number:</Bold> XXX</TextBlock>
+                <TextBlock Name="CompanyAddressBlock" Background="White" Height="50" Width="120"  VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Center">Jurassic Bar<LineBreak/>143 South Main<LineBreak/>SLC, UT 84111</TextBlock>
+                <TextBlock Name="CashierTransactionField" Margin="10,10,0,0"><Bold>Cashier:</Bold> Temp Cashier</TextBlock>
+                <TextBlock Name="DateTransactionField" Margin="10,0, 0, 0"><Bold>Date:</Bold> Temp Date</TextBlock>
+                <TextBlock Name="TimeTransactionField" Margin="10,0, 0, 0"><Bold>Time:</Bold> Temp Time</TextBlock>
+                <DataGrid Height="240" Margin="10"></DataGrid>
+                <TextBlock Name="SubtotalTransactionField" Margin="0,10,10,0" HorizontalAlignment="Right"><Bold>Subtotal:</Bold> $Temp Subtotal</TextBlock>
+                <TextBlock Name="TaxTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right"><Bold>Tax:</Bold> $Temp Date</TextBlock>
+                <TextBlock Name="TotalTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right"><Bold>Total:</Bold> $Temp Total</TextBlock>
+                <TextBlock Name="PaymentTypeTransactionField" Margin="10,0, 0, 0" HorizontalAlignment="Left"><Bold>Payment Type:</Bold> Cash</TextBlock>
+                <TextBlock Name="SignatureTransactionField" Margin="10,0, 10, 0" HorizontalAlignment="Left"><Bold>Signature:</Bold> _____________________________________________</TextBlock>
+                <TextBlock Name="MerchantTransactionField" Margin="10,0, 10, 0" HorizontalAlignment="Center"><Bold>Merchant Copy</Bold></TextBlock>
+            </StackPanel>
         </DockPanel>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <Button Name="BasicCashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,10" Click="BasicCashoutButton_Click">Checkout</Button>
+=======
         <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click">Checkout</Button>
+>>>>>>> 6aeab2271db9b358124369d544bb2ebc7697bc27
+=======
+        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click">Checkout</Button>
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click">Checkout</Button>
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
     </Grid>
 </Window>

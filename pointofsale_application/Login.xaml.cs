@@ -75,12 +75,31 @@ namespace pointofsale_application
                     errormessage.Text = "Invalid Input: Enter a valid employee id.";
                 }
             }
+
+
+            HomePage hm = new HomePage();
+            this.Close();
+            hm.Show();
+
+
+            HomePage homepage = new HomePage();
+            homepage.Show();
+            this.Close();
+
         }
        
         public bool Validation(string sb, object db)
         {
             bool valid = false;
+<<<<<<< HEAD
+<<<<<<< HEAD
+            SqlCommand activelookup = new SqlCommand("Select isActive from Users where UserID = '" + input + "'");//Needs sql query checking the isActive field in the Users table
+=======
             SqlCommand activelookup = new SqlCommand("Select isActive from Users where UserID = '" + sb + "'");
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+            SqlCommand activelookup = new SqlCommand("Select isActive from Users where UserID = '" + sb + "'");
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
             activelookup.CommandType = CommandType.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = activelookup;
@@ -96,7 +115,15 @@ namespace pointofsale_application
         public string Status(string sb, object db)
         {
             String status;
+<<<<<<< HEAD
+<<<<<<< HEAD
+            SqlCommand permlookup = new SqlCommand("Select [Permissions] from Users where UserID = '" + input + "'");//Needs sql query to check the permissions a user has (Permissions)
+=======
             SqlCommand permlookup = new SqlCommand("Select [Permissions] from Users where UserID = '" + sb + "'");
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+            SqlCommand permlookup = new SqlCommand("Select [Permissions] from Users where UserID = '" + sb + "'");
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
             permlookup.CommandType = CommandType.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = permlookup;
@@ -123,62 +150,174 @@ namespace pointofsale_application
 
         private void Num0_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('0');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('0');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num1_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('1');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('1');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num2_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('2');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('2');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num3_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('3');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('3');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num4_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('4');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('4');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num5_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('5');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('5');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num6_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('6');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('6');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num7_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('7');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('7');
             textBoxEmpID.Text = sb.ToString();
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+            sb.Append('7');
+            textBoxEmpID.Text = sb.ToString();
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num8_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('8');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('8');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
 
         private void Num9_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('9');
+                textBoxEmpID.Text = sb.ToString();
+            }
+=======
             sb.Append('9');
             textBoxEmpID.Text = sb.ToString();
+<<<<<<< HEAD
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
     }
 }
