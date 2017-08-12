@@ -123,62 +123,92 @@ namespace pointofsale_application
 
         private void Num0_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('0');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('0');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num1_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('1');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('1');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num2_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('2');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('2');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num3_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('3');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('3');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num4_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('4');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('4');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num5_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('5');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('5');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num6_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('6');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('6');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num7_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('7');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('7');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num8_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('8');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('8');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
 
         private void Num9_Click(object sender, RoutedEventArgs e)
         {
-            sb.Append('9');
-            textBoxEmpID.Text = sb.ToString();
+            if (sb.ToString().Length < 5)
+            {
+                sb.Append('9');
+                textBoxEmpID.Text = sb.ToString();
+            }
         }
     }
 }
