@@ -33,76 +33,76 @@ namespace pointofsale_application
 
         private void Enter_Button_Click(object sender, RoutedEventArgs e)
         {
-            int input = 0;
+            HomePage homepage = new HomePage();
+            AdminPage adminpage = new AdminPage();
+
             if (textBoxEmpID.Text.Length == 0 || textBoxEmpID.Text.Length != 5)
             {
-                //errormessage.Text = "Enter employee id.";
-                //textBoxEmpID.Focus();
+                errormessage.Text = "Invalid Input: Enter employee id.";
+                textBoxEmpID.Focus();
             }
             else if (!Regex.IsMatch(textBoxEmpID.Text, @"^[0-9]+$") || textBoxEmpID.Text.Length != 5)
             {
-                //errormessage.Text = "Enter a valid employee id.";
-                //textBoxEmpID.Select(0, textBoxEmpID.Text.Length);
-                //textBoxEmpID.Focus();
+                errormessage.Text = "Invalid Input: Enter a valid employee id.";
+                textBoxEmpID.Select(0, textBoxEmpID.Text.Length);
+                textBoxEmpID.Focus();
             }
             else
             {
                if (db.AccessDB("select * from Users where UserID = " + textBoxEmpID.Text))
                 {
-                    if (Validation(input, db))
+
+                    if (Validation(sb.ToString(), db))
                     {
-                        Status(input, db);
-                        //Save Employee Info into employee object
+                        if (Status(sb.ToString(), db).Equals("basic"))
+                        {
+                            homepage.Show();
+                            this.Close();
+                        }
+                        if (Status(sb.ToString(), db).Equals("admin"))
+                        {
+                            adminpage.Show();
+                            this.Close();
+                        }
                     }
                     else
                     {
-                        //Error Invalid Employee Id
+                        errormessage.Text = "Invalid Input: Enter a valid employee id.";
                     }
                 }
                 else
                 {
-                    //Incorrect Input Message
+                    errormessage.Text = "Invalid Input: Enter a valid employee id.";
                 }
             }
-
-
-            HomePage hm = new HomePage();
-            this.Close();
-            hm.Show();
-
-
-            HomePage homepage = new HomePage();
-            homepage.Show();
-            this.Close();
-
         }
        
-        public bool Validation(int input, object db)
+        public bool Validation(string sb, object db)
         {
             bool valid = false;
-            SqlCommand activelookup = new SqlCommand("Select isActive from Users where UserID = '" + input + "'");//Needs sql query checking the isActive field in the Users table
+            SqlCommand activelookup = new SqlCommand("Select isActive from Users where UserID = '" + sb + "'");
             activelookup.CommandType = CommandType.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = activelookup;
             DataSet data = new DataSet();
             adapter.Fill(data);
-            if (data.ToString().Equals(""))
+            if (data.ToString().Equals("1"))
             {
                 valid = true;
             }
             return valid;
         }
 
-        public string Status(int input, object db)
+        public string Status(string sb, object db)
         {
             String status;
-            SqlCommand permlookup = new SqlCommand("Select [Permissions] from Users where UserID = '" + input + "'");//Needs sql query to check the permissions a user has (Permissions)
+            SqlCommand permlookup = new SqlCommand("Select [Permissions] from Users where UserID = '" + sb + "'");
             permlookup.CommandType = CommandType.Text;
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = permlookup;
             DataSet data = new DataSet();
             adapter.Fill(data);
-            if (data.ToString().Equals(""))
+            if (data.ToString().Equals("admin"))
             {
                 status = "admin";
             }
@@ -123,92 +123,62 @@ namespace pointofsale_application
 
         private void Num0_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('0');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('0');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num1_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('1');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('1');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num2_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('2');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('2');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num3_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('3');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('3');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num4_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('4');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('4');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num5_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('5');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('5');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num6_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('6');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('6');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num7_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('7');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('7');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num8_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('8');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('8');
+            textBoxEmpID.Text = sb.ToString();
         }
 
         private void Num9_Click(object sender, RoutedEventArgs e)
         {
-            if (sb.ToString().Length < 5)
-            {
-                sb.Append('9');
-                textBoxEmpID.Text = sb.ToString();
-            }
+            sb.Append('9');
+            textBoxEmpID.Text = sb.ToString();
         }
     }
 }

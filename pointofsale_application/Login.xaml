@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="Jurassic Bar" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
-        <Label x:Name="errormessage">
-        </Label>
+        <TextBlock Height="50" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="400" Margin="350,575,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
         <TextBlock HorizontalAlignment="Left" Margin="443,109,0,0" TextWrapping="Wrap" Text="Enter Login ID" VerticalAlignment="Top" Height="48" Width="227" FontSize="35" Foreground="#B1B7B7"/>
         <Button x:Name="Num7" Content="7" HorizontalAlignment="Left" Margin="355,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543" Click="Num7_Click"/>
         <Button x:Name="Num8" Content="8" HorizontalAlignment="Left" Margin="502,266,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543" Click="Num8_Click"/>
@@ -22,7 +21,7 @@
         <Button x:Name="Clear_Button" Content="Clear" HorizontalAlignment="Left" Margin="355,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543" Click="Clear_Button_Click"/>
         <Button x:Name="Num0" Content="0" HorizontalAlignment="Left" Margin="502,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543" Click="Num0_Click"/>
         <Button x:Name="Enter_Button" Content="Enter" HorizontalAlignment="Left" Margin="646,462,0,0" VerticalAlignment="Top" Width="110" Height="39" FontSize="26" Foreground="#B1B7B7" Background="#464543" Click="Enter_Button_Click"/>
-        <TextBlock x:Name="textBoxEmpID" HorizontalAlignment="Left" Height="47" Margin="355,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" FontSize="35" Background="#ffffff"/>
+        <TextBox x:Name="textBoxEmpID" HorizontalAlignment="Left" Height="37" Margin="355,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" FontSize="35"/>
         <Image x:Name="Logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="307"/>
     </Grid>
 </Window>
