@@ -69,6 +69,11 @@ namespace pointofsale_application
                     //Incorrect Input Message
                 }
             }
+
+            HomePage hm = new HomePage();
+            this.Close();
+            hm.Show();
+
         }
        
         public bool Validation(int input, object db)
