@@ -124,6 +124,8 @@ namespace pointofsale_application
             return total;
         }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
         private void BasicCashoutButton_Click(object sender, RoutedEventArgs e)
         {
             CashOut window1 = new CashOut();
@@ -136,6 +138,29 @@ namespace pointofsale_application
             Login window1 = new Login();
             window1.Show();
             this.Close();
+=======
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
+        private void CashoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            CashOut cash = new CashOut();
+            cash.Show();
+            this.Close();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to log out?","confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                this.Close();
+            }
+
+<<<<<<< HEAD
+>>>>>>> 6aeab2271db9b358124369d544bb2ebc7697bc27
+=======
+>>>>>>> 53e3d7a15eb7659c280087af72b3e0d7d0f87295
         }
     }
 }

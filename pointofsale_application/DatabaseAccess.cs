@@ -11,19 +11,63 @@ namespace pointofsale_application
 {
     class DatabaseAccess
     {
-        SqlConnection connection;
-        SqlCommand command;
+        //https://www.codeproject.com/Articles/4416/Beginners-guide-to-accessing-SQL-Server-through-C
 
-        public DatabaseAccess()
+        SqlConnection myConnection = new SqlConnection("user id=admin;" +
+                               "password=adminpassword;server=possystem.cyjrzrk7ktbi.us-west-1.rds.amazonaws.com,1433;" +
+                               "Trusted_Connection=yes;" +
+                               "database=POSSystem;" +
+                               "connection timeout=30");
+
+        public void ConnectDB()
         {
-            connection = new SqlConnection();
-
-            command = new SqlCommand()
+            try
             {
-                Connection = connection,
-                CommandType = CommandType.Text
-            };
+                myConnection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
+        public bool AccessDB(string command)
+        {
+            ConnectDB();
+
+            try
+            {
+                SqlDataReader myReader = null;
+                SqlCommand myCommand = new SqlCommand(command,
+                                                         myConnection);
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    if (myReader.HasRows == true)
+                    {
+                        return true;
+                    }
+
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return false;
+            }
+
+        }
+        public void CloseDB()
+        {
+            try
+            {
+                myConnection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
     }
 }
