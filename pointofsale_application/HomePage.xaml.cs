@@ -51,7 +51,7 @@ namespace pointofsale_application
             InitializeComponent();
             fillCategoryColumn();
             //InitializeItemList();
-            
+            fillItemColumn();
         }
 
         public void fillCategoryColumn()
@@ -61,7 +61,26 @@ namespace pointofsale_application
                 System.Windows.Controls.Button newBtn = new Button();
                 newBtn.Content = i.ToString();
                 newBtn.Name = "Button" + i;
-                categoryColumn.Children.Add(newBtn);
+                //newBtn.Click += fillItemColumn();
+                CategoryColumn.Children.Add(newBtn);
+            }
+        }
+
+        public void fillItemColumn()
+        {
+            int count = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Button newBtn = new Button();
+                    newBtn.Content = count.ToString();
+                    newBtn.Name = "Button" + count.ToString();
+                    Grid.SetColumn(newBtn, j);
+                    Grid.SetRow(newBtn, i);
+                    ItemGrid.Children.Add(newBtn);
+                    count++;
+                }
             }
         }
 
@@ -103,7 +122,7 @@ namespace pointofsale_application
         public void removeItem()
         {
             //cartList.Remove() Removes item from list.
-            for(int i = 0; i < cartList.Count; i++)
+            for (int i = 0; i < cartList.Count; i++)
             {
                 /*
                 if (((Item)cartList[i]).Name.Contains('ButtonStringValue'){
@@ -145,7 +164,7 @@ namespace pointofsale_application
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to log out?","confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to log out?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Login login = new Login();
                 login.Show();
