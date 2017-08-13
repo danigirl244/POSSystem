@@ -49,8 +49,20 @@ namespace pointofsale_application
         public HomePage()
         {
             InitializeComponent();
+            fillCategoryColumn();
             //InitializeItemList();
             
+        }
+
+        public void fillCategoryColumn()
+        {
+            for (int i = 0; i < 5/*mostpopularlength*/; i++)
+            {
+                System.Windows.Controls.Button newBtn = new Button();
+                newBtn.Content = i.ToString();
+                newBtn.Name = "Button" + i;
+                categoryColumn.Children.Add(newBtn);
+            }
         }
 
         public void InitializeItemList()

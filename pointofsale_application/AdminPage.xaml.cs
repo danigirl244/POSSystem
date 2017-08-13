@@ -17,11 +17,25 @@ namespace pointofsale_application
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class AdminPage : Window
     {
-        public Window1()
+        public AdminPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
+            fillCategoryColumn();
         }
+
+        public void fillCategoryColumn()
+        {
+            for (int i = 0; i < 5/*mostpopularlength*/; i++)
+            {
+                System.Windows.Controls.Button newBtn = new Button();
+                newBtn.Content = i.ToString();
+                newBtn.Name = "Button" + i;
+                categoryColumn.Children.Add(newBtn);
+            }
+        }
+
+
     }
 }
