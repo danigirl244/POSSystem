@@ -21,7 +21,14 @@ namespace pointofsale_application
             SqlConnection myConnection = new SqlConnection("Data Source=.\\SQLSERVER;" + "user id=admin;" +
                                    "password=adminpassword;"+ "server=possystem.cyjrzrk7ktbi.us-west-1.rds.amazonaws.com,1433;"+
                                    "database=POSSystem;");
-          myConnection.Open();
+            try
+            {
+                myConnection.Open();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Could not connect to database");
+            }
             return myConnection;
         }
     }
