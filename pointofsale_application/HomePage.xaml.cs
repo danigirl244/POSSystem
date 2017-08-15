@@ -49,7 +49,8 @@ namespace pointofsale_application
         public HomePage()
         {
             InitializeComponent();
-            
+            fillCategoryColumn();
+            fillItemColumn();
         }
 
         public void InitializeItemList()
@@ -70,6 +71,37 @@ namespace pointofsale_application
                 });
             }
 
+        }
+        public void fillCategoryColumn()
+        {
+            string[] cats = { "Beer", "Vodka", "Tequila", "Whiskey", "Bourbon", "Wine" };
+            testDB();
+            for (int i = 0; i < cats.Length/*mostpopularlength*/; i++)
+            {
+                Button newBtn = new Button();
+                newBtn.Content = cats[i];
+                newBtn.Name = "Button" + i;
+                //newBtn.Click += fillItemColumn();
+                CategoryColumn.Children.Add(newBtn);
+            }
+        }
+
+        public void fillItemColumn()
+        {
+            int count = 0;
+            for(int i; i < 4; i++)
+            {
+                for(int j; j < 4; j++)
+                {
+                    Button newBtn = new Button();
+                    newBtn.Content = count.ToString();
+                    newBtn.Name = "Button" + count.ToString();
+                    Grid.SetColumn(newBtn, j);
+                    Grid.SetRow(newBtn, i);
+                    ItemGrid.Children.Add(newBtn);
+                    count++;
+                }
+            }
         }
 
         public void addItem()
@@ -178,5 +210,24 @@ namespace pointofsale_application
         {
             Receipt receipt = new Receipt(SubTotal, TaxTotal, Total, cartList, "CashierName", new DateTime(2017, 8, 14));
         }
+        private void testDB()
+        {
+            string connect = null;
+            SqlConnection cnn;
+            connect = "Data Source=possystem.cyjrzrk7ktbi.us-west-1.rds.amazonaws.com,1433;Initial Catalog=POSSystem;User ID=admin;Password=adminpassword";
+            cnn = new SqlConnection(connect);
+            try
+            {
+                cnn.Open();
+                MessageBox.Show("connected");
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("cannot connect");
+            }
+
+        }
+
     }
 }
