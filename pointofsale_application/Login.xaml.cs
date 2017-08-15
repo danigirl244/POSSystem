@@ -50,11 +50,9 @@ namespace pointofsale_application
                         {
                             adminpage.Show();
                             this.Close();
-                            errormessage.Text = "admin";
                         }
                         else
                         {
-                            errormessage.Text = "user";
                             homepage.Show();
                             this.Close();
                         }
@@ -62,13 +60,13 @@ namespace pointofsale_application
                     }
                         else
                     {
-                        errormessage.Text = "Nah this doesnt exist";
+                        errormessage.Text = "That user does not exist. Try Again.";
                     }
                 }
             }
             else
             {
-                errormessage.Text = "Invalid af.";
+                errormessage.Text = "Invalid entry. Try Again.";
             }
 
         }
