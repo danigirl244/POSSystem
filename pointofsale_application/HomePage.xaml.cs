@@ -44,44 +44,12 @@ namespace pointofsale_application
             set { taxTotal = value; }
         }
 
-        List<Object> itemList = new List<Object>();
-        List<Object> cartList = new List<Object>();
+        List<Item> itemList = new List<Item>();
+        List<Item> cartList = new List<Item>();
         public HomePage()
         {
             InitializeComponent();
-            fillCategoryColumn();
-            //InitializeItemList();
-            fillItemColumn();
-        }
-
-        public void fillCategoryColumn()
-        {
-            for (int i = 0; i < 5/*mostpopularlength*/; i++)
-            {
-                System.Windows.Controls.Button newBtn = new Button();
-                newBtn.Content = i.ToString();
-                newBtn.Name = "Button" + i;
-                //newBtn.Click += fillItemColumn();
-                CategoryColumn.Children.Add(newBtn);
-            }
-        }
-
-        public void fillItemColumn()
-        {
-            int count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    Button newBtn = new Button();
-                    newBtn.Content = count.ToString();
-                    newBtn.Name = "Button" + count.ToString();
-                    Grid.SetColumn(newBtn, j);
-                    Grid.SetRow(newBtn, i);
-                    ItemGrid.Children.Add(newBtn);
-                    count++;
-                }
-            }
+            
         }
 
         public void InitializeItemList()
@@ -122,7 +90,7 @@ namespace pointofsale_application
         public void removeItem()
         {
             //cartList.Remove() Removes item from list.
-            for (int i = 0; i < cartList.Count; i++)
+            for(int i = 0; i < cartList.Count; i++)
             {
                 /*
                 if (((Item)cartList[i]).Name.Contains('ButtonStringValue'){
@@ -132,17 +100,67 @@ namespace pointofsale_application
             }
 
         }
+        
+        public void sort(int sortType)
+        {
+            /*
+            case 1
+                Sort by Highest Purchased Items
+            case 2
+                Sort by category "Beer"
+            case 3
+                Sort by category "Wine"
+            case 4
+                Sort by category "Vodka"
+            case 5
+                Sort by category "Gin"
+            case 6
+                Sort by category "Whisky"
+            case 7
+                Sort by category "Tequilla"
+             */
+        }
+
+        public void displayItems(int displayNum)
+        {
+            /*
+            case 1
+                Get all items in the list that have the highest NumPurchased
+                Create buttons for each of those items
+            case 2
+                Get all items in the list that have a category of "Beer"
+                Create buttons for each of those items
+            case 3
+                Get all items in the list that have a category of "Wine"
+                Create buttons for each of those items
+            case 4
+                Get all items in the list that have a category of "Vodka"
+                Create buttons for each of those items
+            case 5
+                Get all items in the list that have a category of "Gin"
+                Create buttons for each of those items
+            case 6
+                Get all items in the list that have a category of "Whisky"
+                Create buttons for each of those items
+            case 7
+                Get all items in the list that have a category of "Tequilla"
+                Create buttons for each of those items
+             */
+        }
+
 
         //subtotal
         public double printSubTotal()
         {
-
-            foreach (object item in cartList)
+            //Refreshes the subtotal each time an item is added to the 'cart'
+            subtotal = 0;
+            for (int i = 0; i < cartList.Count; i++)
             {
-                //subtotal = subtotal + item.price; 'item.price' is a placeholder for whatever the price section is called
+                subtotal += cartList[i].Price;
             }
 
             return subtotal;
+
         }
 
         //Final Price with Tax
@@ -155,22 +173,10 @@ namespace pointofsale_application
             return total;
         }
 
-        private void CashoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            CashOut cash = new CashOut();
-            cash.Show();
-            this.Close();
-        }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        public void CreateReceipt()
         {
-            if (MessageBox.Show("Are you sure you want to log out?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                Login login = new Login();
-                login.Show();
-                this.Close();
-            }
-
+            Receipt receipt = new Receipt(SubTotal, TaxTotal, Total, cartList, "CashierName", new DateTime(2017, 8, 14));
         }
     }
 }
