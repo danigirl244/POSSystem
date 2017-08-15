@@ -122,11 +122,9 @@
     <Compile Include="PromotePopUp.xaml.cs">
       <DependentUpon>PromotePopUp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReceiptGen.cs" />
     <Compile Include="Reports.xaml.cs">
       <DependentUpon>Reports.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Transaction.cs" />
     <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
