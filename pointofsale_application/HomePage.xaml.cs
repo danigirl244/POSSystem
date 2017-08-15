@@ -75,7 +75,8 @@ namespace pointofsale_application
         public void fillCategoryColumn()
         {
             string[] cats = { "Beer", "Vodka", "Tequila", "Whiskey", "Bourbon", "Wine" };
-            testDB();
+            DatabaseAccess db = new DatabaseAccess();
+            db.AccessDB();
             for (int i = 0; i < cats.Length/*mostpopularlength*/; i++)
             {
                 Button newBtn = new Button();
@@ -210,24 +211,7 @@ namespace pointofsale_application
         {
             Receipt receipt = new Receipt(SubTotal, TaxTotal, Total, cartList, "CashierName", new DateTime(2017, 8, 14));
         }
-        private void testDB()
-        {
-            string connect = null;
-            SqlConnection cnn;
-            connect = "Data Source=possystem.cyjrzrk7ktbi.us-west-1.rds.amazonaws.com,1433;Initial Catalog=POSSystem;User ID=admin;Password=adminpassword";
-            cnn = new SqlConnection(connect);
-            try
-            {
-                cnn.Open();
-                MessageBox.Show("connected");
-                cnn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("cannot connect");
-            }
 
-        }
 
     }
 }

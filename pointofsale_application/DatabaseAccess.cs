@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
 
 namespace pointofsale_application
 {
@@ -24,10 +24,11 @@ namespace pointofsale_application
             try
             {
                 myConnection.Open();
+
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                Console.WriteLine("Could not connect to database");
+                MessageBox.Show("cannot connect");
             }
             return myConnection;
         }
