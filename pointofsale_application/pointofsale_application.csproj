@@ -122,6 +122,7 @@
     <Compile Include="PromotePopUp.xaml.cs">
       <DependentUpon>PromotePopUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Receipt.cs" />
     <Compile Include="Reports.xaml.cs">
       <DependentUpon>Reports.xaml</DependentUpon>
     </Compile>

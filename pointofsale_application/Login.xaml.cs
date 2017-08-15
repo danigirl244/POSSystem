@@ -73,42 +73,8 @@ namespace pointofsale_application
 
         }
        
-        public bool Validation(string sb, object db)
-        {
-            bool valid = false;
-            SqlCommand activelookup = new SqlCommand("Select isActive from Users where UserID = '" + sb + "'");
-            activelookup.CommandType = CommandType.Text;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = activelookup;
-            DataSet data = new DataSet();
-            adapter.Fill(data);
-            if (data.ToString().Equals("1"))
-            {
-                valid = true;
-            }
-            return valid;
-        }
 
-        public string Status(string sb, object db)
-        {
-            String status;
-            SqlCommand permlookup = new SqlCommand("Select [Permissions] from Users where UserID = '" + sb + "'");
-            permlookup.CommandType = CommandType.Text;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = permlookup;
-            DataSet data = new DataSet();
-            adapter.Fill(data);
-            if (data.ToString().Equals("admin"))
-            {
-                status = "admin";
-            }
-            else
-            {
-                status = "basic";
-            }
-            return status;
-        }
-
+    
 
 
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
