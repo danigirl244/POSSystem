@@ -66,7 +66,7 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
         public void addEmp(string empName, string empPermissions, string isActive)
         {           
             //creates a new employee with predetermined values
-            dbt.AccessDB("INSERT INTO dbo.Users (EmployeeName, Permissions, isActive) VALUES (" + empName + ", " + empPermissions + ", " + isActive + ");");
+            //dbt.AccessDB("INSERT INTO dbo.Users (EmployeeName, Permissions, isActive) VALUES (" + empName + ", " + empPermissions + ", " + isActive + ");");
                 
             
         }
@@ -74,14 +74,14 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
         public void updateEmpRank(int empID, string empPermissions)
         {
             //updates user rank according to the predetermined value ex) basic, admin
-            dbt.AccessDB("UPDATE dbo.Users SET EmployeeRank = " + empPermissions + " WHERE UserID = " + empID + ";");
+            //dbt.AccessDB("UPDATE dbo.Users SET EmployeeRank = " + empPermissions + " WHERE UserID = " + empID + ";");
 
         }
 
         public void updateEmpAct(int empID, string activity)
         {
             //updates user's isActive according to the predetermined value
-            dbt.AccessDB("UPDATE dbo.Users SET isActive = " + activity + " WHERE UserID = " + empID + ";");
+           // dbt.AccessDB("UPDATE dbo.Users SET isActive = " + activity + " WHERE UserID = " + empID + ";");
 
         }
 

@@ -35,44 +35,40 @@ namespace pointofsale_application
         {
             HomePage homepage = new HomePage();
             AdminPage adminpage = new AdminPage();
-            if (textBoxEmpID.Text.Length == 0 || textBoxEmpID.Text.Length != 5)
+            if(textBoxEmpID.Text.Length == 5)
             {
-                errormessage.Text = "Invalid Input: Enter employee id.";
-                textBoxEmpID.Focus();
-            }
-            else if (!Regex.IsMatch(textBoxEmpID.Text, @"^[0-9]+$") || textBoxEmpID.Text.Length != 5)
-            {
-                errormessage.Text = "Invalid Input: Enter a valid employee id.";
-                //textBoxEmpID.Select(0, textBoxEmpID.Text.Length);
-                textBoxEmpID.Focus();
-            }
-            else
-            {
-               if (db.AccessDB("select * from Users where UserID = " + textBoxEmpID.Text))
+                if(Regex.IsMatch(textBoxEmpID.Text, @"^[0-9]+$"))
                 {
-                    if (Validation(sb.ToString(), db))
+                    SqlCommand login = new SqlCommand("SELECT COUNT(*) FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());
+                    
+                    int UserExist = (int)login.ExecuteScalar();
+                    if (UserExist >= 1)
                     {
-                        if(Status(sb.ToString(), db).Equals("basic"))
-                        {
-                            homepage.Show();
-                            this.Close();
-                        }
-                        if (Status(sb.ToString(), db).Equals("admin"))
+                        SqlCommand userAdmin = new SqlCommand("SELECT Permissions FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());
+                        string permission = userAdmin.ExecuteScalar().ToString();
+                        if(permission == "admin")
                         {
                             adminpage.Show();
+                            this.Close();
+                            errormessage.Text = "admin";
+                        }
+                        else
+                        {
+                            errormessage.Text = "user";
+                            homepage.Show();
                             this.Close();
                         }
 
                     }
-                    else
+                        else
                     {
-                        errormessage.Text = "Invalid Input: Enter a valid employee id.";
+                        errormessage.Text = "Nah this doesnt exist";
                     }
                 }
-                else
-                {
-                    errormessage.Text = "Invalid Input: Enter a valid employee id.";
-                }
+            }
+            else
+            {
+                errormessage.Text = "Invalid af.";
             }
 
         }

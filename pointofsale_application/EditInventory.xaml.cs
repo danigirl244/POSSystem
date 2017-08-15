@@ -49,21 +49,21 @@ namespace pointofsale_application
         {
             //Insert new item into inventory table according to the information entered
 
-            dbt.AccessDB("INSERT INTO dbo.Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0");
+           // dbt.AccessDB("INSERT INTO dbo.Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0");
 
         }
 
         public void editItem(int itemID, int qty, double price, string name, string desc, string category)
         {
             //Using an update command according to the itemID to update editted fields
-            dbt.AccessDB("UPDATE dbo.Inventory SET QtyOnHand = " + qty + ", Price = " + price + ", Name = " + name + ", [Desc] = " + desc + ", Category = " + category + " WHERE SKU = " + itemID + ";");
+            //dbt.AccessDB("UPDATE dbo.Inventory SET QtyOnHand = " + qty + ", Price = " + price + ", Name = " + name + ", [Desc] = " + desc + ", Category = " + category + " WHERE SKU = " + itemID + ";");
 
         }
 
         public void deleteItem(int itemID)
         {
             //delete from inventory table according to the itemId of the button pushed
-            dbt.AccessDB("DELETE FROM dbo.Inventory WHERE SKU = " + itemID + ";");
+            //dbt.AccessDB("DELETE FROM dbo.Inventory WHERE SKU = " + itemID + ";");
 
         }
     }
