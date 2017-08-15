@@ -89,9 +89,9 @@ namespace pointofsale_application
         public void fillItemColumn()
         {
             int count = 0;
-            for(int i; i < 4; i++)
+            for(int i = 0; i < 4; i++)
             {
-                for(int j; j < 4; j++)
+                for(int j = 0; j < 4; j++)
                 {
                     Button newBtn = new Button();
                     newBtn.Content = count.ToString();
