@@ -174,7 +174,7 @@ namespace pointofsale_application
         {
             EditUser user = new EditUser();
             user.Show();
-            this.Close();
+       
         }
     }
 }
