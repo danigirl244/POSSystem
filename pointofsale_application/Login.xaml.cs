@@ -40,8 +40,19 @@ namespace pointofsale_application
                 if(Regex.IsMatch(textBoxEmpID.Text, @"^[0-9]+$"))
                 {
                     SqlCommand login = new SqlCommand("SELECT COUNT(*) FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());
-                    
-                    int UserExist = (int)login.ExecuteScalar();
+
+                    int UserExist = 0;
+
+                    try
+                    {
+                        UserExist = (int)login.ExecuteScalar();
+                    }
+                    catch
+                    {
+                        errormessage.Text = "An error occured accessing the database.";
+                        return;
+                    }
+
                     if (UserExist >= 1)
                     {
                         SqlCommand userAdmin = new SqlCommand("SELECT Permissions FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());

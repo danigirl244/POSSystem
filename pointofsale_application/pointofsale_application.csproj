@@ -54,23 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="ActivatePopUp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="AdminPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CashOut.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CheckOutPopUp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeletePopUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,9 +74,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ActivatePopUp.xaml.cs">
-      <DependentUpon>ActivatePopUp.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
@@ -99,13 +84,7 @@
     <Compile Include="CashOut.xaml.cs">
       <DependentUpon>CashOut.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CheckOutPopUp.xaml.cs">
-      <DependentUpon>CheckOutPopUp.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseAccess.cs" />
-    <Compile Include="DeletePopUp.xaml.cs">
-      <DependentUpon>DeletePopUp.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EditInventory.xaml.cs">
       <DependentUpon>EditInventory.xaml</DependentUpon>
     </Compile>
@@ -119,9 +98,6 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PromotePopUp.xaml.cs">
-      <DependentUpon>PromotePopUp.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Receipt.cs" />
     <Compile Include="Reports.xaml.cs">
       <DependentUpon>Reports.xaml</DependentUpon>
@@ -129,10 +105,6 @@
     <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PromotePopUp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reports.xaml">
       <SubType>Designer</SubType>
