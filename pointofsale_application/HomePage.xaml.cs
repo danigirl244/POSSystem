@@ -46,30 +46,34 @@ namespace pointofsale_application
 
         List<Item> itemList = new List<Item>();
         List<Item> cartList = new List<Item>();
+        
         public HomePage()
         {
             InitializeComponent();
             fillCategoryColumn();
             fillItemColumn();
+            InitializeItemList();
         }
 
         public void InitializeItemList()
         {
-            string fillItemList = "Select * From Inventory";
-            SqlCommand fill = new SqlCommand(fillItemList);
-            SqlDataReader dr;
-            dr = fill.ExecuteReader();
-            while (dr.Read())
+            
+            SqlCommand categories = new SqlCommand("SELECT SKU, Name, Price, Category, NumPurchased FROM Inventory", access.AccessDB());
+            List<Item> cats = new List<Item>();
+            SqlDataReader rd;
+            rd = categories.ExecuteReader();
+            while (rd.Read())
             {
-                itemList.Add(new Item()
+                cats.Add(new Item()
                 {
-                    SKU = dr.GetInt32(dr.GetOrdinal("SKU")),
-                    Name = dr.GetString(dr.GetOrdinal("Name")),
-                    Price = dr.GetDouble(dr.GetOrdinal("Price")),
-                    Category = dr.GetString(dr.GetOrdinal("[Desc]")),
-                    NumPurchased = dr.GetInt32(dr.GetOrdinal("QtyOnHand"))
+                    SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                    Name = rd.GetString(rd.GetOrdinal("Name")),
+                    Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                    Category = rd.GetString(rd.GetOrdinal("Category")),
+                    NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
                 });
             }
+            //MessageBox.Show(cats[1].Category.ToString());
 
         }
         public void fillCategoryColumn()
@@ -83,7 +87,8 @@ namespace pointofsale_application
                 newBtn.Content = cats[i];
                 newBtn.Name = "Button" + i;
                 //newBtn.Click += fillItemColumn();
-                CategoryColumn.Children.Add(newBtn);
+                CategoryColumn.Children.Add(newBtn); 
+                //add onclick functionality here
             }
         }
 
