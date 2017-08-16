@@ -175,6 +175,7 @@ namespace pointofsale_application
             user.Show();
        
         }
+
         private void ReportsButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -190,6 +191,7 @@ namespace pointofsale_application
             editInventory.Show();
 
         }
+
 
 
 
