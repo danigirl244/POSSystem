@@ -212,6 +212,21 @@ namespace pointofsale_application
             Receipt receipt = new Receipt(SubTotal, TaxTotal, Total, cartList, "CashierName", new DateTime(2017, 8, 14));
         }
 
+        private void CashoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            CashOut cash = new CashOut();
+            cash.Show();
+            this.Close();
+        }
 
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                this.Close();
+            }
+        }
     }
 }

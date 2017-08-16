@@ -10,7 +10,7 @@
         <DockPanel VerticalAlignment="Top" Height="85">
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <TextBlock Foreground="White" Name="WindowTitleBar" Margin="225,0,0,0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Home Page</TextBlock>
-            <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" />
+            <Button x:Name="LoginButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LoginButton_Click" />
         </DockPanel>
         <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="CategoryColumn">
 
@@ -33,6 +33,6 @@
             <DataGrid Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="300" Height="500" VerticalAlignment="Top">
             </DataGrid>
         </DockPanel>
-        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" >Checkout</Button>
+        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click" >Checkout</Button>
     </Grid>
 </Window>
