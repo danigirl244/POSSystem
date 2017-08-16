@@ -156,10 +156,9 @@ namespace pointofsale_application
         {
             CashOut cash = new CashOut();
             cash.Show();
-            this.Close();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to log out?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
@@ -176,5 +175,25 @@ namespace pointofsale_application
             user.Show();
        
         }
+        private void ReportsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Reports report = new Reports();
+            report.Show();
+
+        }
+
+        private void InventoryButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            EditInventory editInventory = new EditInventory();
+            editInventory.Show();
+
+        }
+
+
+
+
+
     }
 }

@@ -216,10 +216,9 @@ namespace pointofsale_application
         {
             CashOut cash = new CashOut();
             cash.Show();
-            this.Close();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             if(MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {

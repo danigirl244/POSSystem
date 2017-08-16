@@ -10,13 +10,12 @@
         <DockPanel VerticalAlignment="Top" Height="85">
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <TextBlock Foreground="White" Name="WindowTitleBar" Margin="225,0,0,0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">Home Page</TextBlock>
-            <Button x:Name="LogoutButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+            <Button x:Name="LogoutButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0" Click="LogoutButton_Click"/>
         </DockPanel>
-        <Button Name="ReportsButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,122,612">Reports</Button>
+        <Button Name="ReportsButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,122,612" Click="ReportsButton_Click">Reports</Button>
         <Button Name="UsersButton" Width="94" Height="35" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,222,612" Click="UsersButton_Click">Edit Users</Button>
-        <Button Name="InventoryButton" Width="95" Height="35" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,334,612">Edit Inventory</Button>
+        <Button Name="InventoryButton" Width="95" Height="35" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,334,612" Click="InventoryButton_Click">Edit Inventory</Button>
         <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="CategoryColumn">
-        
         </StackPanel>
         <Grid Margin="135,85,307,0"  ShowGridLines="True" x:Name="ItemGrid">
             <Grid.RowDefinitions>
@@ -32,11 +31,38 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
-        <DockPanel Margin="0, 85, 0, 0">
-            <DataGrid Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="300" Height="500" VerticalAlignment="Top">
-            </DataGrid>
+        <DockPanel Margin="742,85,0,89" Background="White">
+            <StackPanel Orientation="Vertical" Background="White" Height="500" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <TextBlock Height="20" VerticalAlignment="Top" Background="White" HorizontalAlignment="Center" Margin="10, 0, 0, 0" FontWeight="Bold">Order Number:</TextBlock>
+                    <TextBlock Name="OrderNumberBlock" Height="20" VerticalAlignment="Top" Background="White" HorizontalAlignment="Center" Margin="10, 0, 0, 0">XXX</TextBlock>
+                </StackPanel>
+                <TextBlock Background="White" Height="50" Width="120"  VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Center">Jurassic Bar<LineBreak/>143 South Main<LineBreak/>SLC, UT 84111</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="10,10,0,0"><Bold>Cashier:</Bold></TextBlock>
+                    <TextBlock Name="CashierTransactionField" Margin="10,10,0,0">Temp Cashier</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="10,0, 0, 0"><Bold>Date:</Bold></TextBlock>
+                    <TextBlock Name="DateTimeTransactionField" Margin="10,0, 0, 0">Temp Date/Time</TextBlock>
+                </StackPanel>
+                <DataGrid Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="281" Height="230" Margin="10">
+                </DataGrid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="0,10,10,0" HorizontalAlignment="Right"><Bold>Subtotal:</Bold></TextBlock>
+                    <TextBlock Name="SubtotalTransactionField" Margin="0,10,10,0" HorizontalAlignment="Right">$Temp Subtotal</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="0,0, 10, 0" HorizontalAlignment="Right"><Bold>Tax:</Bold></TextBlock>
+                    <TextBlock Name="TaxTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right">$Temp Tax</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="0,0, 10, 0" HorizontalAlignment="Right"><Bold>Total:</Bold></TextBlock>
+                    <TextBlock Name="TotalTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right">$Temp Total</TextBlock>
+                </StackPanel>
+            </StackPanel>
         </DockPanel>
-        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14">Checkout</Button>
+        <Button Name="CashoutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,12,14" Click="CashoutButton_Click">Checkout</Button>
     </Grid>
 </Window>
 
