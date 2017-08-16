@@ -13,7 +13,7 @@
             <Button x:Name="LogoutButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,0,20,0"/>
         </DockPanel>
         <Button Name="ReportsButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,122,612">Reports</Button>
-        <Button Name="UsersButton" Width="94" Height="35" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,222,612">Edit Users</Button>
+        <Button Name="UsersButton" Width="94" Height="35" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,222,612" Click="UsersButton_Click">Edit Users</Button>
         <Button Name="InventoryButton" Width="95" Height="35" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,334,612">Edit Inventory</Button>
         <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="CategoryColumn">
         

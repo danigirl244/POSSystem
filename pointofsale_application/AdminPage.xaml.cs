@@ -169,5 +169,12 @@ namespace pointofsale_application
             }
 
         }
+
+        private void UsersButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditUser user = new EditUser();
+            user.Show();
+            this.Close();
+        }
     }
 }
