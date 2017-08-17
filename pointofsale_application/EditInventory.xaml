@@ -29,9 +29,9 @@
                         <TextBox Name="beerDesc" Width="105" Height="50" BorderBrush="#464543"
                                  >Description:</TextBox>
                         <Button x:Name="saveBeer" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
+                                Click="Save_Click">✓</Button>
                         <Button x:Name="deleteBeer" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
@@ -50,9 +50,9 @@
                         <TextBox Name="wineDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  >Description:</TextBox>
                         <Button x:Name="saveWine" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
-                        <Button x:Name="deleteWine" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Save_Click">✓</Button>
+                        <Button x:Name="DeleteWine" Height="20" Width="15" Margin="5" 
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
@@ -71,9 +71,9 @@
                         <TextBox Name="whiskeyDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  >Description:</TextBox>
                         <Button x:Name="saveWhiskey" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
+                                Click="Save_Click">✓</Button>
                         <Button x:Name="deleteWhiskey" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
@@ -92,9 +92,9 @@
                         <TextBox Name="vodkaDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  >Description:</TextBox>
                         <Button x:Name="saveVodka" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
+                                Click="Save_Click">✓</Button>
                         <Button x:Name="deleteVodka" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
@@ -113,9 +113,9 @@
                         <TextBox Name="ginDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  >Description:</TextBox>
                         <Button x:Name="saveGin" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
+                                Click="Save_Click">✓</Button>
                         <Button x:Name="deleteGin" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
@@ -134,9 +134,9 @@
                         <TextBox Name="teqDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  >Description:</TextBox>
                         <Button x:Name="saveTeq" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
+                                Click="Save_Click">✓</Button>
                         <Button x:Name="deleteTeq" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
@@ -155,9 +155,9 @@
                         <TextBox Name="rumDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  >Description:</TextBox>
                         <Button x:Name="saveRum" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
+                                Click="Save_Click">✓</Button>
                         <Button x:Name="deleteRum" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
@@ -176,9 +176,9 @@
                         <TextBox Name="otherDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  >Description:</TextBox>
                         <Button x:Name="saveOther" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
+                                Click="Save_Click">✓</Button>
                         <Button x:Name="deleteOther" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
@@ -197,9 +197,9 @@
                         <TextBox Name="fossilsDesc" Width="105" Height="50" BorderBrush="#464543" 
                                  >Description:</TextBox>
                         <Button x:Name="saveFossils" Height="20" Width="15" Margin="5"
-                                Click="save_Click">✓</Button>
+                                Click="Save_Click">✓</Button>
                         <Button x:Name="deleteFossils" Height="20" Width="15" Margin="5" 
-                                Click="delete_Click">X</Button>
+                                Click="Delete_Click">X</Button>
                     </StackPanel>
                 </Border>
             </TabItem>
