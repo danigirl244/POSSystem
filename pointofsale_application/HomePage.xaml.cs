@@ -59,12 +59,12 @@ namespace pointofsale_application
         {
             
             SqlCommand categories = new SqlCommand("SELECT SKU, Name, Price, Category, NumPurchased FROM Inventory", access.AccessDB());
-            List<Item> cats = new List<Item>();
+            List<Item> Inventory = new List<Item>();
             SqlDataReader rd;
             rd = categories.ExecuteReader();
             while (rd.Read())
             {
-                cats.Add(new Item()
+                Inventory.Add(new Item()
                 {
                     SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
                     Name = rd.GetString(rd.GetOrdinal("Name")),
@@ -73,7 +73,7 @@ namespace pointofsale_application
                     NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
                 });
             }
-            //MessageBox.Show(cats[1].Category.ToString());
+            //MessageBox.Show("SKU: " + Inventory[0].SKU.ToString() + " Name: " + Inventory[0].Name.ToString() + " Price: " + Inventory[0].Price.ToString() + " Category: " + Inventory[0].Category.ToString() + " NumPurchased: " + Inventory[0].NumPurchased.ToString());
 
         }
         public void fillCategoryColumn()
