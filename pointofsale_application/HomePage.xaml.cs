@@ -93,6 +93,11 @@ namespace pointofsale_application
             fillItemColumn();
         }
 
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn();
+        }
+
         public void fillItemColumn()
         {
             int count = 0;

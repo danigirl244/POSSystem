@@ -14,7 +14,8 @@
         </DockPanel>
         <Button Name="ReportsButton" Width="80" Height="35" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,122,612" Click="ReportsButton_Click">Reports</Button>
         <Button Name="UsersButton" Width="94" Height="35" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,222,612" Click="UsersButton_Click">Edit Users</Button>
-        <Button Name="InventoryButton" Width="95" Height="35" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,334,612" Click="InventoryButton_Click">Edit Inventory</Button>
+        <Button Name="InventoryButton" Width="128" Height="36" FontSize="20
+                " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,24,334,611" Click="InventoryButton_Click">Edit Inventory</Button>
         <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="CategoryColumn">
         </StackPanel>
         <Grid Margin="135,85,307,0"  ShowGridLines="True" x:Name="ItemGrid">
