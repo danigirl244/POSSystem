@@ -22,17 +22,17 @@ namespace UnitTestProject1
         public void EditUserTest()
         {
             pointofsale_application.EditUser user = new pointofsale_application.EditUser();
-            user.addEmp("Evan", "Admin", "Active");
-            user.updateEmpAct(12345, "inActive");
-            user.updateEmpRank(12345, "Basic");
+            //user.AddEmp("Evan", "admin", 1);
+            //user.UpdateEmpAct(11119, 0);
+            user.UpdateEmpRank(11119, "basic");
         }
         [TestMethod]
         public void EditInventoryTest()
         {
             pointofsale_application.EditInventory inv = new pointofsale_application.EditInventory();
-            inv.createItem(24, 10.25, "Jack", "Jack Bottle", "Whiskey");
-            inv.deleteItem(111127);
-            inv.editItem(111127, 20, 5.55, "Patron", "Tequila", "Tequila");
+            //inv.CreateItem(24, 10.25, "Jack", "Jack Bottle", "Whiskey");
+            //inv.EditItem(111137, 20, 5.55, "Patron", "Tequila", "Tequila");
+            //inv.DeleteItem(111137);
 
         }
         [TestMethod]
@@ -53,12 +53,12 @@ namespace UnitTestProject1
         public void AdminPageTest()
         {
             pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage();
-            admin.printSubTotal();
-            admin.printTotal();
-            admin.addItem();
-            admin.removeItem();
-            admin.fillCategoryColumn();
-            admin.fillItemColumn();
+            admin.PrintSubTotal();
+            admin.PrintTotal();
+            admin.AddItem();
+            admin.RemoveItem();
+            admin.FillCategoryColumn();
+            admin.FillItemColumn();
             }
     }
 }
