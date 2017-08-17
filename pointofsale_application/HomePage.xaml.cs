@@ -46,20 +46,18 @@ namespace pointofsale_application
 
         List<Item> itemList = new List<Item>();
         List<Item> cartList = new List<Item>();
-        
+        List<Item> Inventory = new List<Item>();
         public HomePage()
         {
             InitializeComponent();
             fillCategoryColumn();
-            fillItemColumn();
             InitializeItemList();
+            fillItemColumn();
         }
 
         public void InitializeItemList()
         {
-            
             SqlCommand categories = new SqlCommand("SELECT SKU, Name, Price, Category, NumPurchased FROM Inventory", access.AccessDB());
-            List<Item> Inventory = new List<Item>();
             SqlDataReader rd;
             rd = categories.ExecuteReader();
             while (rd.Read())
@@ -73,7 +71,6 @@ namespace pointofsale_application
                     NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
                 });
             }
-            //MessageBox.Show("SKU: " + Inventory[0].SKU.ToString() + " Name: " + Inventory[0].Name.ToString() + " Price: " + Inventory[0].Price.ToString() + " Category: " + Inventory[0].Category.ToString() + " NumPurchased: " + Inventory[0].NumPurchased.ToString());
 
         }
         public void fillCategoryColumn()
@@ -86,10 +83,14 @@ namespace pointofsale_application
                 Button newBtn = new Button();
                 newBtn.Content = cats[i];
                 newBtn.Name = "Button" + i;
-                //newBtn.Click += fillItemColumn();
+                newBtn.Click += new RoutedEventHandler(btn_Click);
                 CategoryColumn.Children.Add(newBtn); 
-                //add onclick functionality here
+                
             }
+        }
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn();
         }
 
         public void fillItemColumn()
@@ -100,12 +101,15 @@ namespace pointofsale_application
                 for(int j = 0; j < 4; j++)
                 {
                     Button newBtn = new Button();
-                    newBtn.Content = count.ToString();
-                    newBtn.Name = "Button" + count.ToString();
-                    Grid.SetColumn(newBtn, j);
-                    Grid.SetRow(newBtn, i);
-                    ItemGrid.Children.Add(newBtn);
-                    count++;
+                    if (Inventory.Count > count)
+                    {
+                        newBtn.Content = Inventory[count].Name.ToString();
+                        newBtn.Name = "Button" + count.ToString();
+                        Grid.SetColumn(newBtn, j);
+                        Grid.SetRow(newBtn, i);
+                        ItemGrid.Children.Add(newBtn);
+                        count++;
+                    }
                 }
             }
         }
