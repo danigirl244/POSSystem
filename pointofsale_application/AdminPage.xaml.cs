@@ -46,12 +46,13 @@ namespace pointofsale_application
         public AdminPage()
         {
             InitializeComponent();
-            fillCategoryColumn();
+            FillCategoryColumn();
             //InitializeItemList();
-            fillItemColumn();
+            FillItemColumn();
+            DateTimeTransactionField.Text = DateTime.Now.ToString();
         }
 
-        public void fillCategoryColumn()
+        public void FillCategoryColumn()
         {
             for (int i = 0; i < 5/*mostpopularlength*/; i++)
             {
@@ -63,7 +64,7 @@ namespace pointofsale_application
             }
         }
 
-        public void fillItemColumn()
+        public void FillItemColumn()
         {
             int count = 0;
             for (int i = 0; i < 4; i++)
@@ -101,7 +102,7 @@ namespace pointofsale_application
 
         }
 
-        public void addItem()
+        public void AddItem()
         {
             //cartList.add(item)  'item' will be the oject of items.
             for (int i = 0; i < itemList.Count; i++)
@@ -116,7 +117,7 @@ namespace pointofsale_application
         }
 
         //Delete Item From 'Cart'
-        public void removeItem()
+        public void RemoveItem()
         {
             //cartList.Remove() Removes item from list.
             for (int i = 0; i < cartList.Count; i++)
@@ -131,7 +132,7 @@ namespace pointofsale_application
         }
 
         //subtotal
-        public double printSubTotal()
+        public double PrintSubTotal()
         {
 
             foreach (object item in cartList)
@@ -143,7 +144,7 @@ namespace pointofsale_application
         }
 
         //Final Price with Tax
-        public double printTotal()
+        public double PrintTotal()
         {
 
             taxTotal = subtotal * taxPercentage;

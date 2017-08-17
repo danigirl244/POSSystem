@@ -63,7 +63,7 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
 
         }
 
-        public void addEmp(string empName, string empPermissions, string isActive)
+        public void AddEmp(string empName, string empPermissions, string isActive)
         {
             //creates a new employee with predetermined values
 
@@ -71,7 +71,7 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
             
         }
 
-        public void updateEmpRank(int empID, string empPermissions)
+        public void UpdateEmpRank(int empID, string empPermissions)
         {
             //updates user rank according to the predetermined value ex) basic, admin
 
@@ -79,7 +79,7 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
 
         }
 
-        public void updateEmpAct(int empID, string activity)
+        public void UpdateEmpAct(int empID, string activity)
         {
             //updates user's isActive according to the predetermined value
 

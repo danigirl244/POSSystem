@@ -59,7 +59,11 @@ namespace pointofsale_application
             InitializeComponent();
             fillCategoryColumn();
             InitializeItemList();
+
+            DateTimeTransactionField.Text = DateTime.Now.ToString();
+
             fillItemColumn();
+
         }
 
         public void InitializeItemList()

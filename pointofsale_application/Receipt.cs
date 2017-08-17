@@ -62,7 +62,7 @@ namespace pointofsale_application
             Order += 1;
         }
 
-        public string toString()
+        public string ToString()
         {
             string s = "";
 

@@ -21,10 +21,10 @@
         <RadioButton x:Name="AdminRButton" Content="Admin" HorizontalAlignment="Left" Margin="334,154,0,0" VerticalAlignment="Top" Height="19" Width="55"/>
         <Label x:Name="Permission" Content="Permission: Basic" HorizontalAlignment="Left" Margin="320,259,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.962" Height="29" Width="109"/>
         <Image x:Name="Logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="100" Margin="10,12,0,0" VerticalAlignment="Top" Width="110"/>
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="26" Margin="114,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" Text="Name..."/>
-        <TextBox x:Name="Name1" HorizontalAlignment="Left" Height="26" Margin="114,259,0,0" TextWrapping="Wrap" Text="Tyler" VerticalAlignment="Top" Width="79"/>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="26" Margin="114,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" Text=""/>
+        <TextBox x:Name="Name1" HorizontalAlignment="Left" Height="26" Margin="114,259,0,0" TextWrapping="Wrap" Text="Sally"  VerticalAlignment="Top" Width="79"/>
         <TextBox HorizontalAlignment="Left" Height="26" Margin="35,151,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Width="66" TextChanged="TextBox_TextChanged"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="35,259,0,0" TextWrapping="Wrap" Text="ID: 62059" VerticalAlignment="Top" Width="66" TextChanged="TextBox_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="35,259,0,0" TextWrapping="Wrap" Text="ID:11112" VerticalAlignment="Top" Width="66" TextChanged="TextBox_TextChanged"/>
 
     </Grid>
 </Window>
