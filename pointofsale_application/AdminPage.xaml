@@ -51,15 +51,15 @@
                 </DataGrid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="0,10,10,0" HorizontalAlignment="Right"><Bold>Subtotal:</Bold></TextBlock>
-                    <TextBlock Name="SubtotalTransactionField" Margin="0,10,10,0" HorizontalAlignment="Right">$Temp Subtotal</TextBlock>
+                    <TextBlock Name="SubtotalTransactionField" Margin="0,10,10,0" HorizontalAlignment="Right"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="0,0, 10, 0" HorizontalAlignment="Right"><Bold>Tax:</Bold></TextBlock>
-                    <TextBlock Name="TaxTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right">$Temp Tax</TextBlock>
+                    <TextBlock Name="TaxTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="0,0, 10, 0" HorizontalAlignment="Right"><Bold>Total:</Bold></TextBlock>
-                    <TextBlock Name="TotalTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right">$Temp Total</TextBlock>
+                    <TextBlock Name="TotalTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </DockPanel>
