@@ -86,10 +86,15 @@ namespace pointofsale_application
                 Button newBtn = new Button();
                 newBtn.Content = cats[i];
                 newBtn.Name = "Button" + i;
-                //newBtn.Click += fillItemColumn();
+                newBtn.Click += new RoutedEventHandler(btn_Click);
                 CategoryColumn.Children.Add(newBtn); 
-                //add onclick functionality here
+                
             }
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn();
         }
 
         public void fillItemColumn()
