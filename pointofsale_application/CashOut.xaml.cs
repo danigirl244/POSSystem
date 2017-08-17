@@ -49,7 +49,7 @@ namespace pointofsale_application
             }
         }
 
-        public void printChange()
+        public void PrintChange()
         {
             double change = double.Parse(RemainingBalance.Text) * -1;
             ChangeDue.Text = System.Convert.ToString(change);
@@ -61,7 +61,7 @@ namespace pointofsale_application
             RemainingBalance.Text = hundred.ToString();
             if (double.Parse(RemainingBalance.Text) <= 0)
             {
-                printChange();
+                PrintChange();
                 CheckOutButton.IsEnabled = true;
             }
         }
@@ -72,7 +72,7 @@ namespace pointofsale_application
             RemainingBalance.Text = fifty.ToString();
             if (double.Parse(RemainingBalance.Text) <= 0)
             {
-                printChange();
+                PrintChange();
                 CheckOutButton.IsEnabled = true;
             }
         }
@@ -83,7 +83,7 @@ namespace pointofsale_application
             RemainingBalance.Text = twentyfive.ToString();
             if (double.Parse(RemainingBalance.Text) <= 0)
             {
-                printChange();
+                PrintChange();
                 CheckOutButton.IsEnabled = true;
             }
         }
@@ -94,7 +94,7 @@ namespace pointofsale_application
             RemainingBalance.Text = twenty.ToString();
             if (double.Parse(RemainingBalance.Text) <= 0)
             {
-                printChange();
+                PrintChange();
                 CheckOutButton.IsEnabled = true;
             }
         }
@@ -105,7 +105,7 @@ namespace pointofsale_application
             RemainingBalance.Text = ten.ToString();
             if (double.Parse(RemainingBalance.Text) <= 0)
             {
-                printChange();
+                PrintChange();
                 CheckOutButton.IsEnabled = true;
             }
         }
@@ -116,7 +116,7 @@ namespace pointofsale_application
             RemainingBalance.Text = five.ToString();
             if (double.Parse(RemainingBalance.Text) <= 0)
             {
-                printChange();
+                PrintChange();
                 CheckOutButton.IsEnabled = true;
             }
         }
@@ -132,7 +132,7 @@ namespace pointofsale_application
                 RemainingBalance.Text = currentBalance.ToString();
                 if (double.Parse(RemainingBalance.Text) <= 0)
                 {
-                    printChange();
+                    PrintChange();
                     CheckOutButton.IsEnabled = true;
                 }
             }
