@@ -48,21 +48,65 @@ namespace pointofsale_application
         public void CreateItem(int qty, double price, string name, string desc, string category)
         {
             //Insert new item into inventory table according to the information entered
-            SqlCommand createItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0);", dbt.AccessDB());
+            //SqlCommand createItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0);", dbt.AccessDB());
+            SqlCommand createItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (@param1, @param2, @param3, @param4, @param5, 700);", dbt.AccessDB());
+
+            createItem.Parameters.Add("@param1", SqlDbType.Int).Value = qty;
+            createItem.Parameters.Add("@param2", SqlDbType.Money).Value = price;
+            createItem.Parameters.Add("@param3", SqlDbType.VarChar, 255).Value = name;
+            createItem.Parameters.Add("@param4", SqlDbType.Text).Value = desc;
+            createItem.Parameters.Add("@param5", SqlDbType.VarChar, 255).Value = category;
+            createItem.CommandType = CommandType.Text;
+            //createItem.ExecuteNonQuery();
             
+            try
+            {
+                createItem.ExecuteNonQuery();
+            } catch(SqlException e)
+            {
+                MessageBox.Show(e.Message.ToString(), "Error Message");
+            }
+
         }
 
         public void EditItem(int itemID, int qty, double price, string name, string desc, string category)
         {
             //Using an update command according to the itemID to update editted fields
-            SqlCommand editItem = new SqlCommand("UPDATE Inventory SET QtyOnHand = " + qty + ", Price = " + price + ", Name = " + name + ", [Desc] = " + desc + ", Category = " + category + " WHERE SKU = " + itemID + ";", dbt.AccessDB());
+            SqlCommand editItem = new SqlCommand("UPDATE Inventory SET QtyOnHand = @param1, Price = @param2, Name = @param3, [Desc] = @param4, Category = @param5 WHERE SKU = @param6;", dbt.AccessDB());
+
+            editItem.Parameters.Add("@param1", SqlDbType.Int).Value = qty;
+            editItem.Parameters.Add("@param2", SqlDbType.Money).Value = price;
+            editItem.Parameters.Add("@param3", SqlDbType.VarChar, 255).Value = name;
+            editItem.Parameters.Add("@param4", SqlDbType.Text).Value = desc;
+            editItem.Parameters.Add("@param5", SqlDbType.VarChar, 255).Value = category;
+            editItem.Parameters.Add("@param6", SqlDbType.Int).Value = itemID;
+            editItem.CommandType = CommandType.Text;
+
+            try
+            {
+                editItem.ExecuteNonQuery();
+            } catch (SqlException e)
+            {
+                MessageBox.Show(e.Message.ToString(), "Error Message");
+            }
 
         }
 
         public void DeleteItem(int itemID)
         {
             //delete from inventory table according to the itemId of the button pushed
-            SqlCommand deleteItem = new SqlCommand("DELETE FROM Inventory WHERE SKU = " + itemID + ";", dbt.AccessDB());
+            SqlCommand deleteItem = new SqlCommand("DELETE FROM Inventory WHERE SKU = @param1;", dbt.AccessDB());
+            
+            deleteItem.Parameters.Add("@param1", SqlDbType.Int).Value = itemID;
+            deleteItem.CommandType = CommandType.Text;
+
+            try
+            {
+                deleteItem.ExecuteNonQuery();
+            }catch (SqlException e)
+            {
+                MessageBox.Show(e.Message.ToString(), "Error Message");
+            }
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
