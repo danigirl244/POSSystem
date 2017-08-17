@@ -48,7 +48,7 @@ namespace pointofsale_application
         public void createItem(int qty, double price, string name, string desc, string category)
         {
             //Insert new item into inventory table according to the information entered
-            SqlCommand createItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0;", dbt.AccessDB());
+            SqlCommand createItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (" + qty + ", " + price + ", " + name + ", " + desc + ", " + category + ", 0);", dbt.AccessDB());
             
         }
 
