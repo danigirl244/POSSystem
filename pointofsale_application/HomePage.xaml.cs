@@ -282,54 +282,6 @@ namespace pointofsale_application
             }
 
         }
-        
-        public void sort(int sortType)
-        {
-            /*
-            case 1
-                Sort by Highest Purchased Items
-            case 2
-                Sort by category "Beer"
-            case 3
-                Sort by category "Wine"
-            case 4
-                Sort by category "Vodka"
-            case 5
-                Sort by category "Gin"
-            case 6
-                Sort by category "Whisky"
-            case 7
-                Sort by category "Tequilla"
-             */
-        }
-
-        public void displayItems(int displayNum)
-        {
-            /*
-            case 1
-                Get all items in the list that have the highest NumPurchased
-                Create buttons for each of those items
-            case 2
-                Get all items in the list that have a category of "Beer"
-                Create buttons for each of those items
-            case 3
-                Get all items in the list that have a category of "Wine"
-                Create buttons for each of those items
-            case 4
-                Get all items in the list that have a category of "Vodka"
-                Create buttons for each of those items
-            case 5
-                Get all items in the list that have a category of "Gin"
-                Create buttons for each of those items
-            case 6
-                Get all items in the list that have a category of "Whisky"
-                Create buttons for each of those items
-            case 7
-                Get all items in the list that have a category of "Tequilla"
-                Create buttons for each of those items
-             */
-        }
-
 
         //subtotal
         public double printSubTotal()

@@ -41,30 +41,190 @@ namespace pointofsale_application
             set { taxTotal = value; }
         }
 
-        List<Object> itemList = new List<Object>();
-        List<Object> cartList = new List<Object>();
+        List<Item> itemList = new List<Item>();
+        List<Item> cartList = new List<Item>();
+        List<Item> Inventory = new List<Item>();
+        List<Item> BeerItems = new List<Item>();
+        List<Item> VodkaItems = new List<Item>();
+        List<Item> TequilaItems = new List<Item>();
+        List<Item> WhiskeyItems = new List<Item>();
+        List<Item> BourbonItems = new List<Item>();
+        List<Item> WineItems = new List<Item>();
+
         public AdminPage()
         {
             InitializeComponent();
-            FillCategoryColumn();
-            //InitializeItemList();
-            FillItemColumn();
+            fillCategoryColumn();
+            InitializeItemList();
+
             DateTimeTransactionField.Text = DateTime.Now.ToString();
+
+            fillItemColumn(Inventory);
+
         }
 
-        public void FillCategoryColumn()
+        public void InitializeItemList()
         {
-            for (int i = 0; i < 5/*mostpopularlength*/; i++)
+            SqlCommand categories = new SqlCommand("SELECT SKU, Name, Price, Category, NumPurchased FROM Inventory ORDER by NumPurchased DESC", access.AccessDB());
+            SqlDataReader rd;
+            rd = categories.ExecuteReader();
+            while (rd.Read())
             {
-                System.Windows.Controls.Button newBtn = new Button();
-                newBtn.Content = i.ToString();
+                Inventory.Add(new Item()
+                {
+                    SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                    Name = rd.GetString(rd.GetOrdinal("Name")),
+                    Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                    Category = rd.GetString(rd.GetOrdinal("Category")),
+                    NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
+                });
+                for (int i = 0; i < Inventory.Count; i++)
+                {
+                    if (Inventory[i].Category.ToString() == "Beer")
+                    {
+                        BeerItems.Add(new Item()
+                        {
+                            SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                            Name = rd.GetString(rd.GetOrdinal("Name")),
+                            Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                            Category = rd.GetString(rd.GetOrdinal("Category")),
+                            NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
+                        });
+                    }
+                    else if (Inventory[i].Category.ToString() == "Vodka")
+                    {
+                        VodkaItems.Add(new Item()
+                        {
+                            SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                            Name = rd.GetString(rd.GetOrdinal("Name")),
+                            Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                            Category = rd.GetString(rd.GetOrdinal("Category")),
+                            NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
+                        });
+                    }
+                    else if (Inventory[i].Category.ToString() == "Tequila")
+                    {
+                        TequilaItems.Add(new Item()
+                        {
+                            SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                            Name = rd.GetString(rd.GetOrdinal("Name")),
+                            Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                            Category = rd.GetString(rd.GetOrdinal("Category")),
+                            NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
+                        });
+                    }
+                    else if (Inventory[i].Category.ToString() == "Bourbon")
+                    {
+                        BourbonItems.Add(new Item()
+                        {
+                            SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                            Name = rd.GetString(rd.GetOrdinal("Name")),
+                            Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                            Category = rd.GetString(rd.GetOrdinal("Category")),
+                            NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
+                        });
+                    }
+                    else if (Inventory[i].Category.ToString() == "Whiskey")
+                    {
+                        WhiskeyItems.Add(new Item()
+                        {
+                            SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                            Name = rd.GetString(rd.GetOrdinal("Name")),
+                            Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                            Category = rd.GetString(rd.GetOrdinal("Category")),
+                            NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
+                        });
+                    }
+                    else if (Inventory[i].Category.ToString() == "Wine")
+                    {
+                        WineItems.Add(new Item()
+                        {
+                            SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                            Name = rd.GetString(rd.GetOrdinal("Name")),
+                            Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                            Category = rd.GetString(rd.GetOrdinal("Category")),
+                            NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
+                        });
+                    }
+
+                }
+
+            }
+            MessageBox.Show(WineItems[0].SKU.ToString());
+
+        }
+        public void fillCategoryColumn()
+        {
+            string[] cats = { "Best Sellers", "Beer", "Vodka", "Tequila", "Whiskey", "Bourbon", "Wine" };
+            DatabaseAccess db = new DatabaseAccess();
+            db.AccessDB();
+            for (int i = 0; i < cats.Length/*mostpopularlength*/; i++)
+            {
+                Button newBtn = new Button();
+                newBtn.Content = cats[i];
                 newBtn.Name = "Button" + i;
-                //newBtn.Click += fillItemColumn();
+                if (newBtn.Name == "Button0")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click0);
+                }
+                else if (newBtn.Name == "Button1")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click1);
+                }
+                else if (newBtn.Name == "Button2")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click2);
+                }
+                else if (newBtn.Name == "Button3")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click3);
+                }
+                else if (newBtn.Name == "Button4")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click4);
+                }
+                else if (newBtn.Name == "Button5")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click5);
+                }
+                else if (newBtn.Name == "Button6")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click6);
+                }
                 CategoryColumn.Children.Add(newBtn);
+
             }
         }
+        private void btn_Click0(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(Inventory);
+        }
+        private void btn_Click1(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(BeerItems);
+        }
+        private void btn_Click2(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(VodkaItems);
+        }
+        private void btn_Click3(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(TequilaItems);
+        }
+        private void btn_Click4(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(WhiskeyItems);
+        }
+        private void btn_Click5(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(BourbonItems);
+        }
+        private void btn_Click6(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(WineItems);
+        }
 
-        public void FillItemColumn()
+        public void fillItemColumn(List<Item> category)
         {
             int count = 0;
             for (int i = 0; i < 4; i++)
@@ -72,43 +232,32 @@ namespace pointofsale_application
                 for (int j = 0; j < 4; j++)
                 {
                     Button newBtn = new Button();
-                    newBtn.Content = count.ToString();
-                    newBtn.Name = "Button" + count.ToString();
-                    Grid.SetColumn(newBtn, j);
-                    Grid.SetRow(newBtn, i);
-                    ItemGrid.Children.Add(newBtn);
-                    count++;
+                    if (category.Count > count)
+                    {
+                        newBtn.Content = category[count].Name.ToString();
+                        newBtn.Name = "Button" + count.ToString();
+                        newBtn.Click += new RoutedEventHandler(btn_Click);
+                        Grid.SetColumn(newBtn, j);
+                        Grid.SetRow(newBtn, i);
+                        ItemGrid.Children.Add(newBtn);
+                        count++;
+                    }
                 }
             }
         }
 
-        public void InitializeItemList()
+        private void btn_Click(object sender, RoutedEventArgs e)
         {
-            string fillItemList = "Select * From Inventory";
-            SqlCommand fill = new SqlCommand(fillItemList);
-            SqlDataReader dr;
-            dr = fill.ExecuteReader();
-            while (dr.Read())
-            {
-                itemList.Add(new Item()
-                {
-                    SKU = dr.GetInt32(dr.GetOrdinal("SKU")),
-                    Name = dr.GetString(dr.GetOrdinal("Name")),
-                    Price = dr.GetDouble(dr.GetOrdinal("Price")),
-                    Category = dr.GetString(dr.GetOrdinal("[Desc]")),
-                    NumPurchased = dr.GetInt32(dr.GetOrdinal("QtyOnHand"))
-                });
-            }
-
+            addItem();
         }
 
-        public void AddItem()
+        public void addItem()
         {
             //cartList.add(item)  'item' will be the oject of items.
-            for (int i = 0; i < itemList.Count; i++)
+            for (int i = 0; i < Inventory.Count; i++)
             {
                 /* 
-                  if (((Item)itemList[i]).Name.Contains('ButtonStringValue'){
+                  if (((Item)Inventory[i]).Name.Contains('ButtonStringValue'){
                      cartList.Add(itemList[i]);
                  }
                  */
@@ -117,7 +266,7 @@ namespace pointofsale_application
         }
 
         //Delete Item From 'Cart'
-        public void RemoveItem()
+        public void removeItem()
         {
             //cartList.Remove() Removes item from list.
             for (int i = 0; i < cartList.Count; i++)
@@ -132,25 +281,33 @@ namespace pointofsale_application
         }
 
         //subtotal
-        public double PrintSubTotal()
+        public double printSubTotal()
         {
-
-            foreach (object item in cartList)
+            //Refreshes the subtotal each time an item is added to the 'cart'
+            subtotal = 0;
+            for (int i = 0; i < cartList.Count; i++)
             {
-                //subtotal = subtotal + item.price; 'item.price' is a placeholder for whatever the price section is called
+                subtotal += cartList[i].Price;
             }
 
             return subtotal;
+
         }
 
         //Final Price with Tax
-        public double PrintTotal()
+        public double printTotal()
         {
 
             taxTotal = subtotal * taxPercentage;
             total = subtotal + taxTotal;
 
             return total;
+        }
+
+
+        public void CreateReceipt()
+        {
+            Receipt receipt = new Receipt(SubTotal, TaxTotal, Total, cartList, "CashierName", new DateTime(2017, 8, 14));
         }
 
         private void CashoutButton_Click(object sender, RoutedEventArgs e)
@@ -161,13 +318,12 @@ namespace pointofsale_application
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to log out?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Login login = new Login();
                 login.Show();
                 this.Close();
             }
-
         }
 
         private void UsersButton_Click(object sender, RoutedEventArgs e)
