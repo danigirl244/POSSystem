@@ -53,12 +53,12 @@ namespace UnitTestProject1
         public void AdminPageTest()
         {
             pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage();
-            admin.PrintSubTotal();
-            admin.PrintTotal();
-            admin.AddItem();
-            admin.RemoveItem();
-            admin.FillCategoryColumn();
-            admin.FillItemColumn();
+            admin.printSubTotal();
+            admin.printTotal();
+            admin.addItem();
+            admin.removeItem();
+            admin.fillCategoryColumn();
+            //admin.fillItemColumn();
             }
     }
 }
