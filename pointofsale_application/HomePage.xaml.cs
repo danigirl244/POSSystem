@@ -62,7 +62,7 @@ namespace pointofsale_application
 
             DateTimeTransactionField.Text = DateTime.Now.ToString();
 
-            fillItemColumn();
+            fillItemColumn(Inventory);
 
         }
 
@@ -166,17 +166,68 @@ namespace pointofsale_application
                 Button newBtn = new Button();
                 newBtn.Content = cats[i];
                 newBtn.Name = "Button" + i;
-                newBtn.Click += new RoutedEventHandler(btn_Click);
+                if(newBtn.Name == "Button0")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click0);
+                }
+                else if (newBtn.Name == "Button1")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click1);
+                }
+                else if (newBtn.Name == "Button2")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click2);
+                }
+                else if (newBtn.Name == "Button3")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click3);
+                }
+                else if (newBtn.Name == "Button4")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click4);
+                }
+                else if (newBtn.Name == "Button5")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click5);
+                }
+                else if (newBtn.Name == "Button6")
+                {
+                    newBtn.Click += new RoutedEventHandler(btn_Click6);
+                }
                 CategoryColumn.Children.Add(newBtn); 
                 
             }
         }
-        private void btn_Click(object sender, RoutedEventArgs e)
+        private void btn_Click0(object sender, RoutedEventArgs e)
         {
-            fillItemColumn();
+            fillItemColumn(Inventory);
+        }
+        private void btn_Click1(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(BeerItems);
+        }
+        private void btn_Click2(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(VodkaItems);
+        }
+        private void btn_Click3(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(TequilaItems);
+        }
+        private void btn_Click4(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(WhiskeyItems);
+        }
+        private void btn_Click5(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(BourbonItems);
+        }
+        private void btn_Click6(object sender, RoutedEventArgs e)
+        {
+            fillItemColumn(WineItems);
         }
 
-        public void fillItemColumn()
+        public void fillItemColumn(List<Item> category)
         {
             int count = 0;
             for(int i = 0; i < 4; i++)
@@ -184,10 +235,11 @@ namespace pointofsale_application
                 for(int j = 0; j < 4; j++)
                 {
                     Button newBtn = new Button();
-                    if (Inventory.Count > count)
+                    if (category.Count > count)
                     {
-                        newBtn.Content = Inventory[count].Name.ToString();
+                        newBtn.Content = category[count].Name.ToString();
                         newBtn.Name = "Button" + count.ToString();
+                        newBtn.Click += new RoutedEventHandler(btn_Click);
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
                         ItemGrid.Children.Add(newBtn);
@@ -197,13 +249,18 @@ namespace pointofsale_application
             }
         }
 
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            addItem();
+        }
+
         public void addItem()
         {
             //cartList.add(item)  'item' will be the oject of items.
-            for (int i = 0; i < itemList.Count; i++)
+            for (int i = 0; i < Inventory.Count; i++)
             {
                 /* 
-                  if (((Item)itemList[i]).Name.Contains('ButtonStringValue'){
+                  if (((Item)Inventory[i]).Name.Contains('ButtonStringValue'){
                      cartList.Add(itemList[i]);
                  }
                  */
