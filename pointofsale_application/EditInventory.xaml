@@ -10,21 +10,27 @@
         <Label Content="Edit Products" VerticalAlignment="Center" FontWeight="Medium" FontSize="18" 
                Height="30" Width="118" Margin="172,20,162,293"></Label>
         <Button Content="Add Product" Width="85" Height="30" Margin="424,20,10,289" 
-               Background="#464543" Foreground="#b1b7b7" BorderBrush="Black"></Button>
+               Background="#464543" Foreground="#b1b7b7" BorderBrush="Black" Click="AddProduct_Click"></Button>
         <Image Name="logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="68" 
                Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>
-        <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,83,0,0" 
-                    x:Name="CategoryColumn"></StackPanel>
-        <ScrollViewer>
-            <Grid Margin="135,85,0,0"  ShowGridLines="True" x:Name="ItemGrid">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-            </Grid>
-        </ScrollViewer>
+        <!--<ScrollViewer Margin="562,0,0,0">-->
+        <Grid Width="560" Height="250" ShowGridLines="True" x:Name="ItemGrid" 
+                  Margin="0,103,-6,0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <!--</ScrollViewer>-->
 
     </Grid>
 </Window>
+

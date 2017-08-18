@@ -1,0 +1,56 @@
+﻿<Window x:Class="pointofsale_application.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pointofsale_application"
+        mc:Ignorable="d"
+        Title="Add Product" Height="300" Width="455" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#787a79">
+        <Border Height="150" Width="200" BorderBrush="#464543" BorderThickness="2" Background="#b1b7b7" 
+                Margin="10,47,237,72">
+            <StackPanel Margin="10" VerticalAlignment="Center">
+                <TextBox Name="prodID" Width="70" Height="20" Margin="0,0,0,10" 
+                                     BorderBrush="#464543">ID:</TextBox>
+                <TextBox Name="prodName" Width="150" Height="20" Margin="0,0,0,10" 
+                                     BorderBrush="#464543">Name:</TextBox>
+                <TextBox Name="prodPrice" Width="80" Height="20"
+                                     BorderBrush="#464543">Price:</TextBox>
+            </StackPanel>
+        </Border>
+        <Border Height="150" Width="200" BorderBrush="#464543" BorderThickness="2" Background="#b1b7b7" 
+                Margin="237,47,10,72">
+            <StackPanel Margin="10" VerticalAlignment="Center">
+                <TextBox Name="prodQuant" Width="100" Height="20" Margin="0,0,0,10" 
+                                     BorderBrush="#464543">Quantity:</TextBox>
+                <TextBox Name="prodDesc" Width="150" Height="50" BorderBrush="#464543"
+                                     Margin="0,0,0,10">Description:</TextBox>
+                <ComboBox BorderBrush="#464543" BorderThickness="2" x:Name="cat" IsEditable="True" 
+                          IsReadOnly="True" Text="Categories: ">
+                    <ComboBoxItem>Best Sellers</ComboBoxItem>
+                    <ComboBoxItem>Beer</ComboBoxItem>
+                    <ComboBoxItem>Vodka</ComboBoxItem>
+                    <ComboBoxItem>Tequila</ComboBoxItem>
+                    <ComboBoxItem>Whiskey</ComboBoxItem>
+                    <ComboBoxItem>Bourbon</ComboBoxItem>
+                    <ComboBoxItem>Wine</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+        <Border Height="40" Width="65" BorderThickness="2" BorderBrush="#464543" 
+                Margin="93,210,279,9">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="saveProd" Height="40" Width="65" FontSize="22" 
+                        Background="#b1b7b7" Click="Save_Click" Content="✓" Margin="0,0,0,-4"/>
+            </StackPanel>
+        </Border>
+        <Border Height="40" Width="65" BorderThickness="2" BorderBrush="#464543" 
+                Margin="275,210,97,9">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="deleteProd" Height="40" Width="65" FontSize="22" 
+                        Background="#b1b7b7" Click="Delete_Click">X</Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
+

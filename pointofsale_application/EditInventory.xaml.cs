@@ -152,5 +152,11 @@ namespace pointofsale_application
             tb.Text = string.Empty;
             tb.GotFocus -= TextBox_GotFocus;
         }
+
+        private void AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddProduct addprod = new AddProduct();
+            addprod.Show();
+        }
     }
 }
