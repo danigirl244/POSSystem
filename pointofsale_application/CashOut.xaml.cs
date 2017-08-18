@@ -59,12 +59,21 @@ namespace pointofsale_application
             Total = tot;
             permission = p;
             cart = l;
-            
+
+            SubTotal = Math.Round(SubTotal, 2);
+            SubtotalTransactionField.Text = "$ " + SubTotal.ToString();
+            TaxTotal = Math.Round(TaxTotal, 2);
+            TaxTransactionField.Text = "$ " + TaxTotal.ToString();
+            Total = Math.Round(Total, 2);
+            TotalTransactionField.Text = "$ " + Total.ToString();
+
+            RemainingBalance.Text = Total.ToString();
+
         }
 
         private void CheckOutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due:" + ChangeDue.Text, "Check Out");
+            MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" +ChangeDue.Text, "Check Out");
 
             if (permission.Equals("admin"))
             {
@@ -82,31 +91,23 @@ namespace pointofsale_application
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult Cancelled = MessageBox.Show("Transaction Cancelled");
-            if (permission.Equals("admin"))
+            if (MessageBox.Show("Are you sure you want to cancel the transaction?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                AdminPage adminpage = new AdminPage(permission);
-                adminpage.Show();
-                this.Close();
-            }
-            else if (permission.Equals("basic"))
-            {
-                HomePage homepage = new HomePage(permission);
-                homepage.Show();
-                this.Close();
-            }
-
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to log out?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                Login login = new Login();
-                login.Show();
-                this.Close();
+                if (permission.Equals("admin"))
+                {
+                    AdminPage adminpage = new AdminPage(permission);
+                    adminpage.Show();
+                    this.Close();
+                }
+                else if (permission.Equals("basic"))
+                {
+                    HomePage homepage = new HomePage(permission);
+                    homepage.Show();
+                    this.Close();
+                }
             }
         }
+
 
         private void ChangeOrderNum()
         {
