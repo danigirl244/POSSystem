@@ -23,6 +23,7 @@ namespace pointofsale_application
     /// </summary>
     public partial class Login : Window
     {
+        string perm;
         StringBuilder sb = new StringBuilder("", 5);
         public Login()
         {
@@ -33,8 +34,7 @@ namespace pointofsale_application
 
         private void Enter_Button_Click(object sender, RoutedEventArgs e)
         {
-            HomePage homepage = new HomePage();
-            AdminPage adminpage = new AdminPage();
+           
             if(textBoxEmpID.Text.Length == 5)
             {
                 if(Regex.IsMatch(textBoxEmpID.Text, @"^[0-9]+$"))
@@ -57,7 +57,10 @@ namespace pointofsale_application
                     {
                         SqlCommand userAdmin = new SqlCommand("SELECT Permissions FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());
                         string permission = userAdmin.ExecuteScalar().ToString();
-                        if(permission == "admin")
+                        perm = permission;
+                        HomePage homepage = new HomePage(perm);
+                        AdminPage adminpage = new AdminPage(perm);
+                        if (permission == "admin")
                         {
                             adminpage.Show();
                             this.Close();
