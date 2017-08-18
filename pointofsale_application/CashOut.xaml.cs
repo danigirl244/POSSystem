@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace pointofsale_application
     /// </summary>
     public partial class CashOut : Window
     {
+        DatabaseAccess access = new DatabaseAccess();
+
         private string permission;
         public string Permission
         {
@@ -48,6 +51,9 @@ namespace pointofsale_application
         public CashOut(double sub, double t, double tot, string p, List<Item> l)
         {
             InitializeComponent();
+            UpdateDateTime();
+            ChangeOrderNum();
+
             SubTotal = sub;
             TaxTotal = t;
             Total = tot;
@@ -101,6 +107,25 @@ namespace pointofsale_application
                 this.Close();
             }
         }
+
+        private void ChangeOrderNum()
+        {
+            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
+            int orderNum = (int)retrieveOrderNum.ExecuteScalar() + 1;
+
+            OrderNumberBlock.Text = orderNum.ToString();
+        }
+
+        private void ChangeCashierName(string cashierName)
+        {
+            CashierTransactionField.Text = cashierName.ToString();
+        }
+
+        private void UpdateDateTime()
+        {
+            DateTimeTransactionField.Text = DateTime.Now.ToString();
+        }
+
 
         public void PrintChange()
         {

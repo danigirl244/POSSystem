@@ -280,6 +280,7 @@ namespace pointofsale_application
         }
         private void btn_Click3(object sender, RoutedEventArgs e)
         {
+            ItemGrid.Children.Clear();
             fillItemColumn(TequilaItems);
         }
         private void btn_Click4(object sender, RoutedEventArgs e)

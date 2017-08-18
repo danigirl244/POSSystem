@@ -29,7 +29,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void EditInventoryTest()
         {
-            pointofsale_application.EditInventory inv = new pointofsale_application.EditInventory();
+           // pointofsale_application.EditInventory inv = new pointofsale_application.EditInventory();
             //inv.CreateItem(24, 10.25, "Jack", "Jack Bottle", "Whiskey");
             //inv.EditItem(111137, 20, 5.55, "Patron", "Tequila", "Tequila");
             //inv.DeleteItem(111137);
@@ -38,26 +38,26 @@ namespace UnitTestProject1
         [TestMethod]
         public void HomePageTest()
         {
-            pointofsale_application.HomePage home = new pointofsale_application.HomePage();
-            home.SubTotal = 73.92;
-            home.TaxTotal = 5.93;
-            home.Total = 79.85;
+           // pointofsale_application.HomePage home = new pointofsale_application.HomePage();
+            //home.SubTotal = 73.92;
+            //home.TaxTotal = 5.93;
+            //home.Total = 79.85;
             //home.addItem();
-            home.printSubTotal();
-            home.printTotal();
-            home.removeItem();
+            //home.printSubTotal();
+            //home.printTotal();
+            //home.removeItem();
 
 
         }
         [TestMethod]
         public void AdminPageTest()
         {
-            pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage();
-            admin.printSubTotal();
-            admin.printTotal();
+            //pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage();
+            //admin.printSubTotal();
+            //admin.printTotal();
             //admin.addItem();
-            admin.removeItem();
-            admin.fillCategoryColumn();
+            //admin.removeItem();
+            //admin.fillCategoryColumn();
             //admin.fillItemColumn();
             }
     }
