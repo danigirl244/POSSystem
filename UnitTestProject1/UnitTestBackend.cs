@@ -32,9 +32,10 @@ namespace UnitTestProject1
         public void EditInventoryTest()
         {
 
-           pointofsale_application.EditInventory inv = new pointofsale_application.EditInventory();
+            pointofsale_application.EditProduct inv = new pointofsale_application.EditProduct();
+            pointofsale_application.AddProduct create = new pointofsale_application.AddProduct();
 
-            //inv.CreateItem(24, 10.25, "Jack", "Jack Bottle", "Whiskey");
+            //create.CreateItem(24, 10.25, "Jack", "Jack Bottle", "Whiskey");
             //inv.EditItem(111137, 20, 5.55, "Patron", "Tequila", "Tequila");
             //inv.DeleteItem(111139);
 

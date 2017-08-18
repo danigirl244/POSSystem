@@ -29,7 +29,7 @@
                                      BorderBrush="#464543"></TextBox>
                 <Label Width="75" VerticalAlignment="Center">Description:</Label>
                 <TextBox Name="prodDesc" Width="150" Height="50" BorderBrush="#464543"
-                                     Margin="0,0,0,10"></TextBox>
+                                     Margin="0,0,0,10" TextWrapping="Wrap"></TextBox>
                 <ComboBox BorderBrush="#464543" BorderThickness="2" x:Name="cat" IsEditable="True" 
                           IsReadOnly="True" Text="Categories: ">
                     <ComboBoxItem>Best Sellers</ComboBoxItem>
