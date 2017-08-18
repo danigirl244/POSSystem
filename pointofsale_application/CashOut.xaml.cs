@@ -48,6 +48,7 @@ namespace pointofsale_application
         }
 
         List<Item> cart = new List<Item>();
+        List<Button> cartButton = new List<Button>();
         public CashOut(double sub, double t, double tot, string p, List<Item> l)
         {
             InitializeComponent();
@@ -59,6 +60,16 @@ namespace pointofsale_application
             Total = tot;
             permission = p;
             cart = l;
+            
+            for (int i = 0; i < cart.Count; i++)
+            {
+                Button cartI = new Button();
+                cartI.Content = cart[i].Name + "  $ " + cart[i].Price;
+                cartI.Name = "Button" + i;
+                cartButton.Add(cartI);
+                TransactionBlock.Children.Add(cartButton[i]);
+
+            }
 
             SubTotal = Math.Round(SubTotal, 2);
             SubtotalTransactionField.Text = "$ " + SubTotal.ToString();
@@ -130,7 +141,7 @@ namespace pointofsale_application
 
         public void PrintChange()
         {
-            double change = double.Parse(RemainingBalance.Text) * -1;
+            double change = Math.Round(double.Parse(RemainingBalance.Text) * -1, 2);
             ChangeDue.Text = System.Convert.ToString(change);
         }
 

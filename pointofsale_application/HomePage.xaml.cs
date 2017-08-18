@@ -53,6 +53,7 @@ namespace pointofsale_application
 
         List<Item> itemList = new List<Item>();
         List<Item> cartList = new List<Item>();
+        List<Button> cartButtonList = new List<Button>();
         List<Item> Inventory = new List<Item>();
         List<Item> BestSellers = new List<Item>();
         List<Item> BeerItems = new List<Item>();
@@ -344,6 +345,7 @@ namespace pointofsale_application
 
                     cartItem.Click += (s, e) => { removeItem(str); };
                     TransactionBlock.Children.Add(cartItem);
+                    cartButtonList.Add(cartItem);
                     numItems++;
                 }
 
@@ -367,6 +369,7 @@ namespace pointofsale_application
                 {
                     cartList.RemoveAt(i);
                     TransactionBlock.Children.RemoveAt(i);
+                    cartButtonList.RemoveAt(i);
                     break;
                 }
 
