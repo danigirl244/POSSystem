@@ -16,11 +16,9 @@
         <Button x:Name="delUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" RenderTransformOrigin="0.762,1.118" Margin="261,7.504,123,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543">X</Button>
         <Label x:Name="NameLabel" Content="Name:" HorizontalAlignment="Left" Margin="204,44,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
-        <Label x:Name="IDLabel" Content="ID:" HorizontalAlignment="Left" Margin="96,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.755,0.553"/>
-        <Label x:Name="ID" Content="ID goes here" HorizontalAlignment="Left" Margin="74,160,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="PermLabel" Content="Permissions:" HorizontalAlignment="Left" Margin="284,124,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="BasicRB" Content="Basic" HorizontalAlignment="Left" Margin="261,165,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="AdminRB" Content="Admin" HorizontalAlignment="Left" Margin="322,165,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PermLabel" Content="Permissions:" HorizontalAlignment="Left" Margin="190,121,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="BasicRB" Content="Basic" HorizontalAlignment="Left" Margin="129,168,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="AdminRB" Content="Admin" HorizontalAlignment="Left" Margin="261,168,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -99,7 +99,8 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
 
         public void btn_Click()
         {
-                        
+            EditUserPopUp eUser = new EditUserPopUp();
+            eUser.Show();
         }
 
 

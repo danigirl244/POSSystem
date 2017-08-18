@@ -1,0 +1,23 @@
+﻿<Window x:Class="pointofsale_application.EditUserPopUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pointofsale_application"
+        mc:Ignorable="d"
+        Title="Edit User" Height="300" Width="455" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid  Background="#787a79">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="107*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <Rectangle x:Name="Recta" Fill="#B1B7B7" HorizontalAlignment="Left" Height="176" Margin="51,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="347"/>
+        <Button x:Name="saveNewUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" Content="✓" Margin="107,7.504,277,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543"/>
+        <Button x:Name="delNewUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" RenderTransformOrigin="0.762,1.118" Margin="261,7.504,123,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543">X</Button>
+        <Label x:Name="NameLabel1" Content="Name:" HorizontalAlignment="Left" Margin="204,44,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="UserName" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
+        <Button x:Name="ActivateButton" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="69,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
+        <Button x:Name="PromtoeButton" Content="Promote/Demote" HorizontalAlignment="Left" Margin="261,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
+
+    </Grid>
+</Window>
