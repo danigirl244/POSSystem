@@ -22,21 +22,18 @@ namespace pointofsale_application
     public partial class EditInventory : Window
     {
 
-        DatabaseAccess dbt = new DatabaseAccess();
-        List<Item> BestSellers = new List<Item>();
-        List<Item> BeerItems = new List<Item>();
-        List<Item> VodkaItems = new List<Item>();
-        List<Item> TequilaItems = new List<Item>();
-        List<Item> WhiskeyItems = new List<Item>();
-        List<Item> BourbonItems = new List<Item>();
-        List<Item> WineItems = new List<Item>();
 
+        DatabaseAccess dbt = new DatabaseAccess();
 
         public EditInventory(List<Item> Inventory)
         {
             InitializeComponent();
             fillItemColumn(Inventory);
             
+        }
+
+        public EditInventory()
+        {
         }
 
         public void fillItemColumn(List<Item> category)
@@ -55,7 +52,7 @@ namespace pointofsale_application
                         newBtn.Click += new RoutedEventHandler(btn_Click);
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
-                       // ItemGrid.Children.Add(newBtn);
+                        ItemGrid.Children.Add(newBtn);
                         count++;
                     }
                 }

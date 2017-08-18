@@ -6,6 +6,8 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTestBackend
     {
+        
+
         [TestMethod]
         public void ItemFieldsTest()
         {
@@ -24,15 +26,17 @@ namespace UnitTestProject1
             pointofsale_application.EditUser user = new pointofsale_application.EditUser();
             //user.AddEmp("Evan", "admin", 1);
             //user.UpdateEmpAct(11119, 0);
-            user.UpdateEmpRank(11119, "basic");
+            //user.UpdateEmpRank(11119, "basic");
         }
         [TestMethod]
         public void EditInventoryTest()
         {
-           // pointofsale_application.EditInventory inv = new pointofsale_application.EditInventory();
+
+           pointofsale_application.EditInventory inv = new pointofsale_application.EditInventory();
+
             //inv.CreateItem(24, 10.25, "Jack", "Jack Bottle", "Whiskey");
             //inv.EditItem(111137, 20, 5.55, "Patron", "Tequila", "Tequila");
-            //inv.DeleteItem(111137);
+            //inv.DeleteItem(111139);
 
         }
         [TestMethod]
