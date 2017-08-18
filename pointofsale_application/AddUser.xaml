@@ -12,8 +12,8 @@
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
         <Rectangle x:Name="Rect" Fill="#B1B7B7" HorizontalAlignment="Left" Height="176" Margin="51,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="347"/>
-        <Button x:Name="saveUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" Content="✓" Margin="107,7.504,277,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543"/>
-        <Button x:Name="delUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" RenderTransformOrigin="0.762,1.118" Margin="261,7.504,123,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543">X</Button>
+        <Button x:Name="saveUser" Click="Save_Click" Height="40" Width="65" FontSize="22" Background="#b1b7b7" Content="✓" Margin="107,7.504,277,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543"/>
+        <Button x:Name="delUser" Click="Delete_Click" Height="40" Width="65" FontSize="22" Background="#b1b7b7" RenderTransformOrigin="0.762,1.118" Margin="261,7.504,123,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543">X</Button>
         <Label x:Name="NameLabel" Content="Name:" HorizontalAlignment="Left" Margin="204,44,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
         <Label x:Name="PermLabel" Content="Permissions:" HorizontalAlignment="Left" Margin="190,121,0,0" VerticalAlignment="Top"/>
