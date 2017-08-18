@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +20,18 @@ namespace pointofsale_application
     /// </summary>
     public partial class CashOut : Window
     {
+        DatabaseAccess access = new DatabaseAccess();
         public CashOut()
         {
             InitializeComponent();
+            UpdateDateTime();
+            ChangeOrderNum();
            
         }
 
         private void CheckOutButton_Click(object sender, RoutedEventArgs e)
         {
+            //string[] receipt = {};
             MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due:" + ChangeDue.Text, "Check Out");
             this.Close();
 
@@ -210,6 +215,24 @@ namespace pointofsale_application
         {
             double three = 3;
             InputBlock.Text += three.ToString();
+        }
+
+        private void ChangeOrderNum()
+        {
+            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
+            int orderNum = (int)retrieveOrderNum.ExecuteScalar() + 1;
+
+            OrderNumberBlock.Text = orderNum.ToString();
+        }
+
+        private void ChangeCashierName(String cashierName)
+        {
+            CashierTransactionField.Text = cashierName;
+        }
+
+        private void UpdateDateTime()
+        {
+            DateTimeTransactionField.Text = DateTime.Now.ToString();
         }
     }
 }

@@ -42,7 +42,7 @@ namespace UnitTestProject1
             home.SubTotal = 73.92;
             home.TaxTotal = 5.93;
             home.Total = 79.85;
-            home.addItem();
+            //home.addItem();
             home.printSubTotal();
             home.printTotal();
             home.removeItem();
@@ -55,7 +55,7 @@ namespace UnitTestProject1
             pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage();
             admin.printSubTotal();
             admin.printTotal();
-            admin.addItem();
+            //admin.addItem();
             admin.removeItem();
             admin.fillCategoryColumn();
             //admin.fillItemColumn();

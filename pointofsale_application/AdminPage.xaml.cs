@@ -81,7 +81,7 @@ namespace pointofsale_application
                 Inventory.Add(new Item()
                 {
                     SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
-                    Name = rd.GetString(rd.GetOrdinal("Name")),
+                    Name = rd.GetString(rd.GetOrdinal("Name")).Replace(" ", String.Empty),
                     Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
                     Category = rd.GetString(rd.GetOrdinal("Category")),
                     NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
@@ -93,8 +93,6 @@ namespace pointofsale_application
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
-                // if (Inventory[i].Category == "Best Sellers")
-                //{
                 BestSellers.Add(new Item()
                 {
                     SKU = Inventory[i].SKU,
@@ -103,7 +101,6 @@ namespace pointofsale_application
                     Category = Inventory[i].Category,
                     NumPurchased = Inventory[i].NumPurchased
                 });
-                //}
             }
         }
 
@@ -134,7 +131,7 @@ namespace pointofsale_application
                     VodkaItems.Add(new Item()
                     {
                         SKU = Inventory[i].SKU,
-                        Name = Inventory[i].Name,
+                        Name = Inventory[i].Name.Replace(" ", String.Empty),
                         Price = Inventory[i].Price,
                         Category = Inventory[i].Category,
                         NumPurchased = Inventory[i].NumPurchased
@@ -307,8 +304,8 @@ namespace pointofsale_application
                     if (category.Count > count)
                     {
                         newBtn.Content = category[count].Name.ToString();
-                        newBtn.Name = "Button" + count.ToString();
-                        newBtn.Click += new RoutedEventHandler(btn_Click);
+                        newBtn.Name = category[count].Name.ToString().Replace(" ", String.Empty);
+                        newBtn.Click += (s, e) => { addItem(newBtn.Name); };
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
                         ItemGrid.Children.Add(newBtn);
@@ -318,23 +315,20 @@ namespace pointofsale_application
             }
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e)
+        public void addItem(String s)
         {
-            addItem();
-        }
-
-        public void addItem()
-        {
-            //cartList.add(item)  'item' will be the oject of items.
             for (int i = 0; i < Inventory.Count; i++)
             {
-                /* 
-                  if (((Item)Inventory[i]).Name.Contains('ButtonStringValue'){
-                     cartList.Add(itemList[i]);
-                 }
-                 */
-
+                if ((Inventory[i]).Name.Contains(s))
+                {
+                    cartList.Add(Inventory[i]);
+                }
             }
+
+            SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
+            TaxTransactionField.Text = "$ " + printTax().ToString();
+            TotalTransactionField.Text = "$ " + printTotal().ToString();
+
         }
 
         //Delete Item From 'Cart'
@@ -362,18 +356,25 @@ namespace pointofsale_application
                 subtotal += cartList[i].Price;
             }
 
-            return subtotal;
+            return Math.Round(subtotal, 2);
 
+        }
+
+        public double printTax()
+        {
+            taxTotal = subtotal * taxPercentage;
+
+            return Math.Round(taxTotal, 2);
         }
 
         //Final Price with Tax
         public double printTotal()
         {
 
-            taxTotal = subtotal * taxPercentage;
+
             total = subtotal + taxTotal;
 
-            return total;
+            return Math.Round(total, 2);
         }
 
 
