@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace pointofsale_application
 {
@@ -29,6 +31,7 @@ namespace pointofsale_application
             set { permission = value; }
         }
         private double subtotal;
+        public int numItems;
         public double SubTotal
         {
             get { return subtotal; }
@@ -299,6 +302,10 @@ namespace pointofsale_application
             ItemGrid.Children.Clear();
             fillItemColumn(WineItems);
         }
+        private void cart_Click(object sender, RoutedEventArgs e)
+        {
+            TransactionBlock.Children.RemoveAt(0);
+        }
 
         public void fillItemColumn(List<Item> category)
         {
@@ -323,34 +330,48 @@ namespace pointofsale_application
             }
         }
 
-        public void addItem(String s)
+        public void addItem(String str)
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
-                if ((Inventory[i]).Name.Contains(s))
+                if ((Inventory[i]).Name.Contains(str))
                 {
                     cartList.Add(Inventory[i]);
+                    Button cartItem = new Button();
+                    cartItem.Content = str;
+                    cartItem.Name = str;
+
+                    cartItem.Click += (s, e) => { removeItem(str); };
+                    TransactionBlock.Children.Add(cartItem);
+                    numItems++;
                 }
+
             }
 
             SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
             TaxTransactionField.Text = "$ " + printTax().ToString();
             TotalTransactionField.Text = "$ " + printTotal().ToString();
 
+
         }
 
         //Delete Item From 'Cart'
-        public void removeItem()
+        public void removeItem(string s)
         {
             //cartList.Remove() Removes item from list.
             for (int i = 0; i < cartList.Count; i++)
             {
-                /*
-                if (((Item)cartList[i]).Name.Contains('ButtonStringValue'){
-                    cartList.Remove(i);
+                
+                if ((cartList[i]).Name.Contains(s)){
+                    cartList.RemoveAt(i);
+                    TransactionBlock.Children.RemoveAt(i);
+                    break;
                 }
-                */
+                
             }
+            SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
+            TaxTransactionField.Text = "$ " + printTax().ToString();
+            TotalTransactionField.Text = "$ " + printTotal().ToString();
 
         }
 
@@ -364,14 +385,15 @@ namespace pointofsale_application
                 subtotal += cartList[i].Price;
             }
 
+            subtotal = Math.Round(subtotal, 2);
             return Math.Round(subtotal, 2);
 
         }
 
         public double printTax()
         {
-            taxTotal = subtotal * taxPercentage;
-
+            TaxTotal = subtotal * taxPercentage;
+            TaxTotal = Math.Round(taxTotal, 2);
             return Math.Round(taxTotal, 2);
         }
 
@@ -380,8 +402,8 @@ namespace pointofsale_application
         {
 
 
-            total = subtotal + taxTotal;
-
+            Total = subtotal + taxTotal;
+            Total = Math.Round(total, 2);
             return Math.Round(total, 2);
         }
 

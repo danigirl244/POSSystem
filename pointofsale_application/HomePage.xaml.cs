@@ -104,14 +104,14 @@ namespace pointofsale_application
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
-                    BestSellers.Add(new Item()
-                    {
-                        SKU = Inventory[i].SKU,
-                        Name = Inventory[i].Name,
-                        Price = Inventory[i].Price,
-                        Category = Inventory[i].Category,
-                        NumPurchased = Inventory[i].NumPurchased
-                    });
+                BestSellers.Add(new Item()
+                {
+                    SKU = Inventory[i].SKU,
+                    Name = Inventory[i].Name,
+                    Price = Inventory[i].Price,
+                    Category = Inventory[i].Category,
+                    NumPurchased = Inventory[i].NumPurchased
+                });
             }
         }
 
@@ -235,7 +235,7 @@ namespace pointofsale_application
                 Button newBtn = new Button();
                 newBtn.Content = cats[i];
                 newBtn.Name = "Button" + i;
-                if(newBtn.Name == "Button0")
+                if (newBtn.Name == "Button0")
                 {
                     newBtn.Click += new RoutedEventHandler(btn_Click0);
                 }
@@ -263,8 +263,8 @@ namespace pointofsale_application
                 {
                     newBtn.Click += new RoutedEventHandler(btn_Click6);
                 }
-                CategoryColumn.Children.Add(newBtn); 
-                
+                CategoryColumn.Children.Add(newBtn);
+
             }
         }
         private void btn_Click0(object sender, RoutedEventArgs e)
@@ -300,7 +300,7 @@ namespace pointofsale_application
         private void btn_Click6(object sender, RoutedEventArgs e)
         {
 
-            ItemGrid.Children.Clear();            
+            ItemGrid.Children.Clear();
             fillItemColumn(WineItems);
         }
         private void cart_Click(object sender, RoutedEventArgs e)
@@ -310,11 +310,11 @@ namespace pointofsale_application
 
         public void fillItemColumn(List<Item> category)
         {
-            
+
             int count = 0;
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
-                for(int j = 0; j < 4; j++)
+                for (int j = 0; j < 4; j++)
                 {
                     Button newBtn = new Button();
                     if (category.Count > count)
@@ -331,42 +331,49 @@ namespace pointofsale_application
             }
         }
 
-        public void addItem(String s)
+        public void addItem(String str)
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
-                if ((Inventory[i]).Name.Contains(s)){
+                if ((Inventory[i]).Name.Contains(str))
+                {
                     cartList.Add(Inventory[i]);
                     Button cartItem = new Button();
-                    cartItem.Content = "Name: " + cartList[numItems].Name.ToString() + " Price: " + cartList[numItems].Price.ToString();
-                    cartItem.Name = "button" + numItems;
+                    cartItem.Content = str;
+                    cartItem.Name = str;
 
-                    cartItem.Click += new RoutedEventHandler(cart_Click);
+                    cartItem.Click += (s, e) => { removeItem(str); };
                     TransactionBlock.Children.Add(cartItem);
                     numItems++;
                 }
-                
+
             }
 
             SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
             TaxTransactionField.Text = "$ " + printTax().ToString();
             TotalTransactionField.Text = "$ " + printTotal().ToString();
-            
-            
+
+
         }
 
         //Delete Item From 'Cart'
-        public void removeItem()
+        public void removeItem(string s)
         {
             //cartList.Remove() Removes item from list.
-            for(int i = 0; i < cartList.Count; i++)
+            for (int i = 0; i < cartList.Count; i++)
             {
-                /*
-                if (((Item)cartList[i]).Name.Contains('ButtonStringValue'){
-                    cartList.Remove(i);
+
+                if ((cartList[i]).Name.Contains(s))
+                {
+                    cartList.RemoveAt(i);
+                    TransactionBlock.Children.RemoveAt(i);
+                    break;
                 }
-                */
+
             }
+            SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
+            TaxTransactionField.Text = "$ " + printTax().ToString();
+            TotalTransactionField.Text = "$ " + printTotal().ToString();
 
         }
 
@@ -396,7 +403,7 @@ namespace pointofsale_application
         public double printTotal()
         {
 
-            
+
             Total = subtotal + taxTotal;
             Total = Math.Round(total, 2);
             return Math.Round(total, 2);
@@ -417,7 +424,7 @@ namespace pointofsale_application
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Login login = new Login();
                 login.Show();
