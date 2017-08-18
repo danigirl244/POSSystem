@@ -15,18 +15,18 @@ using System.Windows.Shapes;
 namespace pointofsale_application
 {
     /// <summary>
-    /// Interaction logic for AddProductPopUp.xaml
+    /// Interaction logic for EditProduct.xaml
     /// </summary>
-    public partial class AddProduct : Window
+    public partial class EditProduct : Window
     {
-        public AddProduct()
+        public EditProduct()
         {
             InitializeComponent();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to discard these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to permanently delete ", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
 
             }
@@ -41,4 +41,3 @@ namespace pointofsale_application
         }
     }
 }
-

@@ -62,6 +62,8 @@ namespace pointofsale_application
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             //method that brings up the edit window according to the designated items
+            EditProduct editProd = new EditProduct();
+            editProd.Show();
         }
          private void Delete_Click(object sender, RoutedEventArgs e)
         {
