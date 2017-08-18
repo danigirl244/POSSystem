@@ -44,8 +44,8 @@
                     <TextBlock Margin="10,0, 0, 0"><Bold>Date:</Bold></TextBlock>
                     <TextBlock Name="DateTimeTransactionField" Margin="10,0, 0, 0">Temp Date/Time</TextBlock>
                 </StackPanel>
-                <DataGrid Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="281" Height="230" Margin="10">
-                </DataGrid>
+                <StackPanel Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="281" Height="230" Margin="10">
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="0,10,10,0" HorizontalAlignment="Right"><Bold>Subtotal:</Bold></TextBlock>
                     <TextBlock Name="SubtotalTransactionField" Margin="0,10,10,0" HorizontalAlignment="Right"></TextBlock>

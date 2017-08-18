@@ -26,6 +26,7 @@ namespace pointofsale_application
         DatabaseAccess access = new DatabaseAccess();
         private static double taxPercentage = .0685;
         private double subtotal;
+        public int numItems;
         public double SubTotal
         {
             get { return subtotal; }
@@ -294,6 +295,10 @@ namespace pointofsale_application
             ItemGrid.Children.Clear();            
             fillItemColumn(WineItems);
         }
+        private void cart_Click(object sender, RoutedEventArgs e)
+        {
+            TransactionBlock.Children.RemoveAt(0);
+        }
 
         public void fillItemColumn(List<Item> category)
         {
@@ -322,9 +327,17 @@ namespace pointofsale_application
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
-                  if ((Inventory[i]).Name.Contains(s)){
-                     cartList.Add(Inventory[i]);
-                 }
+                if ((Inventory[i]).Name.Contains(s)){
+                    cartList.Add(Inventory[i]);
+                    Button cartItem = new Button();
+                    cartItem.Content = "Name: " + cartList[numItems].Name.ToString() + " Price: " + cartList[numItems].Price.ToString();
+                    cartItem.Name = "button" + numItems;
+
+                    cartItem.Click += new RoutedEventHandler(cart_Click);
+                    TransactionBlock.Children.Add(cartItem);
+                    numItems++;
+                }
+                
             }
 
             SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
