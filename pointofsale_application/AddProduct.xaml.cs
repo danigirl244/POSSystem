@@ -28,7 +28,7 @@ namespace pointofsale_application
         {
             if (MessageBox.Show("Are you sure you want to discard these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-
+                this.Close();
             }
         }
 
@@ -36,7 +36,7 @@ namespace pointofsale_application
         {
             if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-
+                this.Close();
             }
         }
     }
