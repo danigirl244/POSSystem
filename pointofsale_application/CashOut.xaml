@@ -39,7 +39,7 @@
         <TextBlock x:Name="RemainingBalanceBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Remaining Balance:" VerticalAlignment="Top" Margin="442,101,0,0" FontSize="20" Height="24" Width="178"/>
         <TextBlock x:Name="ChangeDueBlock" HorizontalAlignment="Left" Margin="442,123,0,0" TextWrapping="Wrap" Text="Change Due:" VerticalAlignment="Top" FontSize="20" Height="28" Width="118"/>
         <TextBlock x:Name="RemainingBalance" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Margin="619,103,0,0" FontSize="20" Height="22" Width="89"/>
-        <TextBlock x:Name="ChangeDue" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Margin="562,125,0,0" FontSize="20" Height="22" Width="46"/>
+        <TextBlock x:Name="ChangeDue" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Margin="562,125,0,0" FontSize="20" Height="22" Width="146"/>
         <DockPanel Margin="738,91,4,83" Background="White">
             <StackPanel Orientation="Vertical" Background="White" Height="500" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
