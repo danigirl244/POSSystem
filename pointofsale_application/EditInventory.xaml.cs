@@ -23,7 +23,6 @@ namespace pointofsale_application
     {
 
         DatabaseAccess dbt = new DatabaseAccess();
-        HomePage fillGrid = new HomePage();
         List<Item> BestSellers = new List<Item>();
         List<Item> BeerItems = new List<Item>();
         List<Item> VodkaItems = new List<Item>();
@@ -56,7 +55,7 @@ namespace pointofsale_application
                         newBtn.Click += new RoutedEventHandler(btn_Click);
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
-                        ItemGrid.Children.Add(newBtn);
+                       // ItemGrid.Children.Add(newBtn);
                         count++;
                     }
                 }
