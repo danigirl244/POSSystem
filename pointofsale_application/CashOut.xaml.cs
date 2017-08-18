@@ -19,24 +19,77 @@ namespace pointofsale_application
     /// </summary>
     public partial class CashOut : Window
     {
-        public CashOut()
+        private string permission;
+        public string Permission
+        {
+            get { return permission; }
+            set { permission = value; }
+        }
+        private double subtotal;
+        public double SubTotal
+        {
+            get { return subtotal; }
+            set { subtotal = value; }
+        }
+        private double total;
+        public double Total
+        {
+            get { return total; }
+            set { total = value; }
+        }
+        private double taxTotal;
+        public double TaxTotal
+        {
+            get { return taxTotal; }
+            set { taxTotal = value; }
+        }
+
+        List<Item> cart = new List<Item>();
+        public CashOut(double sub, double t, double tot, string p, List<Item> l)
         {
             InitializeComponent();
-           
+            SubTotal = sub;
+            TaxTotal = t;
+            Total = tot;
+            permission = p;
+            cart = l;
+            
         }
 
         private void CheckOutButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due:" + ChangeDue.Text, "Check Out");
-            this.Close();
 
-
+            if (permission.Equals("admin"))
+            {
+                AdminPage adminpage = new AdminPage(permission);
+                adminpage.Show();
+                this.Close();
+            }
+            else if (permission.Equals("basic"))
+            {
+                HomePage homepage = new HomePage(permission);
+                homepage.Show();
+                this.Close();
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult Cancelled = MessageBox.Show("Transaction Cancelled");
-            this.Close();
+            if (permission.Equals("admin"))
+            {
+                AdminPage adminpage = new AdminPage(permission);
+                adminpage.Show();
+                this.Close();
+            }
+            else if (permission.Equals("basic"))
+            {
+                HomePage homepage = new HomePage(permission);
+                homepage.Show();
+                this.Close();
+            }
+
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
