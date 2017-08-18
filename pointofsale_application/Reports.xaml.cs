@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +20,35 @@ namespace pointofsale_application
     /// </summary>
     public partial class Reports : Window
     {
+        DatabaseAccess access = new DatabaseAccess();
         public Reports()
         {
             InitializeComponent();
+            UpdateDateTime();
+            ChangeOrderNum();
         }
 
-       // private void Button_Click(object sender, RoutedEventArgs e)
-       // {
+        // private void Button_Click(object sender, RoutedEventArgs e)
+        // {
 
-       // }
+        // }
+
+        private void ChangeOrderNum()
+        {
+            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
+            int orderNum = (int)retrieveOrderNum.ExecuteScalar() + 1;
+
+            OrderNumberBlock.Text = orderNum.ToString();
+        }
+
+        private void ChangeCashierName(String cashierName)
+        {
+            CashierTransactionField.Text = cashierName;
+        }
+
+        private void UpdateDateTime()
+        {
+            DateTimeTransactionField.Text = DateTime.Now.ToString();
+        }
     }
 }
