@@ -22,6 +22,12 @@ namespace pointofsale_application
     {
         DatabaseAccess access = new DatabaseAccess();
         private static double taxPercentage = .0685;
+        private string permission;
+        public string Permission
+        {
+            get { return permission; }
+            set { permission = value; }
+        }
         private double subtotal;
         public double SubTotal
         {
@@ -52,8 +58,9 @@ namespace pointofsale_application
         List<Item> BourbonItems = new List<Item>();
         List<Item> WineItems = new List<Item>();
 
-        public AdminPage()
+        public AdminPage(string p)
         {
+            Permission = p;
             InitializeComponent();
             fillCategoryColumn();
             InitializeItemList();
@@ -273,6 +280,7 @@ namespace pointofsale_application
         }
         private void btn_Click3(object sender, RoutedEventArgs e)
         {
+            ItemGrid.Children.Clear();
             fillItemColumn(TequilaItems);
         }
         private void btn_Click4(object sender, RoutedEventArgs e)
@@ -385,8 +393,9 @@ namespace pointofsale_application
 
         private void CashoutButton_Click(object sender, RoutedEventArgs e)
         {
-            CashOut cash = new CashOut();
+            CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList);
             cash.Show();
+            this.Close();
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -417,7 +426,7 @@ namespace pointofsale_application
         private void InventoryButton_Click(object sender, RoutedEventArgs e)
         {
 
-            EditInventory editInventory = new EditInventory();
+            EditInventory editInventory = new EditInventory(Inventory);
             editInventory.Show();
 
         }

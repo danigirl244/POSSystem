@@ -25,6 +25,12 @@ namespace pointofsale_application
     {
         DatabaseAccess access = new DatabaseAccess();
         private static double taxPercentage = .0685;
+        private string permission;
+        public string Permission
+        {
+            get { return permission; }
+            set { permission = value; }
+        }
         private double subtotal;
         public int numItems;
         public double SubTotal
@@ -56,8 +62,9 @@ namespace pointofsale_application
         List<Item> BourbonItems = new List<Item>();
         List<Item> WineItems = new List<Item>();
 
-        public HomePage()
+        public HomePage(string p)
         {
+            Permission = p;
             InitializeComponent();
             fillCategoryColumn();
             InitializeItemList();
@@ -277,6 +284,7 @@ namespace pointofsale_application
         }
         private void btn_Click3(object sender, RoutedEventArgs e)
         {
+            ItemGrid.Children.Clear();
             fillItemColumn(TequilaItems);
         }
         private void btn_Click4(object sender, RoutedEventArgs e)
@@ -344,6 +352,7 @@ namespace pointofsale_application
             TaxTransactionField.Text = "$ " + printTax().ToString();
             TotalTransactionField.Text = "$ " + printTotal().ToString();
             
+            
         }
 
         //Delete Item From 'Cart'
@@ -371,14 +380,15 @@ namespace pointofsale_application
                 subtotal += cartList[i].Price;
             }
 
+            subtotal = Math.Round(subtotal, 2);
             return Math.Round(subtotal, 2);
 
         }
 
         public double printTax()
         {
-            taxTotal = subtotal * taxPercentage;
-            
+            TaxTotal = subtotal * taxPercentage;
+            TaxTotal = Math.Round(taxTotal, 2);
             return Math.Round(taxTotal, 2);
         }
 
@@ -387,8 +397,8 @@ namespace pointofsale_application
         {
 
             
-            total = subtotal + taxTotal;
-            
+            Total = subtotal + taxTotal;
+            Total = Math.Round(total, 2);
             return Math.Round(total, 2);
         }
 
@@ -400,8 +410,9 @@ namespace pointofsale_application
 
         private void CashoutButton_Click(object sender, RoutedEventArgs e)
         {
-            CashOut cash = new CashOut();
+            CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList);
             cash.Show();
+            this.Close();
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)

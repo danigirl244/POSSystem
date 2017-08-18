@@ -22,14 +22,48 @@ namespace pointofsale_application
     public partial class EditInventory : Window
     {
 
+
         DatabaseAccess dbt = new DatabaseAccess();
+
+        public EditInventory(List<Item> Inventory)
+        {
+            InitializeComponent();
+            fillItemColumn(Inventory);
+            
+        }
 
         public EditInventory()
         {
-            InitializeComponent();
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        public void fillItemColumn(List<Item> category)
+        {
+
+            int count = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Button newBtn = new Button();
+                    if (category.Count > count)
+                    {
+                        newBtn.Content = category[count].Name.ToString();
+                        newBtn.Name = "Button" + count.ToString();
+                        newBtn.Click += new RoutedEventHandler(btn_Click);
+                        Grid.SetColumn(newBtn, j);
+                        Grid.SetRow(newBtn, i);
+                        ItemGrid.Children.Add(newBtn);
+                        count++;
+                    }
+                }
+            }
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            //method that brings up the edit window according to the designated items
+        }
+         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to permanently delete this product?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
@@ -114,6 +148,12 @@ namespace pointofsale_application
             TextBox tb = (TextBox)sender;
             tb.Text = string.Empty;
             tb.GotFocus -= TextBox_GotFocus;
+        }
+
+        private void AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddProduct addprod = new AddProduct();
+            addprod.Show();
         }
     }
 }

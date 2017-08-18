@@ -12,6 +12,7 @@
             <TextBlock Foreground="White" Name="WindowTitleBar" Margin="225,0,0,0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </DockPanel>
         <StackPanel Background="White" HorizontalAlignment="Left" Height="567" Margin="0,90,0,0" VerticalAlignment="Top" Width="723" />
+
         <Button x:Name="HundredButton" Content="$100" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="24,556,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16" Click="HundredButton_Click"/>
         <Button x:Name="FiftyButton" Content="$50" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="22,470,0,0" Background="#464543" Foreground="#B1B7B7" Height="77" FontSize="16" Click="FiftyButton_Click"/>
         <Button x:Name="Twenty_fiveButton" Content="$25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="22,384,0,0" Background="#464543" Foreground="#B1B7B7" Height="76" FontSize="14" Click="Twenty_fiveButton_Click"/>
@@ -33,10 +34,11 @@
         <Button x:Name="ThreeButton" Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="624,205,0,0" Background="#464543" Foreground="#B1B7B7" Height="63" FontSize="16" Click="ThreeButton_Click" />
         <Button x:Name="TwoButton" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="534,205,0,0" Background="#464543" Foreground="#B1B7B7" Height="63" FontSize="16" Click="TwoButton_Click" />
         <Button x:Name="CancelButton" Content="Cancel Order" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="25" Width="275" Padding="10" Margin="0,0,16,14" Click="CancelButton_Click"/>
+
         <TextBox x:Name="InputBlock" HorizontalAlignment="Left" Margin="442,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="268" TextAlignment="Center" FontSize="36" Text="" Background="White"/>
         <TextBlock x:Name="RemainingBalanceBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Remaining Balance:" VerticalAlignment="Top" Margin="442,101,0,0" FontSize="20" Height="24" Width="178"/>
         <TextBlock x:Name="ChangeDueBlock" HorizontalAlignment="Left" Margin="442,123,0,0" TextWrapping="Wrap" Text="Change Due:" VerticalAlignment="Top" FontSize="20" Height="28" Width="118"/>
-        <TextBlock x:Name="RemainingBalance" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Margin="619,103,0,0" FontSize="20" Height="22" Width="43"/>
+        <TextBlock x:Name="RemainingBalance" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Margin="619,103,0,0" FontSize="20" Height="22" Width="89"/>
         <TextBlock x:Name="ChangeDue" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Margin="562,125,0,0" FontSize="20" Height="22" Width="46"/>
         <DockPanel Margin="738,91,4,83" Background="White">
             <StackPanel Orientation="Vertical" Background="White" Height="500" VerticalAlignment="Top">
@@ -77,5 +79,4 @@
         </DockPanel>
     </Grid>
 </Window>
-
 

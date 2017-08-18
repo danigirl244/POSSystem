@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,35 +20,113 @@ namespace pointofsale_application
     /// </summary>
     public partial class CashOut : Window
     {
-        public CashOut()
+        DatabaseAccess access = new DatabaseAccess();
+
+        private string permission;
+        public string Permission
+        {
+            get { return permission; }
+            set { permission = value; }
+        }
+        private double subtotal;
+        public double SubTotal
+        {
+            get { return subtotal; }
+            set { subtotal = value; }
+        }
+        private double total;
+        public double Total
+        {
+            get { return total; }
+            set { total = value; }
+        }
+        private double taxTotal;
+        public double TaxTotal
+        {
+            get { return taxTotal; }
+            set { taxTotal = value; }
+        }
+
+        List<Item> cart = new List<Item>();
+        public CashOut(double sub, double t, double tot, string p, List<Item> l)
         {
             InitializeComponent();
-           
+            UpdateDateTime();
+            ChangeOrderNum();
+
+            SubTotal = sub;
+            TaxTotal = t;
+            Total = tot;
+            permission = p;
+            cart = l;
+
+            SubTotal = Math.Round(SubTotal, 2);
+            SubtotalTransactionField.Text = "$ " + SubTotal.ToString();
+            TaxTotal = Math.Round(TaxTotal, 2);
+            TaxTransactionField.Text = "$ " + TaxTotal.ToString();
+            Total = Math.Round(Total, 2);
+            TotalTransactionField.Text = "$ " + Total.ToString();
+
+            RemainingBalance.Text = Total.ToString();
+
         }
 
         private void CheckOutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due:" + ChangeDue.Text, "Check Out");
-            this.Close();
+            MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" +ChangeDue.Text, "Check Out");
 
-
+            if (permission.Equals("admin"))
+            {
+                AdminPage adminpage = new AdminPage(permission);
+                adminpage.Show();
+                this.Close();
+            }
+            else if (permission.Equals("basic"))
+            {
+                HomePage homepage = new HomePage(permission);
+                homepage.Show();
+                this.Close();
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult Cancelled = MessageBox.Show("Transaction Cancelled");
-            this.Close();
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to log out?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to cancel the transaction?", "confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Login login = new Login();
-                login.Show();
-                this.Close();
+                if (permission.Equals("admin"))
+                {
+                    AdminPage adminpage = new AdminPage(permission);
+                    adminpage.Show();
+                    this.Close();
+                }
+                else if (permission.Equals("basic"))
+                {
+                    HomePage homepage = new HomePage(permission);
+                    homepage.Show();
+                    this.Close();
+                }
             }
         }
+
+
+        private void ChangeOrderNum()
+        {
+            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
+            int orderNum = (int)retrieveOrderNum.ExecuteScalar() + 1;
+
+            OrderNumberBlock.Text = orderNum.ToString();
+        }
+
+        private void ChangeCashierName(string cashierName)
+        {
+            CashierTransactionField.Text = cashierName.ToString();
+        }
+
+        private void UpdateDateTime()
+        {
+            DateTimeTransactionField.Text = DateTime.Now.ToString();
+        }
+
 
         public void PrintChange()
         {
