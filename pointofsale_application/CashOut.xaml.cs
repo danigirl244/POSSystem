@@ -27,6 +27,7 @@ namespace pointofsale_application
 
         private void CheckOutButton_Click(object sender, RoutedEventArgs e)
         {
+            //string[] receipt = {};
             MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due:" + ChangeDue.Text, "Check Out");
             this.Close();
 

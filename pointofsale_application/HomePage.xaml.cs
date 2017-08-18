@@ -203,8 +203,6 @@ namespace pointofsale_application
             {
                 if (Inventory[i].Category == "Wine")
                 {
-
-
                     WineItems.Add(new Item()
                     {
                         SKU = Inventory[i].SKU,
@@ -256,9 +254,9 @@ namespace pointofsale_application
                     newBtn.Click += new RoutedEventHandler(btn_Click6);
                 }
                 CategoryColumn.Children.Add(newBtn); 
-                
             }
         }
+
         private void btn_Click0(object sender, RoutedEventArgs e)
         {
             ItemGrid.Children.Clear();
@@ -276,6 +274,7 @@ namespace pointofsale_application
         }
         private void btn_Click3(object sender, RoutedEventArgs e)
         {
+            ItemGrid.Children.Clear();
             fillItemColumn(TequilaItems);
         }
         private void btn_Click4(object sender, RoutedEventArgs e)
@@ -290,14 +289,12 @@ namespace pointofsale_application
         }
         private void btn_Click6(object sender, RoutedEventArgs e)
         {
-
             ItemGrid.Children.Clear();            
             fillItemColumn(WineItems);
         }
 
         public void fillItemColumn(List<Item> category)
         {
-            
             int count = 0;
             for(int i = 0; i < 4; i++)
             {
@@ -326,11 +323,9 @@ namespace pointofsale_application
                      cartList.Add(Inventory[i]);
                  }
             }
-
             SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
             TaxTransactionField.Text = "$ " + printTax().ToString();
             TotalTransactionField.Text = "$ " + printTotal().ToString();
-            
         }
 
         //Delete Item From 'Cart'
@@ -357,9 +352,7 @@ namespace pointofsale_application
             {
                 subtotal += cartList[i].Price;
             }
-
             return Math.Round(subtotal, 2);
-
         }
 
         public double printTax()
@@ -372,10 +365,7 @@ namespace pointofsale_application
         //Final Price with Tax
         public double printTotal()
         {
-
-            
             total = subtotal + taxTotal;
-            
             return Math.Round(total, 2);
         }
 
