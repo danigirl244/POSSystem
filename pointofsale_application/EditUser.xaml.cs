@@ -23,9 +23,11 @@ namespace pointofsale_application
     {
 
         DatabaseAccess dbt = new DatabaseAccess();
+        List<string> usersName = new List<string>();
         public EditUser()
         {
             InitializeComponent();
+            getEmpInfo();
         }
 
         
@@ -57,6 +59,50 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
                 
             }
         }
+
+        public void getEmpInfo()
+        {
+            SqlCommand users = new SqlCommand("SELECT EmployeeName FROM Users", dbt.AccessDB());
+
+            SqlDataReader rd;
+            rd = users.ExecuteReader();
+            while (rd.Read())
+            {
+                usersName.Add(rd.GetString(rd.GetOrdinal("EmployeeName")).Replace(" ", String.Empty));
+            }
+
+            fillEmpColumn(usersName);
+        }
+
+        public void fillEmpColumn(List<string> Emp)
+        {
+
+            int count = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Button newBtn = new Button();
+                    if (Emp.Count > count)
+                    {
+                        newBtn.Content = Emp[count];
+                        newBtn.Name = Emp[count];
+                        newBtn.Click += (s, e) => { btn_Click(); };
+                        Grid.SetColumn(newBtn, j);
+                        Grid.SetRow(newBtn, i);
+                        ItemGrid.Children.Add(newBtn);
+                        count++;
+                    }
+                }
+            }
+        }
+
+        public void btn_Click()
+        {
+                        
+        }
+
+
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
