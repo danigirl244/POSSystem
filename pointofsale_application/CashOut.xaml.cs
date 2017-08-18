@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -84,7 +85,37 @@ namespace pointofsale_application
 
         private void CheckOutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" +ChangeDue.Text, "Check Out");
+            //Will go through the cart list and for each item in there, it will decrease the quantity of that specific item by 1 in the database.
+            for (int i = 0; i < cart.Count; i++)
+            {
+                int qty = 0;
+
+                SqlCommand categories = new SqlCommand("SELECT QtyOnHand FROM Inventory WHERE SKU = @param1", access.AccessDB());
+                categories.Parameters.Add("@param1", SqlDbType.Int).Value = cart[i].SKU;
+
+                SqlDataReader rd;
+                rd = categories.ExecuteReader();
+                while (rd.Read())
+                {
+                    qty = rd.GetInt32(rd.GetOrdinal("QtyOnHand"));
+                }
+
+                cart[i].NumPurchased += 1;
+                SqlCommand createItem = new SqlCommand("UPDATE Inventory SET QtyOnHand = @param2, NumPurchased = @param3 WHERE SKU = @param1", access.AccessDB());
+                createItem.Parameters.Add("@param1", SqlDbType.Int).Value = cart[i].SKU;
+                createItem.Parameters.Add("@param2", SqlDbType.Int).Value = qty-1;
+                createItem.Parameters.Add("@param3", SqlDbType.Int).Value = cart[i].NumPurchased;
+
+                try
+                {
+                    createItem.ExecuteNonQuery();
+                }
+                catch (SqlException y)
+                {
+                    MessageBox.Show(y.Message.ToString(), "Error Message");
+                }
+            }
+           MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" +ChangeDue.Text, "Check Out");
 
             if (permission.Equals("admin"))
             {

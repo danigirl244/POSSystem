@@ -342,7 +342,6 @@ namespace pointofsale_application
                     Button cartItem = new Button();
                     cartItem.Content = str;
                     cartItem.Name = str;
-
                     cartItem.Click += (s, e) => { removeItem(str); };
                     TransactionBlock.Children.Add(cartItem);
                     cartButtonList.Add(cartItem);
