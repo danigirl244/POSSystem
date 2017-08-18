@@ -1,0 +1,26 @@
+﻿<Window x:Class="pointofsale_application.AddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pointofsale_application"
+        mc:Ignorable="d"
+        Title="AddUser" Height="300" Width="455" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid  Background="#787a79">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="107*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <Rectangle x:Name="Rect" Fill="#B1B7B7" HorizontalAlignment="Left" Height="176" Margin="51,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="347"/>
+        <Button x:Name="saveUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" Content="✓" Margin="107,7.504,277,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543"/>
+        <Button x:Name="delUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" RenderTransformOrigin="0.762,1.118" Margin="261,7.504,123,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543">X</Button>
+        <Label x:Name="NameLabel" Content="Name:" HorizontalAlignment="Left" Margin="204,44,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
+        <Label x:Name="IDLabel" Content="ID:" HorizontalAlignment="Left" Margin="96,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.755,0.553"/>
+        <Label x:Name="ID" Content="ID goes here" HorizontalAlignment="Left" Margin="74,160,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PermLabel" Content="Permissions:" HorizontalAlignment="Left" Margin="284,124,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="BasicRB" Content="Basic" HorizontalAlignment="Left" Margin="261,165,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="AdminRB" Content="Admin" HorizontalAlignment="Left" Margin="322,165,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

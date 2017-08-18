@@ -129,5 +129,10 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
 
         }
 
+        private void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            AddUser newUser = new AddUser();
+            newUser.Show();
+        }
     }
 }
