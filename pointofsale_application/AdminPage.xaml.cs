@@ -416,12 +416,10 @@ namespace pointofsale_application
         private void InventoryButton_Click(object sender, RoutedEventArgs e)
         {
 
-            EditInventory editInventory = new EditInventory();
+            EditInventory editInventory = new EditInventory(Inventory);
             editInventory.Show();
 
         }
-
-
 
 
 
