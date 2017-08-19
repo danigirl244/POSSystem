@@ -22,7 +22,7 @@ namespace pointofsale_application
     
     public partial class Reports : Window
     {
-        public static double tillCount = 10000.00;
+        public static double tillCount = 5000.00;
         DatabaseAccess access = new DatabaseAccess();
         public Reports()
         {
@@ -57,9 +57,16 @@ namespace pointofsale_application
 
         public double printTill()
         {
-            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(Till) FROM TillCount", access.AccessDB());
-            double newTill = Convert.ToDouble((decimal)retrieveOrderNum.ExecuteScalar());
-            tillCount = newTill;
+            try
+            {
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(Till) FROM TillCount", access.AccessDB());
+                double newTill = Convert.ToDouble((decimal)retrieveOrderNum.ExecuteScalar());
+                tillCount = newTill;
+            }
+            catch
+            {
+                tillCount = 5000;
+            }
             Till_Count.Text = tillCount.ToString();
             return tillCount;
         }

@@ -121,8 +121,18 @@ namespace pointofsale_application
                     MessageBox.Show(y.Message.ToString(), "Error Message");
                 }
             }
-           MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" +ChangeDue.Text, "Check Out");
+            MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" + ChangeDue.Text, "Check Out");
             Reports.tillCount -= Total;
+            SqlCommand ttlUpdate = new SqlCommand("UPDATE TillCount SET Till = Till " + "-" + Total, access.AccessDB());
+            try
+            {
+                ttlUpdate.ExecuteNonQuery();
+            }
+            catch (SqlException y)
+            {
+                MessageBox.Show(y.Message.ToString(), "Error Message");
+            }
+
             if (permission.Equals("admin"))
             {
                 AdminPage adminpage = new AdminPage(permission);
