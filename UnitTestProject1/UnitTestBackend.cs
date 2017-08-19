@@ -43,27 +43,27 @@ namespace UnitTestProject1
         [TestMethod]
         public void HomePageTest()
         {
-           // pointofsale_application.HomePage home = new pointofsale_application.HomePage();
-            //home.SubTotal = 73.92;
-            //home.TaxTotal = 5.93;
-            //home.Total = 79.85;
-            //home.addItem();
-            //home.printSubTotal();
-            //home.printTotal();
-            //home.removeItem();
+            pointofsale_application.HomePage home = new pointofsale_application.HomePage("basic");
+            home.SubTotal = 73.92;
+            home.TaxTotal = 5.93;
+            home.Total = 79.85;
+            home.addItem("Jim Beam");
+            home.printSubTotal();
+            home.printTotal();
+            home.removeItem("African Children");
 
 
         }
         [TestMethod]
         public void AdminPageTest()
         {
-            //pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage();
-            //admin.printSubTotal();
-            //admin.printTotal();
-            //admin.addItem();
-            //admin.removeItem();
-            //admin.fillCategoryColumn();
-            //admin.fillItemColumn();
-            }
+            pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage("admin");
+            admin.printSubTotal();
+            admin.printTotal();
+            admin.addItem("Jim Beam");
+            admin.removeItem("African Children");
+            admin.fillCategoryColumn();
+        }
+
     }
 }
