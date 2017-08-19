@@ -67,7 +67,7 @@ namespace pointofsale_application
             {
                 if(Inventory[x].Name.ToString().Replace(" ", String.Empty) == s)
                 {
-                    MessageBox.Show(Inventory[x].Name.ToString());
+                    //MessageBox.Show(Inventory[x].Name.ToString());
                     EditProduct editProd = new EditProduct(Inventory[x]);
                     editProd.Show();
                     break;

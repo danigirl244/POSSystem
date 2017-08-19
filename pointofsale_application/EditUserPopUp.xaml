@@ -18,8 +18,8 @@
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
         <Button x:Name="ActivateButton" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="69,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
         <Button x:Name="PromtoeButton" Content="Promote/Demote" HorizontalAlignment="Left" Margin="261,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="69,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" x:Name="AStatus" IsReadOnly="True"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="261,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" x:Name="PStatus" IsReadOnly="True"/>
+        <TextBox x:Name="AStatus" HorizontalAlignment="Left" Height="23" Margin="69,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" IsReadOnly="True"/>
+        <TextBox x:Name="PStatus" HorizontalAlignment="Left" Height="23" Margin="261,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" IsReadOnly="True"/>
 
     </Grid>
 </Window>

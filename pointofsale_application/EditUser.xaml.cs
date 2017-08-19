@@ -87,7 +87,7 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
                     {
                         newBtn.Content = Emp[count];
                         newBtn.Name = Emp[count];
-                        newBtn.Click += (s, e) => { btn_Click(); };
+                        newBtn.Click += (s, e) => { btn_Click(newBtn.Name.ToString()); };
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
                         ItemGrid.Children.Add(newBtn);
@@ -97,9 +97,9 @@ private void ActiveDeactive_Click(object sender, RoutedEventArgs e)
             }
         }
 
-        public void btn_Click()
+        public void btn_Click(string name)
         {
-            EditUserPopUp eUser = new EditUserPopUp();
+            EditUserPopUp eUser = new EditUserPopUp(name);
             eUser.Show();
         }
 
