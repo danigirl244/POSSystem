@@ -350,9 +350,9 @@ namespace pointofsale_application
 
             }
 
-            SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
-            TaxTransactionField.Text = "$ " + printTax().ToString();
-            TotalTransactionField.Text = "$ " + printTotal().ToString();
+            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printSubTotal());
+            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", printTax());
+            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printTotal());
 
 
         }
@@ -373,9 +373,9 @@ namespace pointofsale_application
                 }
 
             }
-            SubtotalTransactionField.Text = "$ " + printSubTotal().ToString();
-            TaxTransactionField.Text = "$ " + printTax().ToString();
-            TotalTransactionField.Text = "$ " + printTotal().ToString();
+            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printSubTotal());
+            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", printTax());
+            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printTotal());
 
         }
 
