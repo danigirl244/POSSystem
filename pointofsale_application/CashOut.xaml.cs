@@ -123,7 +123,7 @@ namespace pointofsale_application
             }
             MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" + ChangeDue.Text, "Check Out");
             Reports.tillCount -= Total;
-            SqlCommand ttlUpdate = new SqlCommand("UPDATE TillCount SET Till = Till " + "-" + Total, access.AccessDB());
+            SqlCommand ttlUpdate = new SqlCommand("UPDATE TillCount SET Till = Till " + "+" + Total, access.AccessDB());
             try
             {
                 ttlUpdate.ExecuteNonQuery();
