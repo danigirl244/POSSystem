@@ -47,6 +47,12 @@ namespace pointofsale_application
             get { return taxTotal; }
             set { taxTotal = value; }
         }
+        private double TxID;
+        public double tranID
+        {
+            get { return TxID; }
+            set { TxID = value; }
+        }
 
         List<Item> cart = new List<Item>();
         List<Button> cartButton = new List<Button>();
@@ -153,10 +159,17 @@ namespace pointofsale_application
 
         private void ChangeOrderNum()
         {
-            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
-            int orderNum = (int)retrieveOrderNum.ExecuteScalar() + 1;
-
-            OrderNumberBlock.Text = orderNum.ToString();
+            try
+            {
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
+                tranID = (int)retrieveOrderNum.ExecuteScalar() + 1;
+                OrderNumberBlock.Text = tranID.ToString();
+            }
+            catch (Exception e) 
+            {
+                tranID = 1;
+                OrderNumberBlock.Text = TxID.ToString();
+            }
         }
 
         private void ChangeCashierName(string cashierName)

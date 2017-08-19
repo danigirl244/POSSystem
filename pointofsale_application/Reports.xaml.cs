@@ -57,6 +57,9 @@ namespace pointofsale_application
 
         public double printTill()
         {
+            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(Till) FROM TillCount", access.AccessDB());
+            double newTill = Convert.ToDouble((decimal)retrieveOrderNum.ExecuteScalar());
+            tillCount = newTill;
             Till_Count.Text = tillCount.ToString();
             return tillCount;
         }
