@@ -116,7 +116,7 @@ namespace pointofsale_application
                 }
             }
            MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" +ChangeDue.Text, "Check Out");
-
+            Reports.tillCount -= Total;
             if (permission.Equals("admin"))
             {
                 AdminPage adminpage = new AdminPage(permission);

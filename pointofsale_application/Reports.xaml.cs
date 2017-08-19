@@ -18,14 +18,18 @@ namespace pointofsale_application
     /// <summary>
     /// Interaction logic for Reports.xaml
     /// </summary>
+    /// 
+    
     public partial class Reports : Window
     {
+        public static double tillCount = 10000.00;
         DatabaseAccess access = new DatabaseAccess();
         public Reports()
         {
             InitializeComponent();
             UpdateDateTime();
             ChangeOrderNum();
+            printTill();
         }
 
         // private void Button_Click(object sender, RoutedEventArgs e)
@@ -49,6 +53,12 @@ namespace pointofsale_application
         private void UpdateDateTime()
         {
             DateTimeTransactionField.Text = DateTime.Now.ToString();
+        }
+
+        public double printTill()
+        {
+            Till_Count.Text = tillCount.ToString();
+            return tillCount;
         }
     }
 }
