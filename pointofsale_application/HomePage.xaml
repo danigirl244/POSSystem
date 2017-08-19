@@ -9,10 +9,11 @@
     <Grid Background="#787A79">
         <DockPanel VerticalAlignment="Top" Height="85">
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="85" HorizontalAlignment="Left" VerticalAlignment="Top" />
-            
+
         </DockPanel>
+        <Label Content="Home Page" Height="46" VerticalAlignment="Center" Margin="459,18,442,608" FontSize="23" RenderTransformOrigin="0.508,0.239" Foreground="White"/>
         <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="CategoryColumn">
-            
+
         </StackPanel>
         <Button Name="LogoutButton" Width="103" Height="43" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,20,47,608" Click="LogoutButton_Click"/>
         <Grid Margin="135,85,307,0"  ShowGridLines="True" x:Name="ItemGrid">
