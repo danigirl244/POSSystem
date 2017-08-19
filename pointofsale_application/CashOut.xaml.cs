@@ -71,7 +71,7 @@ namespace pointofsale_application
             for (int i = 0; i < cart.Count; i++)
             {
                 Button cartI = new Button();
-                cartI.Content = cart[i].Name + "  $ " + cart[i].Price;
+                cartI.Content = cart[i].Name + "  $ " + String.Format("{0:0.00}", cart[i].Price);
                 cartI.Name = "Button" + i;
                 cartButton.Add(cartI);
                 TransactionBlock.Children.Add(cartButton[i]);
@@ -79,11 +79,11 @@ namespace pointofsale_application
             }
 
             SubTotal = Math.Round(SubTotal, 2);
-            SubtotalTransactionField.Text = "$ " + SubTotal.ToString();
+            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", SubTotal);
             TaxTotal = Math.Round(TaxTotal, 2);
-            TaxTransactionField.Text = "$ " + TaxTotal.ToString();
+            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", TaxTotal);
             Total = Math.Round(Total, 2);
-            TotalTransactionField.Text = "$ " + Total.ToString();
+            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", Total);
 
             RemainingBalance.Text = Total.ToString();
 
