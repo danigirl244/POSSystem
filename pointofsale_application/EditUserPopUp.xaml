@@ -12,13 +12,15 @@
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
         <Rectangle x:Name="Recta" Fill="#B1B7B7" HorizontalAlignment="Left" Height="176" Margin="51,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="347"/>
-        <Button x:Name="saveNewUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" Content="✓" Margin="107,7.504,277,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543"/>
-        <Button x:Name="delNewUser" Height="40" Width="65" FontSize="22" Background="#b1b7b7" RenderTransformOrigin="0.762,1.118" Margin="261,7.504,123,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543">X</Button>
+        <Button x:Name="saveNewUser" Click="Save_Click" Height="40" Width="65" FontSize="22" Background="#b1b7b7" Content="✓" Margin="107,7.504,277,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543"/>
+        <Button x:Name="delNewUser" Click="Delete_Click" Height="40" Width="65" FontSize="22" Background="#b1b7b7" RenderTransformOrigin="0.762,1.118" Margin="261,7.504,123,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543">X</Button>
         <Label x:Name="NameLabel1" Content="Name:" HorizontalAlignment="Left" Margin="204,44,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
-        <Button x:Name="ActivateButton" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="69,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
-        <Button x:Name="PromtoeButton" Content="Promote/Demote" HorizontalAlignment="Left" Margin="261,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
+        <Button x:Name="ActivateButton" Click="On_ClickAct" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="69,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
+        <Button x:Name="PromtoeButton" Click="On_ClickPerm" Content="Promote/Demote" HorizontalAlignment="Left" Margin="261,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
+        <Label x:Name="ActivityLabel" Content="Status:" HorizontalAlignment="Left" Margin="84,97,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="AStatus" HorizontalAlignment="Left" Height="23" Margin="69,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" IsReadOnly="True"/>
+        <Label x:Name="PermissionsLabel" Content="Permissions:" HorizontalAlignment="Left" Margin="261,97,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="PStatus" HorizontalAlignment="Left" Height="23" Margin="261,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" IsReadOnly="True"/>
 
     </Grid>

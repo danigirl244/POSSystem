@@ -63,6 +63,21 @@ namespace pointofsale_application
             AddEmp(name, empPermissions, isActive);
         }
 
+        public void showID(string name)
+        {
+            int empID = 0;
+
+            SqlCommand showID = new SqlCommand("Select UserID From Users Where EmployeeName = @param1", dbt.AccessDB());
+            showID.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = name;
+            SqlDataReader rd;
+            rd = showID.ExecuteReader();
+            while(rd.Read())
+            {
+               empID = rd.GetInt32(rd.GetOrdinal("UserID"));
+            }
+
+            MessageBox.Show("Login ID: " + empID.ToString());
+        }
 
         public void AddEmp(string empName, string empPermissions, int isActive)
         {
@@ -84,6 +99,8 @@ namespace pointofsale_application
                 MessageBox.Show(e.Message.ToString(), "Error Message");
 
             }
+
+            showID(empName);
 
         }
     }

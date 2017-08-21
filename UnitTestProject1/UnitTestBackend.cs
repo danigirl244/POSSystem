@@ -23,8 +23,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void EditUserTest()
         {
-            pointofsale_application.EditUser user = new pointofsale_application.EditUser();
-            //user.AddEmp("Evan", "admin", 1);
+            pointofsale_application.EditUserPopUp user = new pointofsale_application.EditUserPopUp();
+            pointofsale_application.AddUser adduser = new pointofsale_application.AddUser();
+            //adduser.AddEmp("Evan", "admin", 1);
             //user.UpdateEmpAct(11119, 0);
             //user.UpdateEmpRank(11119, "basic");
         }
