@@ -13,7 +13,7 @@ namespace pointofsale_application
     public partial class EditUser : Window
     {
 
-        DatabaseAccess dbt = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
         List<string> usersName = new List<string>();
         public EditUser()
         {
@@ -23,7 +23,7 @@ namespace pointofsale_application
 
         public void GetEmpInfo()
         {
-            SqlCommand users = new SqlCommand("SELECT EmployeeName FROM Users", dbt.AccessDB());
+            SqlCommand users = new SqlCommand("SELECT EmployeeName FROM Users", db.AccessDB());
 
             SqlDataReader rd;
             rd = users.ExecuteReader();

@@ -13,7 +13,7 @@ namespace pointofsale_application
     /// </summary>
     public partial class HomePage : Window
     {
-        DatabaseAccess access = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
         private string cashName;
         public string CashName
         {
@@ -47,11 +47,11 @@ namespace pointofsale_application
             set { taxTotal = value; }
         }
 
-        private double TxID;
-        public double tranID
+        private double txID;
+        public double TxID
         {
-            get { return TxID; }
-            set { TxID = value; }
+            get { return txID; }
+            set { txID = value; }
         }
 
         List<Item> itemList = new List<Item>();
@@ -70,7 +70,7 @@ namespace pointofsale_application
         {
             Permission = p;
             InitializeComponent();
-            fillCategoryColumn();
+            FillCategoryColumn();
             InitializeItemList();
             InitializeBestSellersList();
 
@@ -81,7 +81,7 @@ namespace pointofsale_application
             InitializeDrinkList("Bourbon", BourbonItems);
             InitializeDrinkList("Wine", WineItems);
 
-            ChangeCashierName(Login.staticVars.cashierName);
+            ChangeCashierName(Login.StaticVars.CashierName);
             UpdateDateTime();
             ChangeOrderNum();
 
@@ -91,7 +91,7 @@ namespace pointofsale_application
 
         public void InitializeItemList()
         {
-            SqlCommand categories = new SqlCommand("SELECT SKU, Name, Price, Category, NumPurchased FROM Inventory ORDER by NumPurchased DESC", access.AccessDB());
+            SqlCommand categories = new SqlCommand("SELECT SKU, Name, Price, Category, NumPurchased FROM Inventory ORDER by NumPurchased DESC", db.AccessDB());
             SqlDataReader rd;
             rd = categories.ExecuteReader();
             while (rd.Read())
@@ -141,7 +141,7 @@ namespace pointofsale_application
         }
 
 
-        public void fillCategoryColumn()
+        public void FillCategoryColumn()
         {
             string[] cats = { "Best Sellers", "Beer", "Vodka", "Tequila", "Whiskey", "Bourbon", "Wine" };
             DatabaseAccess db = new DatabaseAccess();
@@ -324,7 +324,7 @@ namespace pointofsale_application
 
         public void CreateReceipt()
         {
-            Receipt receipt = new Receipt(SubTotal, TaxTotal, Total, cartList, "CashierName", new DateTime(2017, 8, 14));
+            Receipt receipt = new Receipt(SubTotal, TaxTotal, Total, cartList, "CashierName", DateTime.Now);
         }
 
         private void CashoutButton_Click(object sender, RoutedEventArgs e)
@@ -349,14 +349,14 @@ namespace pointofsale_application
         {
             try
             {
-                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
-                tranID = (int)retrieveOrderNum.ExecuteScalar() + 1;
-                OrderNumberBlock.Text = tranID.ToString();
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", db.AccessDB());
+                TxID = (int)retrieveOrderNum.ExecuteScalar() + 1;
+                OrderNumberBlock.Text = TxID.ToString();
             }
             catch (Exception e)
             {
-                tranID = 1;
-                OrderNumberBlock.Text = TxID.ToString();
+                TxID = 1;
+                OrderNumberBlock.Text = txID.ToString();
             }
         }
 

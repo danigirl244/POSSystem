@@ -13,7 +13,7 @@ namespace pointofsale_application
     /// </summary>
     public partial class AddUser : Window
     {
-        DatabaseAccess dbt = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
 
         public AddUser()
         {
@@ -59,7 +59,7 @@ namespace pointofsale_application
         {
             int empID = 0;
 
-            SqlCommand showID = new SqlCommand("Select UserID From Users Where EmployeeName = @param1", dbt.AccessDB());
+            SqlCommand showID = new SqlCommand("Select UserID From Users Where EmployeeName = @param1", db.AccessDB());
             showID.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = name;
             SqlDataReader rd;
             rd = showID.ExecuteReader();
@@ -75,7 +75,7 @@ namespace pointofsale_application
         {
             //creates a new employee with predetermined values
 
-            SqlCommand addEmp = new SqlCommand("INSERT INTO Users (EmployeeName, Permissions, isActive) VALUES (@param1, @param2, @param3);", dbt.AccessDB());
+            SqlCommand addEmp = new SqlCommand("INSERT INTO Users (EmployeeName, Permissions, isActive) VALUES (@param1, @param2, @param3);", db.AccessDB());
 
             addEmp.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = empName;
             addEmp.Parameters.Add("@param2", SqlDbType.VarChar, 255).Value = empPermissions;

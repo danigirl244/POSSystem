@@ -19,9 +19,9 @@ namespace pointofsale_application
         }
         DatabaseAccess db = new DatabaseAccess();
 
-        public static class staticVars
+        public static class StaticVars
         {
-            public static string cashierName { get; set; }
+            public static string CashierName { get; set; }
 
         }
 
@@ -53,7 +53,7 @@ namespace pointofsale_application
                         perm = permission;
 
                         SqlCommand userName = new SqlCommand("SELECT EmployeeName FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());
-                        staticVars.cashierName = userName.ExecuteScalar().ToString();
+                        StaticVars.CashierName = userName.ExecuteScalar().ToString();
                         //cashierName = name;
 
                         HomePage homepage = new HomePage(perm);

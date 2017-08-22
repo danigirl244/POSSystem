@@ -13,7 +13,7 @@ namespace pointofsale_application
     public partial class Reports : Window
     {
         public static double tillCount = 5000.00;
-        DatabaseAccess dbt = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
         public Reports()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace pointofsale_application
 
         private void ChangeOrderNum()
         {
-            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", dbt.AccessDB());
+            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", db.AccessDB());
             int orderNum = (int)retrieveOrderNum.ExecuteScalar() + 1;
 
             OrderNumberBlock.Text = orderNum.ToString();
@@ -41,7 +41,7 @@ namespace pointofsale_application
         {
             try
             {
-                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(Till) FROM TillCount", dbt.AccessDB());
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(Till) FROM TillCount", db.AccessDB());
                 double newTill = Convert.ToDouble((decimal)retrieveOrderNum.ExecuteScalar());
                 tillCount = newTill;
             }

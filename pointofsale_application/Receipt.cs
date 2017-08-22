@@ -48,14 +48,14 @@ namespace pointofsale_application
             set { recieptCart = value; }
         }
 
-        public Receipt(double sub, double t, double tot, List<Item> rc, string cashier, DateTime dt)
+        public Receipt(double sub, double tax, double total, List<Item> cart, string cashier, DateTime date)
         {
             RecieptSubTotal = sub;
-            RecieptTax = t;
-            RecieptTotal = tot;
-            RecieptCart = rc;
+            RecieptTax = tax;
+            RecieptTotal = total;
+            RecieptCart = cart;
             CashierName = cashier;
-            DT = dt;
+            DT = date;
             Order += 1;
         }
 

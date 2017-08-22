@@ -13,7 +13,7 @@ namespace pointofsale_application
     /// </summary>
     public partial class CashOut : Window
     {
-        DatabaseAccess access = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
 
         private string permission;
         public string Permission
@@ -39,11 +39,11 @@ namespace pointofsale_application
             get { return taxTotal; }
             set { taxTotal = value; }
         }
-        private double TxID;
-        public double TranID
+        private double txID;
+        public double TxID
         {
-            get { return TxID; }
-            set { TxID = value; }
+            get { return txID; }
+            set { txID = value; }
         }
 
         List<Item> cart = new List<Item>();
@@ -53,7 +53,7 @@ namespace pointofsale_application
             InitializeComponent();
             UpdateDateTime();
             ChangeOrderNum();
-            ChangeCashierName(Login.staticVars.cashierName);
+            ChangeCashierName(Login.StaticVars.CashierName);
 
             SubTotal = sub;
             TaxTotal = taxTotal;
@@ -89,7 +89,7 @@ namespace pointofsale_application
             {
                 int qty = 0;
 
-                SqlCommand categories = new SqlCommand("SELECT QtyOnHand FROM Inventory WHERE SKU = @param1", access.AccessDB());
+                SqlCommand categories = new SqlCommand("SELECT QtyOnHand FROM Inventory WHERE SKU = @param1", db.AccessDB());
                 categories.Parameters.Add("@param1", SqlDbType.Int).Value = cart[i].SKU;
 
                 SqlDataReader rd;
@@ -100,7 +100,7 @@ namespace pointofsale_application
                 }
 
                 cart[i].NumPurchased += 1;
-                SqlCommand createItem = new SqlCommand("UPDATE Inventory SET QtyOnHand = @param2, NumPurchased = @param3 WHERE SKU = @param1", access.AccessDB());
+                SqlCommand createItem = new SqlCommand("UPDATE Inventory SET QtyOnHand = @param2, NumPurchased = @param3 WHERE SKU = @param1", db.AccessDB());
                 createItem.Parameters.Add("@param1", SqlDbType.Int).Value = cart[i].SKU;
                 createItem.Parameters.Add("@param2", SqlDbType.Int).Value = qty-1;
                 createItem.Parameters.Add("@param3", SqlDbType.Int).Value = cart[i].NumPurchased;
@@ -116,7 +116,7 @@ namespace pointofsale_application
             }
             MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" + ChangeDue.Text, "Check Out");
             Reports.tillCount -= Total;
-            SqlCommand ttlUpdate = new SqlCommand("UPDATE TillCount SET Till = Till " + "+" + Total, access.AccessDB());
+            SqlCommand ttlUpdate = new SqlCommand("UPDATE TillCount SET Till = Till " + "+" + Total, db.AccessDB());
             try
             {
                 ttlUpdate.ExecuteNonQuery();
@@ -164,14 +164,14 @@ namespace pointofsale_application
         {
             try
             {
-                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
-                TranID = (int)retrieveOrderNum.ExecuteScalar() + 1;
-                OrderNumberBlock.Text = TranID.ToString();
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", db.AccessDB());
+                TxID = (int)retrieveOrderNum.ExecuteScalar() + 1;
+                OrderNumberBlock.Text = TxID.ToString();
             }
             catch (Exception e) 
             {
-                TranID = 1;
-                OrderNumberBlock.Text = TxID.ToString();
+                TxID = 1;
+                OrderNumberBlock.Text = txID.ToString();
                 MessageBox.Show(e.Message.ToString(), "Error message");
             }
         }

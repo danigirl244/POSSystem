@@ -11,7 +11,7 @@ namespace pointofsale_application
     public partial class EditProduct : Window
     {
         Item product;
-        DatabaseAccess dbt = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
 
         public EditProduct(Item product)
         {  
@@ -27,7 +27,7 @@ namespace pointofsale_application
             int qty = 0;
             string desc = "";
 
-            SqlCommand categories = new SqlCommand("SELECT QtyOnHand, [Desc] FROM Inventory WHERE SKU = @param1", dbt.AccessDB());
+            SqlCommand categories = new SqlCommand("SELECT QtyOnHand, [Desc] FROM Inventory WHERE SKU = @param1", db.AccessDB());
             categories.Parameters.Add("@param1", SqlDbType.Int).Value = product.SKU;
 
             SqlDataReader rd;
@@ -74,7 +74,7 @@ namespace pointofsale_application
         public void DeleteItem(int itemID)
         {
             //delete from inventory table according to the itemId of the button pushed
-            SqlCommand deleteItem = new SqlCommand("DELETE FROM Inventory WHERE SKU = @param1;", dbt.AccessDB());
+            SqlCommand deleteItem = new SqlCommand("DELETE FROM Inventory WHERE SKU = @param1;", db.AccessDB());
 
             deleteItem.Parameters.Add("@param1", SqlDbType.Int).Value = itemID;
             deleteItem.CommandType = CommandType.Text;
@@ -92,7 +92,7 @@ namespace pointofsale_application
         public void EditItem(string itemID, string qty, string price, string name, string desc, string category)
         {
             //Using an update command according to the itemID to update editted fields
-            SqlCommand editItem = new SqlCommand("UPDATE Inventory SET QtyOnHand = @param1, Price = @param2, Name = @param3, [Desc] = @param4, Category = @param5 WHERE SKU = @param6;", dbt.AccessDB());
+            SqlCommand editItem = new SqlCommand("UPDATE Inventory SET QtyOnHand = @param1, Price = @param2, Name = @param3, [Desc] = @param4, Category = @param5 WHERE SKU = @param6;", db.AccessDB());
 
             editItem.Parameters.Add("@param1", SqlDbType.Int).Value = qty;
             editItem.Parameters.Add("@param2", SqlDbType.Money).Value = price;

@@ -13,7 +13,7 @@ namespace pointofsale_application
     {
 
 
-        DatabaseAccess dbt = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
 
         public EditInventory(List<Item> Inventory)
         {

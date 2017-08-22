@@ -10,7 +10,7 @@ namespace pointofsale_application
     public partial class EditUserPopUp : Window
     {
 
-        DatabaseAccess dbt = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
 
         public EditUserPopUp(string name)
         {
@@ -56,7 +56,7 @@ namespace pointofsale_application
             int userID = 0;
             bool isActive = true;
 
-            SqlCommand users = new SqlCommand("SELECT UserID, Permissions, isActive FROM Users Where EmployeeName = @param1", dbt.AccessDB());
+            SqlCommand users = new SqlCommand("SELECT UserID, Permissions, isActive FROM Users Where EmployeeName = @param1", db.AccessDB());
             users.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = name;
 
             SqlDataReader rd;
@@ -103,7 +103,7 @@ namespace pointofsale_application
         {
             //updates user rank according to the predetermined value ex) basic, admin
 
-            SqlCommand updateEmpRank = new SqlCommand("UPDATE Users SET Permissions = @param2 WHERE UserID = @param1;", dbt.AccessDB());
+            SqlCommand updateEmpRank = new SqlCommand("UPDATE Users SET Permissions = @param2 WHERE UserID = @param1;", db.AccessDB());
 
             updateEmpRank.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = empID;
             updateEmpRank.Parameters.Add("@param2", SqlDbType.VarChar, 255).Value = empPermissions;
@@ -125,7 +125,7 @@ namespace pointofsale_application
         {
             //updates user's isActive according to the predetermined value
 
-            SqlCommand updateEmpAct = new SqlCommand("UPDATE Users SET isActive = @param2 WHERE UserID = @param1;", dbt.AccessDB());
+            SqlCommand updateEmpAct = new SqlCommand("UPDATE Users SET isActive = @param2 WHERE UserID = @param1;", db.AccessDB());
 
             updateEmpAct.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = empID;
             updateEmpAct.Parameters.Add("@param2", SqlDbType.Bit).Value = activity;

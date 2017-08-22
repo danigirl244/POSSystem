@@ -12,7 +12,7 @@ namespace pointofsale_application
     /// </summary>
     public partial class AdminPage : Window
     {
-        DatabaseAccess access = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
         private static double taxPercentage = .0685;
         private string permission;
         public string Permission
@@ -40,11 +40,11 @@ namespace pointofsale_application
             set { taxTotal = value; }
         }
 
-        private double TxID;
-        public double tranID
+        private double txID;
+        public double TxID
         {
-            get { return TxID; }
-            set { TxID = value; }
+            get { return txID; }
+            set { txID = value; }
         }
 
         List<Item> itemList = new List<Item>();
@@ -75,7 +75,7 @@ namespace pointofsale_application
             InitializeDrinkList("Wine", WineItems);
             DateTimeTransactionField.Text = DateTime.Now.ToString();
        
-            ChangeCashierName(Login.staticVars.cashierName);
+            ChangeCashierName(Login.StaticVars.CashierName);
             UpdateDateTime();
             ChangeOrderNum();
 
@@ -85,7 +85,7 @@ namespace pointofsale_application
 
         public void InitializeItemList()
         {
-            SqlCommand categories = new SqlCommand("SELECT SKU, Name, Price, Category, NumPurchased FROM Inventory ORDER by NumPurchased DESC", access.AccessDB());
+            SqlCommand categories = new SqlCommand("SELECT SKU, Name, Price, Category, NumPurchased FROM Inventory ORDER by NumPurchased DESC", db.AccessDB());
             SqlDataReader rd;
             rd = categories.ExecuteReader();
             while (rd.Read())
@@ -230,7 +230,7 @@ namespace pointofsale_application
                     {
                         newBtn.Content = category[count].Name.ToString();
                         newBtn.Name = category[count].Name.ToString().Replace(" ", String.Empty);
-                        newBtn.Click += (s, e) => { addItem(newBtn.Name); };
+                        newBtn.Click += (s, e) => { AddItem(newBtn.Name); };
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
                         ItemGrid.Children.Add(newBtn);
@@ -240,7 +240,7 @@ namespace pointofsale_application
             }
         }
 
-        public void addItem(String str)
+        public void AddItem(String str)
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
@@ -251,7 +251,7 @@ namespace pointofsale_application
                     cartItem.Content = str;
                     cartItem.Name = str;
 
-                    cartItem.Click += (s, e) => { removeItem(str); };
+                    cartItem.Click += (s, e) => { RemoveItem(str); };
                     TransactionBlock.Children.Add(cartItem);
                     cartButtonList.Add(cartItem);
                     numItems++;
@@ -259,15 +259,15 @@ namespace pointofsale_application
 
             }
 
-            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printSubTotal());
-            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", printTax());
-            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printTotal());
+            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintSubTotal());
+            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintTax());
+            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintTotal());
 
 
         }
 
         //Delete Item From 'Cart'
-        public void removeItem(string s)
+        public void RemoveItem(string s)
         {
             //cartList.Remove() Removes item from list.
             for (int i = 0; i < cartList.Count; i++)
@@ -281,14 +281,14 @@ namespace pointofsale_application
                 }
                 
             }
-            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printSubTotal());
-            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", printTax());
-            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printTotal());
+            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintSubTotal());
+            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintTax());
+            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintTotal());
 
         }
 
         //subtotal
-        public double printSubTotal()
+        public double PrintSubTotal()
         {
             //Refreshes the subtotal each time an item is added to the 'cart'
             subtotal = 0;
@@ -302,7 +302,7 @@ namespace pointofsale_application
 
         }
 
-        public double printTax()
+        public double PrintTax()
         {
             TaxTotal = subtotal * taxPercentage;
             TaxTotal = Math.Round(taxTotal, 2);
@@ -310,10 +310,8 @@ namespace pointofsale_application
         }
 
         //Final Price with Tax
-        public double printTotal()
+        public double PrintTotal()
         {
-
-
             Total = subtotal + taxTotal;
             Total = Math.Round(total, 2);
             return Math.Round(total, 2);
@@ -371,14 +369,14 @@ namespace pointofsale_application
         {
             try
             {
-                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
-                tranID = (int)retrieveOrderNum.ExecuteScalar() + 1;
-                OrderNumberBlock.Text = tranID.ToString();
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", db.AccessDB());
+                TxID = (int)retrieveOrderNum.ExecuteScalar() + 1;
+                OrderNumberBlock.Text = TxID.ToString();
             }
             catch (Exception e)
             {
-                tranID = 1;
-                OrderNumberBlock.Text = TxID.ToString();
+                TxID = 1;
+                OrderNumberBlock.Text = txID.ToString();
             }
         }
 

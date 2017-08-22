@@ -10,7 +10,7 @@ namespace pointofsale_application
     /// </summary>
     public partial class AddProduct : Window
     {
-        DatabaseAccess dbt = new DatabaseAccess();
+        DatabaseAccess db = new DatabaseAccess();
 
         public AddProduct()
         {
@@ -39,7 +39,7 @@ namespace pointofsale_application
         public void CreateItem(string qty, string price, string name, string desc, string category)
         {
             //Insert new item into inventory table according to the information entered
-            SqlCommand createItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (@param1, @param2, @param3, @param4, @param5, 0);", dbt.AccessDB());
+            SqlCommand createItem = new SqlCommand("INSERT INTO Inventory (QtyOnHand, Price, Name, [Desc], Category, NumPurchased) VALUES (@param1, @param2, @param3, @param4, @param5, 0);", db.AccessDB());
 
             createItem.Parameters.Add("@param1", SqlDbType.Int).Value = qty;
             createItem.Parameters.Add("@param2", SqlDbType.Money).Value = price;

@@ -34,8 +34,8 @@ namespace UnitTestProject1
             //user.UpdateEmpRank(11119, "basic");
             adduser.ShowID("Evan");
             adduser.SortEmpData();
-            euser.getEmpInfo();
-            euser.fillEmpColumn(employee);
+            euser.GetEmpInfo();
+            euser.FillEmpColumn(employee);
         }
         [TestMethod]
         public void EditInventoryTest()
@@ -56,18 +56,18 @@ namespace UnitTestProject1
             home.SubTotal = 73.92;
             home.TaxTotal = 5.93;
             home.Total = 79.85;
-<<<<<<< HEAD
+
             home.AddItem("Jim Beam");
             home.PrintSubTotal();
             home.PrintTotal();
             home.RemoveItem("African Children");
 
-=======
-            home.addItem("Jim Beam");
-            home.printSubTotal();
-            home.printTax();
-            home.printTotal();
-            home.removeItem("African Children");
+
+            home.AddItem("Jim Beam");
+            home.PrintSubTotal();
+            home.PrintTax();
+            home.PrintTotal();
+            home.RemoveItem("African Children");
             home.CreateReceipt();
             home.InitializeBeerList();
             home.InitializeBestSellersList();
@@ -77,19 +77,18 @@ namespace UnitTestProject1
             home.InitializeVodkaList();
             home.InitializeWhiskeyList();
             home.InitializeWineList();
-            home.fillCategoryColumn();
->>>>>>> origin/master
+            home.FillCategoryColumn();
 
         }
         [TestMethod]
         public void AdminPageTest()
         {
             pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage("admin");
-            admin.printSubTotal();
-            admin.printTax();
-            admin.printTotal();
-            admin.addItem("Jim Beam");
-            admin.removeItem("African Children");
+            admin.PrintSubTotal();
+            admin.PrintTax();
+            admin.PrintTotal();
+            admin.AddItem("Jim Beam");
+            admin.RemoveItem("African Children");
             admin.CreateReceipt();
             admin.FillCategoryColumn();
             admin.InitializeBeerList();
@@ -111,13 +110,13 @@ namespace UnitTestProject1
             cash.SubTotal = 100;
             cash.TaxTotal = 8.10;
             cash.Total = 108.10;
-            cash.tranID = 1000;
+            cash.TxID = 1000;
         }
         [TestMethod]
         public void ReportsTest()
         {
             pointofsale_application.Reports report = new pointofsale_application.Reports();
-            report.printTill();
+            report.PrintTill();
         }
     }
 }
