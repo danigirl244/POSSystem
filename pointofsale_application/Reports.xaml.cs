@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace pointofsale_application
 {
@@ -23,43 +13,35 @@ namespace pointofsale_application
     public partial class Reports : Window
     {
         public static double tillCount = 5000.00;
-        DatabaseAccess access = new DatabaseAccess();
+        DatabaseAccess dbt = new DatabaseAccess();
         public Reports()
         {
             InitializeComponent();
             UpdateDateTime();
             ChangeOrderNum();
-            printTill();
+            PrintTill();
         }
 
-        // private void Button_Click(object sender, RoutedEventArgs e)
-        // {
-
-        // }
 
         private void ChangeOrderNum()
         {
-            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
+            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", dbt.AccessDB());
             int orderNum = (int)retrieveOrderNum.ExecuteScalar() + 1;
 
             OrderNumberBlock.Text = orderNum.ToString();
         }
 
-        private void ChangeCashierName(String cashierName)
-        {
-            CashierTransactionField.Text = cashierName;
-        }
 
         private void UpdateDateTime()
         {
             DateTimeTransactionField.Text = DateTime.Now.ToString();
         }
 
-        public double printTill()
+        public double PrintTill()
         {
             try
             {
-                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(Till) FROM TillCount", access.AccessDB());
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(Till) FROM TillCount", dbt.AccessDB());
                 double newTill = Convert.ToDouble((decimal)retrieveOrderNum.ExecuteScalar());
                 tillCount = newTill;
             }

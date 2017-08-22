@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace pointofsale_application
 {
@@ -48,7 +40,7 @@ namespace pointofsale_application
             set { taxTotal = value; }
         }
         private double TxID;
-        public double tranID
+        public double TranID
         {
             get { return TxID; }
             set { TxID = value; }
@@ -56,17 +48,17 @@ namespace pointofsale_application
 
         List<Item> cart = new List<Item>();
         List<Button> cartButton = new List<Button>();
-        public CashOut(double sub, double t, double tot, string p, List<Item> l)
+        public CashOut(double sub, double taxTotal, double total, string permissionString, List<Item> cartList)
         {
             InitializeComponent();
             UpdateDateTime();
             ChangeOrderNum();
 
             SubTotal = sub;
-            TaxTotal = t;
-            Total = tot;
-            permission = p;
-            cart = l;
+            TaxTotal = taxTotal;
+            Total = total;
+            permission = permissionString;
+            cart = cartList;
             
             for (int i = 0; i < cart.Count; i++)
             {
@@ -172,13 +164,14 @@ namespace pointofsale_application
             try
             {
                 SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
-                tranID = (int)retrieveOrderNum.ExecuteScalar() + 1;
-                OrderNumberBlock.Text = tranID.ToString();
+                TranID = (int)retrieveOrderNum.ExecuteScalar() + 1;
+                OrderNumberBlock.Text = TranID.ToString();
             }
             catch (Exception e) 
             {
-                tranID = 1;
+                TranID = 1;
                 OrderNumberBlock.Text = TxID.ToString();
+                MessageBox.Show(e.Message.ToString(), "Error message");
             }
         }
 

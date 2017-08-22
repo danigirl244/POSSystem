@@ -1,18 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace pointofsale_application
 {
@@ -28,15 +18,12 @@ namespace pointofsale_application
         public EditInventory(List<Item> Inventory)
         {
             InitializeComponent();
-            fillItemColumn(Inventory);
+            FillItemColumn(Inventory);
             
         }
 
-        public EditInventory()
-        {
-        }
 
-        public void fillItemColumn(List<Item> Inventory)
+        public void FillItemColumn(List<Item> Inventory)
         {
 
             int count = 0;
@@ -49,7 +36,7 @@ namespace pointofsale_application
                     {
                         newBtn.Content = Inventory[count].Name.ToString();
                         newBtn.Name = Inventory[count].Name.ToString().Replace(" ", String.Empty);
-                        newBtn.Click += (s, e) => { btn_Click(newBtn.Name, Inventory); }; ;
+                        newBtn.Click += (s, e) => { Btn_Click(newBtn.Name, Inventory); }; ;
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
                         ItemGrid.Children.Add(newBtn);
@@ -59,16 +46,16 @@ namespace pointofsale_application
             }
         }
 
-        private void btn_Click(String s, List<Item> Inventory)
+        private void Btn_Click(String s, List<Item> Inventory)
         {
             //method that brings up the edit window according to the designated items
 
-            for(int x = 0; x < Inventory.Count; x++)
+            for(int i = 0; i < Inventory.Count; i++)
             {
-                if(Inventory[x].Name.ToString().Replace(" ", String.Empty) == s)
+                if(Inventory[i].Name.ToString().Replace(" ", String.Empty) == s)
                 {
                     //MessageBox.Show(Inventory[x].Name.ToString());
-                    EditProduct editProd = new EditProduct(Inventory[x]);
+                    EditProduct editProd = new EditProduct(Inventory[i]);
                     editProd.Show();
                     break;
                 }

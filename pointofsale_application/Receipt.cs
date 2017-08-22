@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace pointofsale_application
 {
@@ -60,14 +57,6 @@ namespace pointofsale_application
             CashierName = cashier;
             DT = dt;
             Order += 1;
-        }
-
-        public string ToString()
-        {
-            string s = "";
-
-            return s;
-
         }
 
 

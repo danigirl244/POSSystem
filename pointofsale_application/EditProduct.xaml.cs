@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace pointofsale_application
 {
@@ -28,14 +17,12 @@ namespace pointofsale_application
         {  
             InitializeComponent();
             this.product = product;
-            pullInfo();
+            PullInfo();
         }
 
-        public EditProduct()
-        {
-        }
 
-        public void pullInfo()
+
+        public void PullInfo()
         {
             int qty = 0;
             string desc = "";
@@ -51,10 +38,10 @@ namespace pointofsale_application
                 desc = rd.GetString(rd.GetOrdinal("Desc"));
             }
 
-            initializeText(qty, desc);
+            InitializeText(qty, desc);
         }
 
-        public void initializeText(int qty, string desc)
+        public void InitializeText(int qty, string desc)
         {
             prodID.Text = product.SKU.ToString();
             prodName.Text = product.Name.ToString();

@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace pointofsale_application
 {
@@ -27,7 +15,7 @@ namespace pointofsale_application
         public EditUserPopUp(string name)
         {
             InitializeComponent();
-            getEmpInfo(name);
+            GetEmpInfo(name);
             
         }
 
@@ -62,7 +50,7 @@ namespace pointofsale_application
             }
         }
 
-        public void getEmpInfo(string name)
+        public void GetEmpInfo(string name)
         {
             string permissions = "";
             int userID = 0;
@@ -89,8 +77,6 @@ namespace pointofsale_application
         private void On_ClickAct(object sender, RoutedEventArgs e)
         {
 
-            int newstat = 0;
-
             if(AStatus.Text == "True")
             {
                 AStatus.Text = "False";
@@ -103,8 +89,6 @@ namespace pointofsale_application
 
         private void On_ClickPerm(object sender, RoutedEventArgs e)
         {
-            string newperm = "";
-
             if(PStatus.Text == "basic")
             {
                 PStatus.Text = "admin";

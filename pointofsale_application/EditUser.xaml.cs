@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace pointofsale_application
 {
@@ -27,10 +18,10 @@ namespace pointofsale_application
         public EditUser()
         {
             InitializeComponent();
-            getEmpInfo();
+            GetEmpInfo();
         }
 
-        public void getEmpInfo()
+        public void GetEmpInfo()
         {
             SqlCommand users = new SqlCommand("SELECT EmployeeName FROM Users", dbt.AccessDB());
 
@@ -41,10 +32,10 @@ namespace pointofsale_application
                 usersName.Add(rd.GetString(rd.GetOrdinal("EmployeeName")).Replace(" ", String.Empty));
             }
 
-            fillEmpColumn(usersName);
+            FillEmpColumn(usersName);
         }
 
-        public void fillEmpColumn(List<string> Emp)
+        public void FillEmpColumn(List<string> Emp)
         {
 
             int count = 0;
@@ -57,7 +48,7 @@ namespace pointofsale_application
                     {
                         newBtn.Content = Emp[count];
                         newBtn.Name = Emp[count];
-                        newBtn.Click += (s, e) => { btn_Click(newBtn.Name.ToString()); };
+                        newBtn.Click += (s, e) => { Btn_Click(newBtn.Name.ToString()); };
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
                         ItemGrid.Children.Add(newBtn);
@@ -67,18 +58,12 @@ namespace pointofsale_application
             }
         }
 
-        public void btn_Click(string name)
+        public void Btn_Click(string name)
         {
             EditUserPopUp eUser = new EditUserPopUp(name);
             eUser.Show();
         }
 
-
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
         
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {

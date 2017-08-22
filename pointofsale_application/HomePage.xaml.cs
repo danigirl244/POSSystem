@@ -1,19 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data;
 using System.Data.SqlClient;
-using System.Text.RegularExpressions;
+
 
 
 namespace pointofsale_application
@@ -70,16 +60,17 @@ namespace pointofsale_application
             fillCategoryColumn();
             InitializeItemList();
             InitializeBestSellersList();
-            InitializeBeerList();
-            InitializeVodkaList();
-            InitializeTequilaList();
-            InitializeWhiskeyList();
-            InitializeBourbonList();
-            InitializeWineList();
+
+            InitializeDrinkList("Beer", BeerItems);
+            InitializeDrinkList("Vodka", VodkaItems);
+            InitializeDrinkList("Tequila", TequilaItems);
+            InitializeDrinkList("Whiskey", WhiskeyItems);
+            InitializeDrinkList("Bourbon", BourbonItems);
+            InitializeDrinkList("Wine", WineItems);
 
             DateTimeTransactionField.Text = DateTime.Now.ToString();
 
-            fillItemColumn(BestSellers);
+            FillItemColumn(BestSellers);
 
         }
 
@@ -116,13 +107,13 @@ namespace pointofsale_application
             }
         }
 
-        public void InitializeBeerList()
+        public void InitializeDrinkList(String drink, List<Item> list)
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
-                if (Inventory[i].Category == "Beer")
+                if (Inventory[i].Category == drink)
                 {
-                    BeerItems.Add(new Item()
+                    list.Add(new Item()
                     {
                         SKU = Inventory[i].SKU,
                         Name = Inventory[i].Name,
@@ -134,97 +125,6 @@ namespace pointofsale_application
             }
         }
 
-        public void InitializeVodkaList()
-        {
-            for (int i = 0; i < Inventory.Count; i++)
-            {
-                if (Inventory[i].Category == "Vodka")
-                {
-                    VodkaItems.Add(new Item()
-                    {
-                        SKU = Inventory[i].SKU,
-                        Name = Inventory[i].Name.Replace(" ", String.Empty),
-                        Price = Inventory[i].Price,
-                        Category = Inventory[i].Category,
-                        NumPurchased = Inventory[i].NumPurchased
-                    });
-                }
-            }
-        }
-
-        public void InitializeTequilaList()
-        {
-            for (int i = 0; i < Inventory.Count; i++)
-            {
-                if (Inventory[i].Category == "Tequila")
-                {
-                    TequilaItems.Add(new Item()
-                    {
-                        SKU = Inventory[i].SKU,
-                        Name = Inventory[i].Name,
-                        Price = Inventory[i].Price,
-                        Category = Inventory[i].Category,
-                        NumPurchased = Inventory[i].NumPurchased
-                    });
-                }
-            }
-        }
-
-        public void InitializeBourbonList()
-        {
-            for (int i = 0; i < Inventory.Count; i++)
-            {
-                if (Inventory[i].Category == "Bourbon")
-                {
-                    BourbonItems.Add(new Item()
-                    {
-                        SKU = Inventory[i].SKU,
-                        Name = Inventory[i].Name,
-                        Price = Inventory[i].Price,
-                        Category = Inventory[i].Category,
-                        NumPurchased = Inventory[i].NumPurchased
-                    });
-                }
-            }
-        }
-
-        public void InitializeWhiskeyList()
-        {
-            for (int i = 0; i < Inventory.Count; i++)
-            {
-                if (Inventory[i].Category == "Whiskey")
-                {
-                    WhiskeyItems.Add(new Item()
-                    {
-                        SKU = Inventory[i].SKU,
-                        Name = Inventory[i].Name,
-                        Price = Inventory[i].Price,
-                        Category = Inventory[i].Category,
-                        NumPurchased = Inventory[i].NumPurchased
-                    });
-                }
-            }
-        }
-
-        public void InitializeWineList()
-        {
-            for (int i = 0; i < Inventory.Count; i++)
-            {
-                if (Inventory[i].Category == "Wine")
-                {
-
-
-                    WineItems.Add(new Item()
-                    {
-                        SKU = Inventory[i].SKU,
-                        Name = Inventory[i].Name,
-                        Price = Inventory[i].Price,
-                        Category = Inventory[i].Category,
-                        NumPurchased = Inventory[i].NumPurchased
-                    });
-                }
-            }
-        }
 
         public void fillCategoryColumn()
         {
@@ -236,82 +136,78 @@ namespace pointofsale_application
                 Button newBtn = new Button();
                 newBtn.Content = cats[i];
                 newBtn.Name = "Button" + i;
-                if (newBtn.Name == "Button0")
+                switch (i)
                 {
-                    newBtn.Click += new RoutedEventHandler(btn_Click0);
+                    case 0:
+                        newBtn.Click += new RoutedEventHandler(Btn_Click0);
+                        break;
+                    case 1:
+                        newBtn.Click += new RoutedEventHandler(Btn_Click1);
+                        break;
+                    case 2:
+                        newBtn.Click += new RoutedEventHandler(Btn_Click2);
+                        break;
+                    case 3:
+                        newBtn.Click += new RoutedEventHandler(Btn_Click3);
+                        break;
+                    case 4:
+                        newBtn.Click += new RoutedEventHandler(Btn_Click4);
+                        break;
+                    case 5:
+                        newBtn.Click += new RoutedEventHandler(Btn_Click5);
+                        break;
+                    case 6:
+                        newBtn.Click += new RoutedEventHandler(Btn_Click6);
+                        break;
                 }
-                else if (newBtn.Name == "Button1")
-                {
-                    newBtn.Click += new RoutedEventHandler(btn_Click1);
-                }
-                else if (newBtn.Name == "Button2")
-                {
-                    newBtn.Click += new RoutedEventHandler(btn_Click2);
-                }
-                else if (newBtn.Name == "Button3")
-                {
-                    newBtn.Click += new RoutedEventHandler(btn_Click3);
-                }
-                else if (newBtn.Name == "Button4")
-                {
-                    newBtn.Click += new RoutedEventHandler(btn_Click4);
-                }
-                else if (newBtn.Name == "Button5")
-                {
-                    newBtn.Click += new RoutedEventHandler(btn_Click5);
-                }
-                else if (newBtn.Name == "Button6")
-                {
-                    newBtn.Click += new RoutedEventHandler(btn_Click6);
-                }
+                
                 CategoryColumn.Children.Add(newBtn);
 
             }
         }
-        private void btn_Click0(object sender, RoutedEventArgs e)
+        private void Btn_Click0(object sender, RoutedEventArgs e)
         {
             ItemGrid.Children.Clear();
-            fillItemColumn(BestSellers);
+            FillItemColumn(BestSellers);
         }
-        private void btn_Click1(object sender, RoutedEventArgs e)
+        private void Btn_Click1(object sender, RoutedEventArgs e)
         {
             ItemGrid.Children.Clear();
-            fillItemColumn(BeerItems);
+            FillItemColumn(BeerItems);
         }
-        private void btn_Click2(object sender, RoutedEventArgs e)
+        private void Btn_Click2(object sender, RoutedEventArgs e)
         {
             ItemGrid.Children.Clear();
-            fillItemColumn(VodkaItems);
+            FillItemColumn(VodkaItems);
         }
-        private void btn_Click3(object sender, RoutedEventArgs e)
+        private void Btn_Click3(object sender, RoutedEventArgs e)
         {
             ItemGrid.Children.Clear();
-            fillItemColumn(TequilaItems);
+            FillItemColumn(TequilaItems);
         }
-        private void btn_Click4(object sender, RoutedEventArgs e)
+        private void Btn_Click4(object sender, RoutedEventArgs e)
         {
             ItemGrid.Children.Clear();
-            fillItemColumn(WhiskeyItems);
+            FillItemColumn(WhiskeyItems);
         }
-        private void btn_Click5(object sender, RoutedEventArgs e)
+        private void Btn_Click5(object sender, RoutedEventArgs e)
         {
             ItemGrid.Children.Clear();
-            fillItemColumn(BourbonItems);
+            FillItemColumn(BourbonItems);
         }
-        private void btn_Click6(object sender, RoutedEventArgs e)
+        private void Btn_Click6(object sender, RoutedEventArgs e)
         {
 
             ItemGrid.Children.Clear();
-            fillItemColumn(WineItems);
+            FillItemColumn(WineItems);
         }
-        private void cart_Click(object sender, RoutedEventArgs e)
+        private void Cart_Click(object sender, RoutedEventArgs e)
         {
             TransactionBlock.Children.RemoveAt(0);
         }
 
-        public void fillItemColumn(List<Item> category)
+        public void FillItemColumn(List<Item> category)
         {
-
             int count = 0;
             for (int i = 0; i < 4; i++)
             {
@@ -322,7 +218,7 @@ namespace pointofsale_application
                     {
                         newBtn.Content = category[count].Name.ToString();
                         newBtn.Name = category[count].Name.ToString().Replace(" ", String.Empty);
-                        newBtn.Click += (s, e) => { addItem(newBtn.Name); };
+                        newBtn.Click += (s, e) => { AddItem(newBtn.Name); };
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
                         ItemGrid.Children.Add(newBtn);
@@ -332,7 +228,7 @@ namespace pointofsale_application
             }
         }
 
-        public void addItem(String str)
+        public void AddItem(String str)
         {
             for (int i = 0; i < Inventory.Count; i++)
             {
@@ -342,7 +238,7 @@ namespace pointofsale_application
                     Button cartItem = new Button();
                     cartItem.Content = str;
                     cartItem.Name = str;
-                    cartItem.Click += (s, e) => { removeItem(str); };
+                    cartItem.Click += (s, e) => { RemoveItem(str); };
                     TransactionBlock.Children.Add(cartItem);
                     cartButtonList.Add(cartItem);
                     numItems++;
@@ -350,15 +246,15 @@ namespace pointofsale_application
 
             }
 
-            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printSubTotal());
-            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", printTax());
-            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printTotal());
+            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintSubTotal());
+            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintTax());
+            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintTotal());
 
 
         }
 
         //Delete Item From 'Cart'
-        public void removeItem(string s)
+        public void RemoveItem(string s)
         {
             //cartList.Remove() Removes item from list.
             for (int i = 0; i < cartList.Count; i++)
@@ -373,14 +269,14 @@ namespace pointofsale_application
                 }
 
             }
-            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printSubTotal());
-            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", printTax());
-            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", printTotal());
+            SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintSubTotal());
+            TaxTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintTax());
+            TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", PrintTotal());
 
         }
 
         //subtotal
-        public double printSubTotal()
+        public double PrintSubTotal()
         {
             //Refreshes the subtotal each time an item is added to the 'cart'
             subtotal = 0;
@@ -394,7 +290,7 @@ namespace pointofsale_application
 
         }
 
-        public double printTax()
+        public double PrintTax()
         {
             TaxTotal = subtotal * taxPercentage;
             TaxTotal = Math.Round(taxTotal, 2);
@@ -402,9 +298,8 @@ namespace pointofsale_application
         }
 
         //Final Price with Tax
-        public double printTotal()
+        public double PrintTotal()
         {
-
 
             Total = subtotal + taxTotal;
             Total = Math.Round(total, 2);

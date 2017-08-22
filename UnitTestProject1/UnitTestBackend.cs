@@ -28,7 +28,7 @@ namespace UnitTestProject1
             //adduser.AddEmp("Evan", "admin", 1);
             //user.UpdateEmpAct(11119, 0);
             //user.UpdateEmpRank(11119, "basic");
-            adduser.showID("Evan");
+            adduser.ShowID("Evan");
             adduser.SortEmpData();
         }
         [TestMethod]
@@ -50,10 +50,10 @@ namespace UnitTestProject1
             home.SubTotal = 73.92;
             home.TaxTotal = 5.93;
             home.Total = 79.85;
-            home.addItem("Jim Beam");
-            home.printSubTotal();
-            home.printTotal();
-            home.removeItem("African Children");
+            home.AddItem("Jim Beam");
+            home.PrintSubTotal();
+            home.PrintTotal();
+            home.RemoveItem("African Children");
 
 
         }
@@ -67,7 +67,7 @@ namespace UnitTestProject1
             admin.addItem("Jim Beam");
             admin.removeItem("African Children");
             admin.CreateReceipt();
-            admin.fillCategoryColumn();
+            admin.FillCategoryColumn();
             admin.InitializeBeerList();
             admin.InitializeBestSellersList();
             admin.InitializeBourbonList();

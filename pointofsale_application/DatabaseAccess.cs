@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace pointofsale_application
@@ -28,7 +23,7 @@ namespace pointofsale_application
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error: Cannot connect to database.");
+                MessageBox.Show(ex.Message.ToString(), "Cannot connect to database");
             }
             return myConnection;
         }
