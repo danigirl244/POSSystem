@@ -105,5 +105,11 @@ namespace UnitTestProject1
             cash.Total = 108.10;
             cash.tranID = 1000;
         }
+        [TestMethod]
+        public void ReportsTest()
+        {
+            pointofsale_application.Reports report = new pointofsale_application.Reports();
+            report.printTill();
+        }
     }
 }
