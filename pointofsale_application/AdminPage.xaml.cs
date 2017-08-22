@@ -50,6 +50,13 @@ namespace pointofsale_application
             set { taxTotal = value; }
         }
 
+        private double TxID;
+        public double tranID
+        {
+            get { return TxID; }
+            set { TxID = value; }
+        }
+
         List<Item> itemList = new List<Item>();
         List<Item> cartList = new List<Item>();
         List<Button> cartButtonList = new List<Button>();
@@ -76,7 +83,9 @@ namespace pointofsale_application
             InitializeBourbonList();
             InitializeWineList();
 
-            DateTimeTransactionField.Text = DateTime.Now.ToString();
+            ChangeCashierName(Login.staticVars.cashierName);
+            UpdateDateTime();
+            ChangeOrderNum();
 
             fillItemColumn(BestSellers);
 
@@ -458,7 +467,30 @@ namespace pointofsale_application
 
 
 
+        private void ChangeOrderNum()
+        {
+            try
+            {
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
+                tranID = (int)retrieveOrderNum.ExecuteScalar() + 1;
+                OrderNumberBlock.Text = tranID.ToString();
+            }
+            catch (Exception e)
+            {
+                tranID = 1;
+                OrderNumberBlock.Text = TxID.ToString();
+            }
+        }
 
+        private void ChangeCashierName(string cashierName)
+        {
+            CashierTransactionField.Text = cashierName.ToString();
+        }
+
+        private void UpdateDateTime()
+        {
+            DateTimeTransactionField.Text = DateTime.Now.ToString();
+        }
 
 
     }

@@ -61,6 +61,7 @@ namespace pointofsale_application
             InitializeComponent();
             UpdateDateTime();
             ChangeOrderNum();
+            ChangeCashierName(Login.staticVars.cashierName);
 
             SubTotal = sub;
             TaxTotal = t;

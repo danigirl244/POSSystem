@@ -24,6 +24,12 @@ namespace pointofsale_application
     public partial class HomePage : Window
     {
         DatabaseAccess access = new DatabaseAccess();
+        private string cashName;
+        public string CashName
+        {
+            get { return cashName; }
+            set { cashName = value; }
+        }
         private static double taxPercentage = .0685;
         private string permission;
         public string Permission
@@ -49,6 +55,13 @@ namespace pointofsale_application
         {
             get { return taxTotal; }
             set { taxTotal = value; }
+        }
+
+        private double TxID;
+        public double tranID
+        {
+            get { return TxID; }
+            set { TxID = value; }
         }
 
         List<Item> itemList = new List<Item>();
@@ -77,7 +90,9 @@ namespace pointofsale_application
             InitializeBourbonList();
             InitializeWineList();
 
-            DateTimeTransactionField.Text = DateTime.Now.ToString();
+            ChangeCashierName(Login.staticVars.cashierName);
+            UpdateDateTime();
+            ChangeOrderNum();
 
             fillItemColumn(BestSellers);
 
@@ -433,5 +448,32 @@ namespace pointofsale_application
                 this.Close();
             }
         }
+
+
+        private void ChangeOrderNum()
+        {
+            try
+            {
+                SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", access.AccessDB());
+                tranID = (int)retrieveOrderNum.ExecuteScalar() + 1;
+                OrderNumberBlock.Text = tranID.ToString();
+            }
+            catch (Exception e)
+            {
+                tranID = 1;
+                OrderNumberBlock.Text = TxID.ToString();
+            }
+        }
+
+        private void ChangeCashierName(string cashierName)
+        {
+            CashierTransactionField.Text = cashierName.ToString();
+        }
+
+        private void UpdateDateTime()
+        {
+            DateTimeTransactionField.Text = DateTime.Now.ToString();
+        }
+
     }
 }
