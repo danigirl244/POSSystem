@@ -6,7 +6,7 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTestBackend
     {
-        
+
 
         [TestMethod]
         public void ItemFieldsTest()
@@ -28,6 +28,8 @@ namespace UnitTestProject1
             //adduser.AddEmp("Evan", "admin", 1);
             //user.UpdateEmpAct(11119, 0);
             //user.UpdateEmpRank(11119, "basic");
+            adduser.showID("Evan");
+            adduser.SortEmpData();
         }
         [TestMethod]
         public void EditInventoryTest()
@@ -60,11 +62,25 @@ namespace UnitTestProject1
         {
             pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage("admin");
             admin.printSubTotal();
+            admin.printTax();
             admin.printTotal();
             admin.addItem("Jim Beam");
             admin.removeItem("African Children");
+            admin.CreateReceipt();
             admin.fillCategoryColumn();
+            admin.InitializeBeerList();
+            admin.InitializeBestSellersList();
+            admin.InitializeBourbonList();
+            admin.InitializeTequilaList();
+            admin.InitializeVodkaList();
+            admin.InitializeWhiskeyList();
+            admin.InitializeWineList();
+            admin.InitializeItemList();
         }
+        [TestMethod]
+        public void CashOutTest()
+        {
 
+        }
     }
 }
