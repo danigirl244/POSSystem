@@ -28,6 +28,8 @@ namespace UnitTestProject1
             //adduser.AddEmp("Evan", "admin", 1);
             //user.UpdateEmpAct(11119, 0);
             //user.UpdateEmpRank(11119, "basic");
+            adduser.showID("Evan");
+            adduser.SortEmpData();
         }
         [TestMethod]
         public void EditInventoryTest()
