@@ -18,7 +18,12 @@ namespace pointofsale_application
             InitializeComponent();
         }
         DatabaseAccess db = new DatabaseAccess();
-       
+
+        public static class staticVars
+        {
+            public static string cashierName { get; set; }
+
+        }
 
         private void Enter_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -46,6 +51,11 @@ namespace pointofsale_application
                         SqlCommand userAdmin = new SqlCommand("SELECT Permissions FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());
                         string permission = userAdmin.ExecuteScalar().ToString();
                         perm = permission;
+
+                        SqlCommand userName = new SqlCommand("SELECT EmployeeName FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());
+                        staticVars.cashierName = userName.ExecuteScalar().ToString();
+                        //cashierName = name;
+
                         HomePage homepage = new HomePage(perm);
                         AdminPage adminpage = new AdminPage(perm);
                         if (permission == "admin")
