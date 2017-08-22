@@ -273,7 +273,7 @@ namespace pointofsale_application
             if (num)
             {
                 double currentBalance = double.Parse(RemainingBalance.Text) - double.Parse(InputBlock.Text);
-                RemainingBalance.Text = currentBalance.ToString();
+                RemainingBalance.Text = currentBalance.ToString("N2");
                 if (double.Parse(RemainingBalance.Text) <= 0)
                 {
                     PrintChange();
