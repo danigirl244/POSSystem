@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using pointofsale_application;
+using static pointofsale_application.Login;
 
 namespace UnitTestProject1
 {
     [TestClass]
     public class UnitTestBackend
     {
-
+        [TestInitialize]
+        public void CahierNameTest()
+        {
+            StaticVars.CashierName = "Evan Test";
+        }
+       
 
         [TestMethod]
         public void ItemFieldsTest()
@@ -40,9 +46,14 @@ namespace UnitTestProject1
         [TestMethod]
         public void EditInventoryTest()
         {
-            pointofsale_application.EditProduct inv = new pointofsale_application.EditProduct();
+            Item product = new Item();
+            product.Category = "Beer";
+            product.Name = "Blue Moon";
+            List<Item> inventory = new List<Item>();
+            inventory.Add(product);
+            pointofsale_application.EditProduct inv = new pointofsale_application.EditProduct(product);
             pointofsale_application.AddProduct create = new pointofsale_application.AddProduct();
-            pointofsale_application.EditInventory einv = new pointofsale_application.EditInventory();
+            pointofsale_application.EditInventory einv = new pointofsale_application.EditInventory(inventory);
 
             //create.CreateItem(24, 10.25, "Jack", "Jack Bottle", "Whiskey");
             //inv.EditItem(111137, 20, 5.55, "Patron", "Tequila", "Tequila");
@@ -52,6 +63,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void HomePageTest()
         {
+            List<Item> list = new List<Item>();
             pointofsale_application.HomePage home = new pointofsale_application.HomePage("basic");
             home.SubTotal = 73.92;
             home.TaxTotal = 5.93;
@@ -69,20 +81,16 @@ namespace UnitTestProject1
             home.PrintTotal();
             home.RemoveItem("African Children");
             home.CreateReceipt();
-            home.InitializeBeerList();
             home.InitializeBestSellersList();
-            home.InitializeBourbonList();
             home.InitializeItemList();
-            home.InitializeTequilaList();
-            home.InitializeVodkaList();
-            home.InitializeWhiskeyList();
-            home.InitializeWineList();
+            home.InitializeDrinkList("Wine", list);
             home.FillCategoryColumn();
 
         }
         [TestMethod]
         public void AdminPageTest()
         {
+            List<Item> list = new List<Item>();
             pointofsale_application.AdminPage admin = new pointofsale_application.AdminPage("admin");
             admin.PrintSubTotal();
             admin.PrintTax();
@@ -91,20 +99,18 @@ namespace UnitTestProject1
             admin.RemoveItem("African Children");
             admin.CreateReceipt();
             admin.FillCategoryColumn();
-            admin.InitializeBeerList();
             admin.InitializeBestSellersList();
-            admin.InitializeBourbonList();
-            admin.InitializeTequilaList();
-            admin.InitializeVodkaList();
-            admin.InitializeWhiskeyList();
-            admin.InitializeWineList();
+            admin.InitializeDrinkList("Wine", list);
             admin.InitializeItemList();
         }
         [TestMethod]
         public void CashOutTest()
         {
+            Item test = new Item();
+            test.Category = "Wine";
             List<Item> cart = new List<Item>();
-            pointofsale_application.CashOut cash = new pointofsale_application.CashOut(100, 8.10, 108.10, "admin", cart);
+            cart.Add(test);
+            pointofsale_application.CashOut cash = new pointofsale_application.CashOut(100.00, 8.10, 108.10, "admin", cart);
             cash.PrintChange();
             cash.Permission = "admin";
             cash.SubTotal = 100;
