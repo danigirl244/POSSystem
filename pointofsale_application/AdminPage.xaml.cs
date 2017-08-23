@@ -325,9 +325,16 @@ namespace pointofsale_application
 
         private void CashoutButton_Click(object sender, RoutedEventArgs e)
         {
-            CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList);
-            cash.Show();
-            this.Close();
+            if (cartList.Count != 0)
+            {
+                CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList);
+                cash.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Cannot Cash Out When Cart Is Empty");
+            }
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
