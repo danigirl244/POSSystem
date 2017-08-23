@@ -333,7 +333,7 @@ namespace pointofsale_application
             }
             else
             {
-                MessageBox.Show("Cannot Cash Out When Cart Is Empty");
+                MessageBox.Show("Cannot Cash Out When Cart Is Empty", "Error");
             }
         }
 
