@@ -331,7 +331,7 @@ namespace pointofsale_application
         {
             if (cartList.Count != 0)
             {
-                CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList);
+                CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList, Inventory);
                 cash.Show();
                 this.Close();
             }

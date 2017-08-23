@@ -110,8 +110,9 @@ namespace UnitTestProject1
             Item test = new Item();
             test.Category = "Wine";
             List<Item> cart = new List<Item>();
+            List<Item> inv = new List<Item>();
             cart.Add(test);
-            pointofsale_application.CashOut cash = new pointofsale_application.CashOut(100.00, 8.10, 108.10, "admin", cart);
+            pointofsale_application.CashOut cash = new pointofsale_application.CashOut(100.00, 8.10, 108.10, "admin", cart, inv);
             cash.PrintChange();
             cash.Permission = "admin";
             cash.SubTotal = 100;

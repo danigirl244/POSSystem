@@ -48,7 +48,9 @@ namespace pointofsale_application
 
         List<Item> cart = new List<Item>();
         List<Button> cartButton = new List<Button>();
-        public CashOut(double sub, double taxTotal, double total, string permissionString, List<Item> cartList)
+        List<Item> Inventory = new List<Item>();
+        List<string> duplicates = new List<string>();
+        public CashOut(double sub, double taxTotal, double total, string permissionString, List<Item> cartList, List<Item> Inventory)
         {
             InitializeComponent();
             UpdateDateTime();
@@ -60,7 +62,8 @@ namespace pointofsale_application
             Total = total;
             permission = permissionString;
             cart = cartList;
-            
+            this.Inventory = Inventory;
+
             for (int i = 0; i < cart.Count; i++)
             {
                 Button cartI = new Button();
@@ -115,6 +118,24 @@ namespace pointofsale_application
                 }
             }
             MessageBoxResult popUp = MessageBox.Show("Transaction Record" + Environment.NewLine + " Change Due: " +  "$" + ChangeDue.Text, "Check Out");
+
+            //Compares the Cart to Inventory to find duplicates and adds the qty to the duplicates array
+
+            for (int i = 0; i < Inventory.Count; i++)
+            {
+                int dupCount = 0;
+
+                for (int j = 0; j < cart.Count; j++)
+                {
+                    if (Inventory[i].SKU == cart[j].SKU && i < cart.Count)
+                    {
+                        dupCount++;
+                        duplicates.Add(Inventory[i].Name + "," + dupCount);
+                    }
+                }
+            }
+            SubmitTx();
+
             Reports.tillCount -= Total;
             SqlCommand ttlUpdate = new SqlCommand("UPDATE TillCount SET Till = Till " + "+" + Total, db.AccessDB());
             try
@@ -137,6 +158,48 @@ namespace pointofsale_application
                 HomePage homepage = new HomePage(permission);
                 homepage.Show();
                 this.Close();
+            }
+        }
+
+        public void SubmitTx(/*double TxID, string SKU, string price, string qty, string date, string UserID, double Subtotal, double Total, string Tender*/)
+        {
+            for (int i = 0; i < duplicates.Count; i++)
+            {
+                //Insert transaction data into the Order Information table according to the information entered
+
+                string[] test = duplicates[i].Split(',');
+                int SKU = 0;
+                double price = 0;
+
+                for (int x = 0; x < Inventory.Count; x++)
+                {
+                    if (Inventory[x].Name == test[0])
+                    {
+                        SKU = Inventory[x].SKU;
+                        price = Inventory[x].Price;
+                    }
+                }
+                SqlCommand submittx = new SqlCommand("INSERT INTO Tx (TxID, SKU, Price, Qty, DateTime, UserID, Subtotal, Total, Tender) VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9);", db.AccessDB());
+
+                submittx.Parameters.Add("@param1", SqlDbType.Int).Value = TxID;
+                submittx.Parameters.Add("@param2", SqlDbType.Int).Value = SKU;
+                submittx.Parameters.Add("@param3", SqlDbType.Money).Value = price;
+                submittx.Parameters.Add("@param4", SqlDbType.Int).Value = test[1];
+                submittx.Parameters.Add("@param5", SqlDbType.DateTime).Value = DateTime.Now;
+                submittx.Parameters.Add("@param6", SqlDbType.Int).Value = Login.StaticVars.CashierID;
+                submittx.Parameters.Add("@param7", SqlDbType.Money).Value = SubTotal;
+                submittx.Parameters.Add("@param8", SqlDbType.Money).Value = Total;
+                submittx.Parameters.Add("@param9", SqlDbType.VarChar, 255).Value = "cash";
+                submittx.CommandType = CommandType.Text;
+
+                try
+                {
+                    submittx.ExecuteNonQuery();
+                }
+                catch (SqlException e)
+                {
+                    MessageBox.Show(e.Message.ToString(), "Error Message");
+                }
             }
         }
 
