@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using pointofsale_application;
+using System.Data.SqlClient;
 using static pointofsale_application.Login;
 
 namespace UnitTestProject1
@@ -123,6 +124,15 @@ namespace UnitTestProject1
         {
             pointofsale_application.Reports report = new pointofsale_application.Reports();
             report.PrintTill();
+        }
+        //Test Case 3 DB Team
+        [TestMethod]
+        public void UserIDQquery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "11119";
+            SqlCommand findUserID = new SqlCommand("Select UserID From Users Where EmployeeName = 'Evan'", db.AccessDB());
+            Assert.AreEqual(findUserID.ExecuteScalar().ToString(), actual);
         }
     }
 }
