@@ -30,8 +30,8 @@ namespace pointofsale_application
 
         private static bool IsTextAllowed(string text)
         {
-            int x;
-            if (int.TryParse(text, out x) && x > 0)
+            double x;
+            if (double.TryParse(text, out x) && x > 0)
             {
                 return true;
             }
@@ -39,6 +39,10 @@ namespace pointofsale_application
             {
                 return false;
             }
+        }
+        private static bool IsNameAllowed(string text)
+        {
+            return Regex.IsMatch(text, "^[\\p{L}]+$");
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -51,6 +55,10 @@ namespace pointofsale_application
             else if (!IsTextAllowed(prodQuant.Text))
             {
                 MessageBox.Show("Invalid quantity. Try again.", "Error");
+            }
+            else if (!IsNameAllowed(prodName.Text))
+            {
+                MessageBox.Show("Invalid Name. Use only letters.", "Error");
             }
             else
             {
