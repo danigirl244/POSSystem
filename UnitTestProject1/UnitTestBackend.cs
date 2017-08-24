@@ -135,5 +135,64 @@ namespace UnitTestProject1
             SqlCommand findUserID = new SqlCommand("Select UserID From Users Where EmployeeName = 'Evan'", db.AccessDB());
             Assert.AreEqual(findUserID.ExecuteScalar().ToString(), actual);
         }
+        [TestMethod] //DB Test Case 004
+        public void employeeNameQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "Evan";
+            SqlCommand findEmpName = new SqlCommand("Select EmployeeName From Users Where UserID = '11119'", db.AccessDB());
+            Assert.AreEqual(findEmpName.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 005
+        public void permissionsQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "basic";
+            SqlCommand findPermissions = new SqlCommand("Select Permissions From Users Where UserID = '11119'", db.AccessDB());
+            Assert.AreEqual(findPermissions.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 006
+        public void statusQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "0";
+            SqlCommand findStatus = new SqlCommand("Select isActive From Users Where UserID = '11119'", db.AccessDB());
+            Assert.AreEqual(findStatus.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 010
+        public void cashTenderQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "3.99";
+            SqlCommand findPrice = new SqlCommand("Select Price From Tx Where Tender = 'Cash' AND TxID = '5'", db.AccessDB());
+            Assert.AreEqual(findPrice.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 017
+        public void sessionInsert()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "12345";
+            SqlCommand insert = new SqlCommand("INSERT INTO SessionLoginHistory (SessionID, UserID, LastLogin, LastLogout) VALUES: (15, 12345, 20170804 1:40:10 AM, 20170805 1:45:10 AM)", db.AccessDB());
+            SqlCommand findSessionID = new SqlCommand("Select UserID from SessionLoginHistory where SessionID = '15'");
+            Assert.AreEqual(findSessionID.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 018
+        public void sessionUpdate()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "20170805 1:50:10 AM";
+            SqlCommand update = new SqlCommand("UPDATE SessionLoginHistory SET LastLogout = '20170805 1:50:10 AM' WHERE SessionID = '15'", db.AccessDB());
+            SqlCommand validate = new SqlCommand("Select LastLogout from SessionLoginHistory where SessionID = '15'");
+            Assert.AreEqual(validate.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 019
+        public void sessionDelete()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "";
+            SqlCommand delete = new SqlCommand("DELETE FROM SessionLoginHistory WHERE SessionID = '15'", db.AccessDB());
+            SqlCommand validate = new SqlCommand("Select LastLogout from SessionLoginHistory where SessionID = '15'");
+            Assert.AreEqual(validate.ExecuteScalar().ToString(), actual);
+        }
     }
 }
