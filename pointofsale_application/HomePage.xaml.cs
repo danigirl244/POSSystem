@@ -348,6 +348,7 @@ namespace pointofsale_application
             {
                 Login login = new Login();
                 login.Show();
+                App.Current.MainWindow = login;
                 this.Close();
             }
         }
