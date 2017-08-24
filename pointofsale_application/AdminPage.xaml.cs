@@ -12,6 +12,11 @@ namespace pointofsale_application
     /// </summary>
     public partial class AdminPage : Window
     {
+        EditUser user = new EditUser();
+        Reports report = new Reports();
+        EditInventory editInventory;
+
+
         DatabaseAccess db = new DatabaseAccess();
         private static double taxPercentage = .0685;
         private string permission;
@@ -59,6 +64,9 @@ namespace pointofsale_application
         List<Item> BourbonItems = new List<Item>();
         List<Item> WineItems = new List<Item>();
 
+
+
+
         public AdminPage(string p)
         {
             Permission = p;
@@ -72,12 +80,15 @@ namespace pointofsale_application
             InitializeDrinkList("Tequila", TequilaItems);
             InitializeDrinkList("Bourbon", BourbonItems);
             InitializeDrinkList("Whiskey", WhiskeyItems);
+
             InitializeDrinkList("Wine", WineItems);
             DateTimeTransactionField.Text = DateTime.Now.ToString();
        
             ChangeCashierName(Login.StaticVars.CashierName);
             UpdateDateTime();
             ChangeOrderNum();
+
+            editInventory = new EditInventory(Inventory);
 
             FillItemColumn(BestSellers);
 
@@ -351,23 +362,17 @@ namespace pointofsale_application
         }
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
-            EditUser user = new EditUser();
             user.Show();
-       
         }
 
         private void ReportsButton_Click(object sender, RoutedEventArgs e)
         {
-
-            Reports report = new Reports();
             report.Show();
-
         }
 
         private void InventoryButton_Click(object sender, RoutedEventArgs e)
         {
 
-            EditInventory editInventory = new EditInventory(Inventory);
             editInventory.Show();
 
         }
