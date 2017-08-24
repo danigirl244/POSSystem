@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
 
@@ -28,11 +29,18 @@ namespace pointofsale_application
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
 
-                this.Close();
-                CreateItem(prodQuant.Text, prodPrice.Text, prodName.Text, prodDesc.Text, cat.Text);
+            if (Int32.Parse(prodQuant.Text) < 0)
+            {
+                MessageBox.Show("Invalid quantity. Try again.", "Error");
+            }
+            else
+            {
+                if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    this.Close();
+                    CreateItem(prodQuant.Text, prodPrice.Text, prodName.Text, prodDesc.Text, cat.Text);
+                }
             }
         }
 
