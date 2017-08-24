@@ -333,6 +333,7 @@ namespace pointofsale_application
             {
                 CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList, Inventory);
                 cash.Show();
+                App.Current.MainWindow = cash;
                 this.Close();
             }
             else

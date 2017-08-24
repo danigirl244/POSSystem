@@ -329,6 +329,7 @@ namespace pointofsale_application
             {
                 CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList, Inventory);
                 cash.Show();
+                App.Current.MainWindow = cash;
                 this.Close();
             }
             else
@@ -341,7 +342,6 @@ namespace pointofsale_application
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-
                 CloseAllWindows();
                 Login login = new Login();
                 login.Show();

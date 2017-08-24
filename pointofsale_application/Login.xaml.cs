@@ -62,11 +62,13 @@ namespace pointofsale_application
                         if (permission == "admin")
                         {
                             adminpage.Show();
+                            App.Current.MainWindow = adminpage;
                             this.Close();
                         }
                         else
                         {
                             homepage.Show();
+                            App.Current.MainWindow = homepage;
                             this.Close();
                         }
 
