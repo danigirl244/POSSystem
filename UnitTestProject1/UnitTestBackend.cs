@@ -36,13 +36,13 @@ namespace UnitTestProject1
             pointofsale_application.EditUserPopUp user = new pointofsale_application.EditUserPopUp();
             pointofsale_application.AddUser adduser = new pointofsale_application.AddUser();
             pointofsale_application.EditUser euser = new pointofsale_application.EditUser();
-            //adduser.AddEmp("Evan", "admin", 1);
-            //user.UpdateEmpAct(11119, 0);
-            //user.UpdateEmpRank(11119, "basic");
+            //adduser.AddEmp("Evan The Great", "admin", 1);
+            //user.UpdateEmpAct("11119", 1);
+            //user.UpdateEmpRank("11119", "Admin");
             adduser.ShowID("Evan");
             adduser.SortEmpData();
             euser.GetEmpInfo();
-            euser.FillEmpColumn(employee);
+            //euser.FillEmpColumn(employee);
         }
         [TestMethod]
         public void EditInventoryTest()
@@ -56,10 +56,10 @@ namespace UnitTestProject1
             pointofsale_application.AddProduct create = new pointofsale_application.AddProduct();
             pointofsale_application.EditInventory einv = new pointofsale_application.EditInventory(inventory);
 
-            //create.CreateItem(24, 10.25, "Jack", "Jack Bottle", "Whiskey");
-            //inv.EditItem(111137, 20, 5.55, "Patron", "Tequila", "Tequila");
-            //inv.DeleteItem(111139);
-            
+            //create.CreateItem("24", "10.25", "Jack", "Jack Bottle", "Whiskey");
+            //inv.EditItem("31", "21000", "5.55", "Patron", "Tequila", "Tequila");
+            //inv.DeleteItem(24);
+
         }
         [TestMethod]
         public void HomePageTest()
@@ -119,6 +119,7 @@ namespace UnitTestProject1
             cash.TaxTotal = 8.10;
             cash.Total = 108.10;
             cash.TxID = 1000;
+            cash.SubmitTx();
         }
         [TestMethod]
         public void ReportsTest()
