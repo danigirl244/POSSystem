@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 
@@ -27,10 +28,27 @@ namespace pointofsale_application
             }
         }
 
+        private static bool IsTextAllowed(string text)
+        {
+            int x;
+            if (int.TryParse(text, out x) && x > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
 
-            if (Int32.Parse(prodQuant.Text) < 0)
+            if (!IsTextAllowed(prodPrice.Text))
+            {
+                MessageBox.Show("Invalid price. Try again.", "Error");
+            }
+            else if (!IsTextAllowed(prodQuant.Text))
             {
                 MessageBox.Show("Invalid quantity. Try again.", "Error");
             }
