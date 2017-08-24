@@ -126,8 +126,7 @@ namespace UnitTestProject1
             pointofsale_application.Reports report = new pointofsale_application.Reports();
             report.PrintTill();
         }
-        //Test Case 3 DB Team
-        [TestMethod]
+        [TestMethod] //DB Test Case 003
         public void UserIDQquery()
         {
             DatabaseAccess db = new DatabaseAccess();
@@ -173,7 +172,7 @@ namespace UnitTestProject1
             DatabaseAccess db = new DatabaseAccess();
             String actual = "12345";
             SqlCommand insert = new SqlCommand("INSERT INTO SessionLoginHistory (SessionID, UserID, LastLogin, LastLogout) VALUES: (15, 12345, 20170804 1:40:10 AM, 20170805 1:45:10 AM)", db.AccessDB());
-            SqlCommand findSessionID = new SqlCommand("Select UserID from SessionLoginHistory where SessionID = '15'");
+            SqlCommand findSessionID = new SqlCommand("Select UserID from SessionLoginHistory where SessionID = '15'", db.AccessDB());
             Assert.AreEqual(findSessionID.ExecuteScalar().ToString(), actual);
         }
         [TestMethod] //DB Test Case 018
@@ -182,7 +181,7 @@ namespace UnitTestProject1
             DatabaseAccess db = new DatabaseAccess();
             String actual = "20170805 1:50:10 AM";
             SqlCommand update = new SqlCommand("UPDATE SessionLoginHistory SET LastLogout = '20170805 1:50:10 AM' WHERE SessionID = '15'", db.AccessDB());
-            SqlCommand validate = new SqlCommand("Select LastLogout from SessionLoginHistory where SessionID = '15'");
+            SqlCommand validate = new SqlCommand("Select LastLogout from SessionLoginHistory where SessionID = '15'", db.AccessDB());
             Assert.AreEqual(validate.ExecuteScalar().ToString(), actual);
         }
         [TestMethod] //DB Test Case 019
@@ -191,8 +190,48 @@ namespace UnitTestProject1
             DatabaseAccess db = new DatabaseAccess();
             String actual = "";
             SqlCommand delete = new SqlCommand("DELETE FROM SessionLoginHistory WHERE SessionID = '15'", db.AccessDB());
-            SqlCommand validate = new SqlCommand("Select LastLogout from SessionLoginHistory where SessionID = '15'");
+            SqlCommand validate = new SqlCommand("Select LastLogout from SessionLoginHistory where SessionID = '15'", db.AccessDB());
             Assert.AreEqual(validate.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 021
+        public void skuQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "3";
+            SqlCommand findSKU = new SqlCommand("Select SKU FROM Inventory WHERE Name = 'H3'", db.AccessDB());
+            Assert.AreEqual(findSKU.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 022
+        public void qtyQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "-4";
+            SqlCommand findQty = new SqlCommand("Select QtyOnHand FROM Inventory WHERE Name = 'H3'", db.AccessDB());
+            Assert.AreEqual(findQty.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 023
+        public void priceQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "35.00";
+            SqlCommand findPrice = new SqlCommand("Select Price FROM Inventory WHERE Name = 'H3'", db.AccessDB());
+            Assert.AreEqual(findPrice.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 024
+        public void itemNameQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "H3";
+            SqlCommand findItemName = new SqlCommand("Select Name FROM Inventory WHERE Price = '35.00'", db.AccessDB());
+            Assert.AreEqual(findItemName.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 025
+        public void itemDescQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "a sophisticated fellow or gals wine. ";
+            SqlCommand findItemDesc = new SqlCommand("Select Desc FROM Inventory WHERE Name = 'H3'", db.AccessDB());
+            Assert.AreEqual(findItemDesc.ExecuteScalar().ToString(), actual);
         }
     }
 }
