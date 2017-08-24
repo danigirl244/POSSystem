@@ -341,12 +341,19 @@ namespace pointofsale_application
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+
+                CloseAllWindows();
                 Login login = new Login();
                 login.Show();
-                this.Close();
             }
         }
 
+        private void CloseAllWindows()
+        {
+            for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 1; intCounter--)
+                App.Current.Windows[intCounter].Close(); 
+
+        }
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
             EditUser user = new EditUser();
