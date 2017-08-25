@@ -199,7 +199,7 @@ namespace UnitTestProject1
         public void qtyQuery()
         {
             DatabaseAccess db = new DatabaseAccess();
-            String actual = "-23";
+            String actual = "-29";
             SqlCommand findQty = new SqlCommand("Select QtyOnHand FROM Inventory WHERE Name = 'H3'", db.AccessDB());
             Assert.AreEqual(findQty.ExecuteScalar().ToString(), actual);
         }
@@ -227,5 +227,128 @@ namespace UnitTestProject1
             SqlCommand findItemDesc = new SqlCommand("Select [Desc] FROM Inventory WHERE Name = 'H3'", db.AccessDB());
             Assert.AreEqual(findItemDesc.ExecuteScalar().ToString(), actual);
         }
+        [TestMethod] //DB Test Case 026
+        public void itemCatQuery()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "Wine";
+            SqlCommand findItemDesc = new SqlCommand("Select Category FROM Inventory WHERE Name = 'H3'", db.AccessDB());
+            Assert.AreEqual(findItemDesc.ExecuteScalar().ToString(), actual);
+        }
+        //TC 027
+        [TestMethod] //DB Test Case 040
+        public void ValidateSessionLogin()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "SessionID";
+            SqlCommand sessionID = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('SessionLoginHistory') AND name = 'SessionID'", db.AccessDB());
+            Assert.AreEqual(sessionID.ExecuteScalar().ToString(), actual);
+
+            actual = "UserID";
+            SqlCommand userID = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('SessionLoginHistory') AND name = 'UserID'", db.AccessDB());
+            Assert.AreEqual(userID.ExecuteScalar().ToString(), actual);
+
+            actual = "LastLogin";
+            SqlCommand lastLogin = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('SessionLoginHistory') AND name = 'LastLogin'", db.AccessDB());
+            Assert.AreEqual(lastLogin.ExecuteScalar().ToString(), actual);
+
+            actual = "LastLogout";
+            SqlCommand lastLogout = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('SessionLoginHistory') AND name = 'LastLogout'", db.AccessDB());
+            Assert.AreEqual(lastLogout.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 041
+        public void ValidateUsers()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "UserID";
+            SqlCommand userID = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Users') AND name = 'UserID'", db.AccessDB());
+            Assert.AreEqual(userID.ExecuteScalar().ToString(), actual);
+
+            actual = "EmployeeName";
+            SqlCommand employeeName = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Users') AND name = 'EmployeeName'", db.AccessDB());
+            Assert.AreEqual(employeeName.ExecuteScalar().ToString(), actual);
+
+            actual = "Permissions";
+            SqlCommand permissions = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Users') AND name = 'Permissions'", db.AccessDB());
+            Assert.AreEqual(permissions.ExecuteScalar().ToString(), actual);
+
+            actual = "isActive";
+            SqlCommand isActive = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Users') AND name = 'isActive'", db.AccessDB());
+            Assert.AreEqual(isActive.ExecuteScalar().ToString(), actual);
+        }
+        [TestMethod] //DB Test Case 042
+        public void ValidateTX()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "TxID";
+            SqlCommand txID = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'TxID'", db.AccessDB());
+            Assert.AreEqual(txID.ExecuteScalar().ToString(), actual);
+
+            actual = "SKU";
+            SqlCommand sku = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'SKU'", db.AccessDB());
+            Assert.AreEqual(sku.ExecuteScalar().ToString(), actual);
+
+            actual = "Price";
+            SqlCommand price = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'Price'", db.AccessDB());
+            Assert.AreEqual(price.ExecuteScalar().ToString(), actual);
+
+            actual = "Qty";
+            SqlCommand qty = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'Qty'", db.AccessDB());
+            Assert.AreEqual(qty.ExecuteScalar().ToString(), actual);
+
+            actual = "DateTime";
+            SqlCommand dateTime = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'DateTime'", db.AccessDB());
+            Assert.AreEqual(dateTime.ExecuteScalar().ToString(), actual);
+
+            actual = "UserID";
+            SqlCommand userID = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'UserID'", db.AccessDB());
+            Assert.AreEqual(userID.ExecuteScalar().ToString(), actual);
+
+            actual = "Subtotal";
+            SqlCommand subtotal = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'Subtotal'", db.AccessDB());
+            Assert.AreEqual(subtotal.ExecuteScalar().ToString(), actual);
+
+            actual = "Total";
+            SqlCommand total = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'Total'", db.AccessDB());
+            Assert.AreEqual(total.ExecuteScalar().ToString(), actual);
+
+            actual = "Tender";
+            SqlCommand tender = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Tx') AND name = 'Tender'", db.AccessDB());
+            Assert.AreEqual(tender.ExecuteScalar().ToString(), actual);
+
+        }
+        [TestMethod] //DB Test Case 043
+        public void ValidateInventory()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "SKU";
+            SqlCommand sku = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Inventory') AND name = 'SKU'", db.AccessDB());
+            Assert.AreEqual(sku.ExecuteScalar().ToString(), actual);
+
+            actual = "Name";
+            SqlCommand name = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Inventory') AND name = 'Name'", db.AccessDB());
+            Assert.AreEqual(name.ExecuteScalar().ToString(), actual);
+
+            actual = "Price";
+            SqlCommand price = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Inventory') AND name = 'Price'", db.AccessDB());
+            Assert.AreEqual(price.ExecuteScalar().ToString(), actual);
+
+            actual = "Desc";
+            SqlCommand desc = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Inventory') AND name = 'Desc'", db.AccessDB());
+            Assert.AreEqual(desc.ExecuteScalar().ToString(), actual);
+
+            actual = "Category";
+            SqlCommand cat = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Inventory') AND name = 'Category'", db.AccessDB());
+            Assert.AreEqual(cat.ExecuteScalar().ToString(), actual);
+
+            actual = "QtyOnHand";
+            SqlCommand onHand = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Inventory') AND name = 'QtyOnHand'", db.AccessDB());
+            Assert.AreEqual(onHand.ExecuteScalar().ToString(), actual);
+
+            actual = "NumPurchased";
+            SqlCommand purchased = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('Inventory') AND name = 'NumPurchased'", db.AccessDB());
+            Assert.AreEqual(purchased.ExecuteScalar().ToString(), actual);
+        }
+
     }
 }
