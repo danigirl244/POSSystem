@@ -99,7 +99,7 @@ namespace pointofsale_application
                 Inventory.Add(new Item()
                 {
                     SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
-                    Name = rd.GetString(rd.GetOrdinal("Name")).Replace(" ", String.Empty),
+                    Name = rd.GetString(rd.GetOrdinal("Name")),
                     Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
                     Category = rd.GetString(rd.GetOrdinal("Category")),
                     NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))

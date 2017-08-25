@@ -29,7 +29,7 @@ namespace pointofsale_application
             rd = users.ExecuteReader();
             while (rd.Read())
             {
-                usersName.Add(rd.GetString(rd.GetOrdinal("EmployeeName")).Replace(" ", String.Empty));
+                usersName.Add(rd.GetString(rd.GetOrdinal("EmployeeName")));
             }
 
             FillEmpColumn(usersName);
