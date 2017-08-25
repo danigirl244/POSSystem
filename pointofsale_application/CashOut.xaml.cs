@@ -132,7 +132,6 @@ namespace pointofsale_application
                         dupCount++;
                         if (duplicates.Contains(Inventory[i].Name + "," + (dupCount - 1)) == true)
                         {
-                            MessageBox.Show("FUck");
                             duplicates.Remove(Inventory[i].Name + "," + (dupCount - 1));
                             duplicates.Add(Inventory[i].Name + "," + dupCount);
                         } else
@@ -160,12 +159,14 @@ namespace pointofsale_application
             {
                 AdminPage adminpage = new AdminPage(permission);
                 adminpage.Show();
+                App.Current.MainWindow = adminpage;
                 this.Close();
             }
             else if (permission.Equals("basic"))
             {
                 HomePage homepage = new HomePage(permission);
                 homepage.Show();
+                App.Current.MainWindow = homepage;
                 this.Close();
             }
         }
@@ -189,7 +190,6 @@ namespace pointofsale_application
                     }
                 }
 
-                MessageBox.Show(duplicates[0]);
 
                 SqlCommand submittx = new SqlCommand("INSERT INTO Tx (TxID, SKU, Price, Qty, DateTime, UserID, Subtotal, Total, Tender) VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9);", db.AccessDB());
 
@@ -223,12 +223,14 @@ namespace pointofsale_application
                 {
                     AdminPage adminpage = new AdminPage(permission);
                     adminpage.Show();
+                    App.Current.MainWindow = adminpage;
                     this.Close();
                 }
                 else if (permission.Equals("basic"))
                 {
                     HomePage homepage = new HomePage(permission);
                     homepage.Show();
+                    App.Current.MainWindow = homepage;
                     this.Close();
                 }
             }
@@ -339,7 +341,7 @@ namespace pointofsale_application
             double custPay;
             bool num = double.TryParse(InputBlock.Text, out custPay);
 
-            if (num)
+            if (num && double.Parse(InputBlock.Text) >= 0)
             {
                 double currentBalance = double.Parse(RemainingBalance.Text) - double.Parse(InputBlock.Text);
                 RemainingBalance.Text = currentBalance.ToString("N2");
