@@ -236,6 +236,35 @@ namespace UnitTestProject1
             Assert.AreEqual(findItemDesc.ExecuteScalar().ToString(), actual);
         }
         //TC 027
+        [TestMethod] //DB Test Case 034 & 35
+        public void txUpdate()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "1000";
+            SqlCommand insert = new SqlCommand("INSERT INTO Tx(TxID, SKU, Price, Qty, [DateTime], UserID, Subtotal, Total, Tender) VALUES(29, 13, 2.00, 10, '20170805 1:50:10 AM', 11119, 20, 22, 'cash')", db.AccessDB());
+            SqlCommand update = new SqlCommand("UPDATE Tx SET Qty = '1000' WHERE TxID = '5'", db.AccessDB());
+            SqlCommand delete = new SqlCommand("DELETE FROM Tx WHERE TxID = '29'", db.AccessDB());
+        }
+        [TestMethod] //Test Case 36
+        public void txPrimaryKey()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            SqlCommand insert = new SqlCommand("INSERT INTO Tx(TxID, SKU, Price, Qty, [DateTime], UserID, Subtotal, Total, Tender) VALUES('1', '5', '2.00', '10', '20170805 1:50:10 AM', '11119', '20', '22', 'cash')", db.AccessDB());
+        }
+        [TestMethod] //Test Case 37
+        public void UsersPrimaryKey()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            SqlCommand insert = new SqlCommand("Insert Into Users(UserID) Values(11119)", db.AccessDB());
+        }
+        [TestMethod] //Test case 38 & 39
+        public void SessionPrimaryKey()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            SqlCommand insert = new SqlCommand("INSERT INTO SessionLoginHistory(UserID, LastLogin, LastLogout) VALUES('11119', '20170804 1:40:10 AM', '20170805 1:45:10 AM')", db.AccessDB());
+            SqlCommand insert2 = new SqlCommand("INSERT INTO SessionLoginHistory(UserID, LastLogin, LastLogout) VALUES('11119', '20170804 1:40:10 AM', '20170805 1:45:10 AM')", db.AccessDB());
+
+        }
         [TestMethod] //DB Test Case 040
         public void ValidateSessionLogin()
         {
