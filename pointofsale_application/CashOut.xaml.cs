@@ -339,7 +339,7 @@ namespace pointofsale_application
             double custPay;
             bool num = double.TryParse(InputBlock.Text, out custPay);
 
-            if (num)
+            if (num && double.Parse(InputBlock.Text) >= 0)
             {
                 double currentBalance = double.Parse(RemainingBalance.Text) - double.Parse(InputBlock.Text);
                 RemainingBalance.Text = currentBalance.ToString("N2");
