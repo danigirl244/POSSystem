@@ -74,10 +74,6 @@ namespace pointofsale_application
                 return false;
             }
         }
-        private static bool IsNameAllowed(string text)
-        {
-            return Regex.IsMatch(text, "^[\\p{L}]+$");
-        }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -88,10 +84,6 @@ namespace pointofsale_application
             else if (!IsTextAllowed(prodQuant.Text))
             {
                 MessageBox.Show("Invalid quantity. Try again.", "Error");
-            }
-            else if (!IsNameAllowed(prodName.Text))
-            {
-                MessageBox.Show("Invalid Name. Use only letters.", "Error");
             }
             else if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
