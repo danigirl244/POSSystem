@@ -50,6 +50,8 @@ namespace pointofsale_application
         List<Button> cartButton = new List<Button>();
         List<Item> Inventory = new List<Item>();
         List<string> duplicates = new List<string>();
+        List<string> receiptData = new List<string>();
+
         public CashOut(double sub, double taxTotal, double total, string permissionString, List<Item> cartList, List<Item> Inventory)
         {
             InitializeComponent();
@@ -131,7 +133,6 @@ namespace pointofsale_application
                         dupCount++;
                         if (duplicates.Contains(Inventory[i].Name + "," + (dupCount - 1)) == true)
                         {
-                            MessageBox.Show("FUck");
                             duplicates.Remove(Inventory[i].Name + "," + (dupCount - 1));
                             duplicates.Add(Inventory[i].Name + "," + dupCount);
                         }
@@ -144,6 +145,7 @@ namespace pointofsale_application
             }
             Console.WriteLine("fuck off");
             SubmitTx();
+            SaveTx();
 
             Reports.tillCount -= Total;
             SqlCommand ttlUpdate = new SqlCommand("UPDATE TillCount SET Till = Till " + "+" + Total, db.AccessDB());
@@ -160,15 +162,40 @@ namespace pointofsale_application
             {
                 AdminPage adminpage = new AdminPage(permission);
                 adminpage.Show();
+                App.Current.MainWindow = adminpage;
                 this.Close();
             }
             else if (permission.Equals("basic"))
             {
                 HomePage homepage = new HomePage(permission);
                 homepage.Show();
+                App.Current.MainWindow = homepage;
                 this.Close();
             }
         }
+
+        public void SaveTx()
+        {
+
+            string filename = "Receipt";
+
+            for (int x = 0; x < duplicates.Count; x++)
+            {
+                string[] test = duplicates[x].Split(',');
+
+                for (int y = 0; y < Inventory.Count; y++)
+                {
+                    if (test[0] == Inventory[y].Name)
+                    {
+                        receiptData.Add(duplicates[x] + ",Item Price: $" + Inventory[y].Price + ",Subtotal: $" + subtotal + ",Total: $" + total);
+                    }
+                }
+            }
+
+            System.IO.File.WriteAllLines(@"C:\Users\rsmith\Desktop\workspace\" + filename + ".txt", receiptData);
+
+        }
+
 
         public void SubmitTx(/*double TxID, string SKU, string price, string qty, string date, string UserID, double Subtotal, double Total, string Tender*/)
         {
@@ -189,7 +216,6 @@ namespace pointofsale_application
                     }
                 }
 
-                MessageBox.Show(duplicates[0]);
 
                 SqlCommand submittx = new SqlCommand("INSERT INTO Tx (TxID, SKU, Price, Qty, DateTime, UserID, Subtotal, Total, Tender) VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9);", db.AccessDB());
 
@@ -223,12 +249,14 @@ namespace pointofsale_application
                 {
                     AdminPage adminpage = new AdminPage(permission);
                     adminpage.Show();
+                    App.Current.MainWindow = adminpage;
                     this.Close();
                 }
                 else if (permission.Equals("basic"))
                 {
                     HomePage homepage = new HomePage(permission);
                     homepage.Show();
+                    App.Current.MainWindow = homepage;
                     this.Close();
                 }
             }
