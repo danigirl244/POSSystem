@@ -235,6 +235,52 @@ namespace UnitTestProject1
             SqlCommand findItemDesc = new SqlCommand("Select Category FROM Inventory WHERE Name = 'H3'", db.AccessDB());
             Assert.AreEqual(findItemDesc.ExecuteScalar().ToString(), actual);
         }
+        [TestMethod] //DB Test Case 027
+        public void insertInventory()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "NewItem";
+            SqlCommand insert = new SqlCommand("INSERT INTO Inventory(Name, Price, [Desc], Category, QtyOnHand, NumPurchased) VALUES('NewItem', '2.20', 'A new item', 'Vodka', '25', '80')", db.AccessDB());
+            SqlCommand findItem = new SqlCommand("Select Name FROM Inventory WHERE Name = 'NewItem'", db.AccessDB());
+            Assert.AreEqual(findItem.ExecuteScalar().ToString(), actual);
+            SqlCommand delete = new SqlCommand("DELETE FROM Inventory WHERE Name = 'NewItem'", db.AccessDB());
+        }
+        [TestMethod] //DB Test Case 028 & 029
+        public void updateInventory()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            SqlCommand insert = new SqlCommand("INSERT INTO Inventory(Name, Price, [Desc], Category, QtyOnHand, NumPurchased) VALUES('NewItem', '2.20', 'A new item', 'Vodka', '25', '80')", db.AccessDB());
+            SqlCommand update = new SqlCommand("UPDATE Inventory SET Price = '2.50' WHERE Name = 'NewItem'", db.AccessDB());
+            SqlCommand delete = new SqlCommand("DELETE FROM Inventory WHERE Name = 'NewItem'", db.AccessDB());
+        }
+        [TestMethod] //DB Test Case 030
+        public void insertUsers()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "Homeboy";
+            SqlCommand insert = new SqlCommand("INSERT INTO Users(EmployeeName, Permissions, isActive) VALUES('Homeboy', 'basic', '0')", db.AccessDB());
+            SqlCommand findUser = new SqlCommand("Select EmployeeName FROM Users WHERE EmployeeName = 'Homeboy'", db.AccessDB());
+            Assert.AreEqual(findUser.ExecuteScalar().ToString(), actual);
+            SqlCommand delete = new SqlCommand("DELETE FROM Users WHERE EmployeeName = 'Homeboy'", db.AccessDB());
+        }
+        [TestMethod] //DB Test Case 031 & 032
+        public void updateUsers()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            SqlCommand insert = new SqlCommand("INSERT INTO Users(EmployeeName, Permissions, isActive) VALUES('Homeboy', 'basic', '0')", db.AccessDB());
+            SqlCommand update = new SqlCommand("Update Users Set EmployeeName = 'notHomeboy' WHERE EmployeeName = 'Homeboy'", db.AccessDB());
+            SqlCommand delete = new SqlCommand("DELETE FROM Users WHERE EmployeeName = 'Homeboy'", db.AccessDB());
+        }
+        [TestMethod] //DB Test Case 033
+        public void insertTx()
+        {
+            DatabaseAccess db = new DatabaseAccess();
+            String actual = "2.66";
+            SqlCommand insert = new SqlCommand("INSERT INTO Tx(Price, Qty, [DateTime], UserID, Subtotal, Total, Tender) VALUES('2.66','1','2017-08-22 19:27:36.890','11112','10.48','11.21','cash')", db.AccessDB());
+            SqlCommand findTx = new SqlCommand("Select Price FROM Tx WHERE Price = '2.66'", db.AccessDB());
+            Assert.AreEqual(findTx.ExecuteScalar().ToString(), actual);
+            SqlCommand delete = new SqlCommand("DELETE FROM Tx WHERE Price = '2.66'", db.AccessDB());
+        }
         //TC 027
         [TestMethod] //DB Test Case 034 & 35
         public void txUpdate()
