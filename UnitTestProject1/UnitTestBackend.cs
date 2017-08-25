@@ -155,7 +155,7 @@ namespace UnitTestProject1
         public void statusQuery()
         {
             DatabaseAccess db = new DatabaseAccess();
-            String actual = "0";
+            String actual = "True";
             SqlCommand findStatus = new SqlCommand("Select isActive From Users Where UserID = '11119'", db.AccessDB());
             Assert.AreEqual(findStatus.ExecuteScalar().ToString(), actual);
         }
@@ -163,7 +163,7 @@ namespace UnitTestProject1
         public void cashTenderQuery()
         {
             DatabaseAccess db = new DatabaseAccess();
-            String actual = "3.99";
+            String actual = "3.9900";
             SqlCommand findPrice = new SqlCommand("Select Price From Tx Where Tender = 'Cash' AND TxID = '5'", db.AccessDB());
             Assert.AreEqual(findPrice.ExecuteScalar().ToString(), actual);
         }
@@ -171,28 +171,21 @@ namespace UnitTestProject1
         public void sessionInsert()
         {
             DatabaseAccess db = new DatabaseAccess();
-            String actual = "12345";
-            SqlCommand insert = new SqlCommand("INSERT INTO SessionLoginHistory (SessionID, UserID, LastLogin, LastLogout) VALUES: (15, 12345, 20170804 1:40:10 AM, 20170805 1:45:10 AM)", db.AccessDB());
-            SqlCommand findSessionID = new SqlCommand("Select UserID from SessionLoginHistory where SessionID = '15'", db.AccessDB());
+            String actual = "11119";
+            SqlCommand insert = new SqlCommand("INSERT INTO SessionLoginHistory(UserID, LastLogin, LastLogout) VALUES('11119', '20170804 1:40:10 AM', '20170805 1:45:10 AM')", db.AccessDB());
+            SqlCommand findSessionID = new SqlCommand("Select UserID from SessionLoginHistory where UserID = '11119'", db.AccessDB());
             Assert.AreEqual(findSessionID.ExecuteScalar().ToString(), actual);
+            SqlCommand delete = new SqlCommand("DELETE FROM SessionLoginHistory WHERE UserID = '11119'", db.AccessDB());
+
         }
-        [TestMethod] //DB Test Case 018
+        [TestMethod] //DB Test Case 018 & 19
         public void sessionUpdate()
         {
             DatabaseAccess db = new DatabaseAccess();
-            String actual = "20170805 1:50:10 AM";
-            SqlCommand update = new SqlCommand("UPDATE SessionLoginHistory SET LastLogout = '20170805 1:50:10 AM' WHERE SessionID = '15'", db.AccessDB());
-            SqlCommand validate = new SqlCommand("Select LastLogout from SessionLoginHistory where SessionID = '15'", db.AccessDB());
-            Assert.AreEqual(validate.ExecuteScalar().ToString(), actual);
-        }
-        [TestMethod] //DB Test Case 019
-        public void sessionDelete()
-        {
-            DatabaseAccess db = new DatabaseAccess();
-            String actual = "";
-            SqlCommand delete = new SqlCommand("DELETE FROM SessionLoginHistory WHERE SessionID = '15'", db.AccessDB());
-            SqlCommand validate = new SqlCommand("Select LastLogout from SessionLoginHistory where SessionID = '15'", db.AccessDB());
-            Assert.AreEqual(validate.ExecuteScalar().ToString(), actual);
+            String actual = "20170805 9:50:10 AM";
+            SqlCommand insert = new SqlCommand("INSERT INTO SessionLoginHistory(UserID, LastLogin, LastLogout) VALUES('11119', '20170804 1:40:10 AM', '20170805 1:45:10 AM')", db.AccessDB());
+            SqlCommand update = new SqlCommand("UPDATE SessionLoginHistory SET LastLogout = '20170805 9:50:10 AM' WHERE UserID = '11119'", db.AccessDB());
+            SqlCommand delete = new SqlCommand("DELETE FROM SessionLoginHistory WHERE UserID = '11119'", db.AccessDB());
         }
         [TestMethod] //DB Test Case 021
         public void skuQuery()
@@ -206,7 +199,7 @@ namespace UnitTestProject1
         public void qtyQuery()
         {
             DatabaseAccess db = new DatabaseAccess();
-            String actual = "-4";
+            String actual = "-23";
             SqlCommand findQty = new SqlCommand("Select QtyOnHand FROM Inventory WHERE Name = 'H3'", db.AccessDB());
             Assert.AreEqual(findQty.ExecuteScalar().ToString(), actual);
         }
@@ -214,7 +207,7 @@ namespace UnitTestProject1
         public void priceQuery()
         {
             DatabaseAccess db = new DatabaseAccess();
-            String actual = "35.00";
+            String actual = "35.0000";
             SqlCommand findPrice = new SqlCommand("Select Price FROM Inventory WHERE Name = 'H3'", db.AccessDB());
             Assert.AreEqual(findPrice.ExecuteScalar().ToString(), actual);
         }
@@ -231,7 +224,7 @@ namespace UnitTestProject1
         {
             DatabaseAccess db = new DatabaseAccess();
             String actual = "a sophisticated fellow or gals wine. ";
-            SqlCommand findItemDesc = new SqlCommand("Select Desc FROM Inventory WHERE Name = 'H3'", db.AccessDB());
+            SqlCommand findItemDesc = new SqlCommand("Select [Desc] FROM Inventory WHERE Name = 'H3'", db.AccessDB());
             Assert.AreEqual(findItemDesc.ExecuteScalar().ToString(), actual);
         }
     }
