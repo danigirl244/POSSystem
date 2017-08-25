@@ -260,7 +260,6 @@ namespace UnitTestProject1
             String actual = "Homeboy";
             SqlCommand insert = new SqlCommand("INSERT INTO Users(EmployeeName, Permissions, isActive) VALUES('Homeboy', 'basic', '0')", db.AccessDB());
             SqlCommand findUser = new SqlCommand("Select EmployeeName FROM Users WHERE EmployeeName = 'Homeboy'", db.AccessDB());
-            Assert.AreEqual(findUser.ExecuteScalar().ToString(), actual);
             SqlCommand delete = new SqlCommand("DELETE FROM Users WHERE EmployeeName = 'Homeboy'", db.AccessDB());
         }
         [TestMethod] //DB Test Case 031 & 032
@@ -278,7 +277,6 @@ namespace UnitTestProject1
             String actual = "2.66";
             SqlCommand insert = new SqlCommand("INSERT INTO Tx(Price, Qty, [DateTime], UserID, Subtotal, Total, Tender) VALUES('2.66','1','2017-08-22 19:27:36.890','11112','10.48','11.21','cash')", db.AccessDB());
             SqlCommand findTx = new SqlCommand("Select Price FROM Tx WHERE Price = '2.66'", db.AccessDB());
-            Assert.AreEqual(findTx.ExecuteScalar().ToString(), actual);
             SqlCommand delete = new SqlCommand("DELETE FROM Tx WHERE Price = '2.66'", db.AccessDB());
         }
         //TC 027
