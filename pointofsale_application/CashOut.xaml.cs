@@ -160,12 +160,14 @@ namespace pointofsale_application
             {
                 AdminPage adminpage = new AdminPage(permission);
                 adminpage.Show();
+                App.Current.MainWindow = adminpage;
                 this.Close();
             }
             else if (permission.Equals("basic"))
             {
                 HomePage homepage = new HomePage(permission);
                 homepage.Show();
+                App.Current.MainWindow = homepage;
                 this.Close();
             }
         }
@@ -223,12 +225,14 @@ namespace pointofsale_application
                 {
                     AdminPage adminpage = new AdminPage(permission);
                     adminpage.Show();
+                    App.Current.MainWindow = adminpage;
                     this.Close();
                 }
                 else if (permission.Equals("basic"))
                 {
                     HomePage homepage = new HomePage(permission);
                     homepage.Show();
+                    App.Current.MainWindow = homepage;
                     this.Close();
                 }
             }
