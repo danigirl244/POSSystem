@@ -12,11 +12,6 @@ namespace pointofsale_application
     /// </summary>
     public partial class AdminPage : Window
     {
-        EditUser user = new EditUser();
-        Reports report = new Reports();
-        EditInventory editInventory;
-
-
         DatabaseAccess db = new DatabaseAccess();
         private static double taxPercentage = .0685;
         private string permission;
@@ -88,7 +83,6 @@ namespace pointofsale_application
             UpdateDateTime();
             ChangeOrderNum();
 
-            editInventory = new EditInventory(Inventory);
 
             FillItemColumn(BestSellers);
 
@@ -362,18 +356,20 @@ namespace pointofsale_application
         }
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
-            user.Show();
+            EditUser user = new EditUser();
+            user.ShowDialog();
         }
 
         private void ReportsButton_Click(object sender, RoutedEventArgs e)
         {
-            report.Show();
+            Reports report = new Reports();
+            report.ShowDialog();
         }
 
         private void InventoryButton_Click(object sender, RoutedEventArgs e)
         {
-
-            editInventory.Show();
+            EditInventory editInventory = new EditInventory(Inventory);
+            editInventory.ShowDialog();
 
         }
 

@@ -61,14 +61,14 @@ namespace pointofsale_application
         public void Btn_Click(string name)
         {
             EditUserPopUp eUser = new EditUserPopUp(name);
-            eUser.Show();
+            eUser.ShowDialog();
         }
 
         
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
             AddUser newUser = new AddUser();
-            newUser.Show();
+            newUser.ShowDialog();
         }
     }
 }
