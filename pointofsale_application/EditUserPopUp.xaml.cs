@@ -89,12 +89,12 @@ namespace pointofsale_application
 
         private void On_ClickPerm(object sender, RoutedEventArgs e)
         {
-            if(PStatus.Text == "basic")
+            if(PStatus.Text == "Basic")
             {
-                PStatus.Text = "admin";
+                PStatus.Text = "Admin";
             } else
             {
-                PStatus.Text = "basic";
+                PStatus.Text = "Basic";
             }
 
         }
