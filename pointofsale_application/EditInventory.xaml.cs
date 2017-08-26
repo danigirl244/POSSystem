@@ -56,7 +56,7 @@ namespace pointofsale_application
                 {
                     //MessageBox.Show(Inventory[x].Name.ToString());
                     EditProduct editProd = new EditProduct(Inventory[i]);
-                    editProd.Show();
+                    editProd.ShowDialog();
                     break;
                 }
             }
@@ -74,7 +74,7 @@ namespace pointofsale_application
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
             AddProduct addprod = new AddProduct();
-            addprod.Show();
+            addprod.ShowDialog();
         }
     }
 }

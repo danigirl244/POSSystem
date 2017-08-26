@@ -177,7 +177,7 @@ namespace pointofsale_application
         public void SaveTx()
         {
 
-            string filename = "Receipt";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             for (int x = 0; x < duplicates.Count; x++)
             {
@@ -192,7 +192,7 @@ namespace pointofsale_application
                 }
             }
 
-            System.IO.File.WriteAllLines(@"C:\Users\rsmith\Desktop\workspace\" + filename + ".txt", receiptData);
+            System.IO.File.WriteAllLines(path + @"\Receipt.txt", receiptData);
 
         }
 
