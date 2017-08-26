@@ -93,6 +93,7 @@ namespace pointofsale_application
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
             sb.Clear();
+            errormessage.Text = "";
             textBoxEmpID.Text = sb.ToString();
         }
 
