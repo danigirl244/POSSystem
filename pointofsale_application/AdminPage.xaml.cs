@@ -185,6 +185,8 @@ namespace pointofsale_application
         {
             ItemGrid.Children.Clear();
             FillItemColumn(BestSellers);
+           
+            
         }
         private void Btn_Click1(object sender, RoutedEventArgs e)
         {
@@ -339,7 +341,7 @@ namespace pointofsale_application
             }
             else
             {
-                MessageBox.Show("Cannot Cash Out When Cart Is Empty", "Error");
+                MessageBox.Show("Cannot cash out when cart is empty", "Error");
             }
         }
 
