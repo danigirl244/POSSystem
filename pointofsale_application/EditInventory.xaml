@@ -40,13 +40,13 @@
             </Grid>
         </ScrollViewer>
 
-        <Rectangle Fill="#b1b7b7" x:Name="HeaderBar" HorizontalAlignment="Left" Height="73" Margin="5,5,0,0" VerticalAlignment="Top" Width="537"/>
+        <Rectangle Fill="#b1b7b7" x:Name="HeaderBar" HorizontalAlignment="Left" Height="73" Margin="5,5,0,0" VerticalAlignment="Top" Width="545"/>
         <Label Content="Edit Products" VerticalAlignment="Center" FontWeight="Medium" FontSize="18" 
                Height="30" Margin="220,25,231,298"/>
-        <Button Content="Add Product" Margin="447,19,44,298" 
-               Background="#464543" Foreground="#b1b7b7" BorderBrush="Black" Click="AddProduct_Click"/>
+        <Button Content="Add Product" Margin="452,25,39.4,291.8" 
+               Background="#464543" Foreground="white" BorderBrush="Black" Click="AddProduct_Click"/>
         <Image Name="logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="68" 
-               Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>
+               Margin="10,10,0,0" VerticalAlignment="Top" Width="86"/>
     </Grid>
 </Window>
 
