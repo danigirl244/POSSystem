@@ -43,17 +43,10 @@
             </StackPanel>
         </Border>
         <Border Height="40" Width="65" BorderThickness="1" BorderBrush="#464543" 
-                Margin="93,210,279,9">
+                HorizontalAlignment="Center" Margin="0,210,0,0">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="saveProd" Height="40" Width="65" FontSize="22" 
                         Background="#b1b7b7" Click="Save_Click" Content="✓"/>
-            </StackPanel>
-        </Border>
-        <Border Height="40" Width="65" BorderThickness="1" BorderBrush="#464543" 
-                Margin="275,210,97,9">
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="deleteProd" Height="40" Width="65" FontSize="22" 
-                        Background="#b1b7b7" Click="Delete_Click">X</Button>
             </StackPanel>
         </Border>
     </Grid>
