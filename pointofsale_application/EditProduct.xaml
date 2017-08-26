@@ -8,7 +8,7 @@
         Title="Edit Product" Height="300" Width="455" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787a79">
         <Border Height="200" Width="200" BorderBrush="#464543" BorderThickness="2" Background="#b1b7b7" 
-                Margin="10,10,239,61">
+                Margin="20,12,225,60">
             <StackPanel Margin="10" VerticalAlignment="Center">
                 <Label Width="25" VerticalAlignment="Center">ID:</Label>
                 <TextBox Name="prodID" Width="70" Height="20" Margin="0,0,0,10" 
@@ -22,7 +22,7 @@
             </StackPanel>
         </Border>
         <Border Height="200" Width="200" BorderBrush="#464543" BorderThickness="2" Background="#b1b7b7" 
-                Margin="239,10,10,61">
+                Margin="232,12,20,60">
             <StackPanel Margin="10" VerticalAlignment="Center">
                 <Label Width="60" VerticalAlignment="Center">Quantity:</Label>
                 <TextBox Name="prodQuant" Width="100" Height="20" Margin="0,0,0,10" 
@@ -42,19 +42,11 @@
                 </ComboBox>
             </StackPanel>
         </Border>
-        <Border Height="40" Width="65" BorderThickness="1" BorderBrush="#464543" 
-                Margin="93,210,279,9">
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="saveProd" Height="40" Width="65" FontSize="22" 
-                        Background="#b1b7b7" Click="Save_Click" Content="✓"/>
-            </StackPanel>
-        </Border>
-        <Border Height="40" Width="65" BorderThickness="1" BorderBrush="#464543" 
-                Margin="275,210,97,9">
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="deleteProd" Height="40" Width="65" FontSize="22" 
-                        Background="#b1b7b7" Click="Delete_Click">X</Button>
-            </StackPanel>
-        </Border>
+      
+                <Button Width="65" x:Name="saveProd" Margin="99,217,285,15" Height="40" FontSize="22" Content="✓" Click="Save_Click" Background="#b1b7b7"/>
+        
+       
+                <Button x:Name="deleteProd" Height="40" Width="65" FontSize="22" Background="#b1b7b7" Click="Delete_Click" Content="X" Margin="308,217,77,15"/>
+      
     </Grid>
 </Window>
