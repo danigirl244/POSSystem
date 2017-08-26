@@ -11,11 +11,11 @@
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="85" HorizontalAlignment="Left" VerticalAlignment="Top" />
         </DockPanel>
         <Label Height="42" VerticalAlignment="Top" Content="Home Page" Margin="190,20,716,0" FontSize="23" Foreground="White"/>
-        <Button Name="LogoutButton" Width="103" Height="43" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,20,41,609" Click="LogoutButton_Click"/>
-        <Button Name="ReportsButton" Width="136" Height="42" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,20,166,610" Click="ReportsButton_Click">Reports</Button>
-        <Button Name="UsersButton" Width="136" Height="44" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,20,319,608" Click="UsersButton_Click">Edit Users</Button>
-        <Button Name="InventoryButton" Width="147" Height="44" FontSize="20
-                " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,20,476,608" Click="InventoryButton_Click">Edit Inventory</Button>
+        <Button Name="LogoutButton" Width="136" Height="44" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,21,16,606" Click="LogoutButton_Click"/>
+        <Button Name="ReportsButton" Width="136" Height="44" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,21,156,606" Click="ReportsButton_Click">Reports</Button>
+        <Button Name="UsersButton" Width="136" Height="44" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,21,296,606" Click="UsersButton_Click">Edit Users</Button>
+        <Button Name="InventoryButton" Width="136" Height="44" FontSize="20
+                " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,21,436,606" Click="InventoryButton_Click">Edit Inventory</Button>
         <StackPanel Width="130" HorizontalAlignment="Left" Background="#787A79" Margin="0,90,0,0" x:Name="CategoryColumn">
         </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="130,85,307,5">
@@ -67,16 +67,16 @@
                     </StackPanel>
                 </ScrollViewer>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="0,10,10,0" HorizontalAlignment="Right"><Bold>Subtotal:</Bold></TextBlock>
-                    <TextBlock Name="SubtotalTransactionField" Margin="0,10,10,0" HorizontalAlignment="Right"></TextBlock>
+                    <TextBlock Margin="0,0,10,0" HorizontalAlignment="Right"><Bold>Subtotal:</Bold></TextBlock>
+                    <TextBlock Name="SubtotalTransactionField" Margin="0,0,20,0" HorizontalAlignment="Right"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="0,0, 10, 0" HorizontalAlignment="Right"><Bold>Tax:</Bold></TextBlock>
-                    <TextBlock Name="TaxTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right"></TextBlock>
+                    <TextBlock Margin="0, 0, 10, 0" HorizontalAlignment="Right"><Bold>Tax:</Bold></TextBlock>
+                    <TextBlock Name="TaxTransactionField" Margin="0,0, 20, 0" HorizontalAlignment="Right"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="0,0, 10, 0" HorizontalAlignment="Right"><Bold>Total:</Bold></TextBlock>
-                    <TextBlock Name="TotalTransactionField" Margin="0,0, 10, 0" HorizontalAlignment="Right"></TextBlock>
+                    <TextBlock Margin="0, 0, 10, 0" HorizontalAlignment="Right"><Bold>Total:</Bold></TextBlock>
+                    <TextBlock Name="TotalTransactionField" Margin="0, 0, 20, 0" HorizontalAlignment="Right"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </DockPanel>

@@ -12,10 +12,10 @@ namespace pointofsale_application
 
         DatabaseAccess db = new DatabaseAccess();
 
-        public EditUserPopUp(string name)
+        public EditUserPopUp(string name, string userID)
         {
             InitializeComponent();
-            GetEmpInfo(name);
+            GetEmpInfo(name, userID);
             
         }
 
@@ -46,18 +46,18 @@ namespace pointofsale_application
                     UpdateEmpAct(UserName.Tag.ToString(), 0);
                 }
 
+                UpdateEmpName(UserName.Tag.ToString(), UserName.Text);
                 UpdateEmpRank(UserName.Tag.ToString(), PStatus.Text);
             }
         }
 
-        public void GetEmpInfo(string name)
+        public void GetEmpInfo(string name, string userID)
         {
             string permissions = "";
-            int userID = 0;
             bool isActive = true;
 
-            SqlCommand users = new SqlCommand("SELECT UserID, Permissions, isActive FROM Users Where EmployeeName = @param1", db.AccessDB());
-            users.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = name;
+            SqlCommand users = new SqlCommand("SELECT Permissions, isActive FROM Users Where UserID = @param1", db.AccessDB());
+            users.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = userID;
 
             SqlDataReader rd;
             rd = users.ExecuteReader();
@@ -65,7 +65,6 @@ namespace pointofsale_application
             {
                 permissions = rd.GetString(rd.GetOrdinal("Permissions"));
                 isActive = rd.GetBoolean(rd.GetOrdinal("isActive"));
-                userID = rd.GetInt32(rd.GetOrdinal("UserID"));
             }
 
             UserName.Text = name;
@@ -117,6 +116,24 @@ namespace pointofsale_application
             {
                 MessageBox.Show(e.Message.ToString(), "Error Message");
 
+            }
+
+        }
+
+        public void UpdateEmpName(string empID, string empName)
+        {
+            SqlCommand updateEmpName = new SqlCommand("UPDATE Users Set EmployeeName = @param2 WHERE UserID = @param1", db.AccessDB());
+
+            updateEmpName.Parameters.Add("@param1", SqlDbType.VarChar, 255).Value = empID;
+            updateEmpName.Parameters.Add("@param2", SqlDbType.VarChar, 255).Value = UserName.Text;
+
+            try
+            {
+                updateEmpName.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message.ToString(), "Error Message");
             }
 
         }

@@ -23,13 +23,13 @@ namespace pointofsale_application
 
         public void GetEmpInfo()
         {
-            SqlCommand users = new SqlCommand("SELECT EmployeeName FROM Users", db.AccessDB());
+            SqlCommand users = new SqlCommand("SELECT EmployeeName, UserID FROM Users", db.AccessDB());
 
             SqlDataReader rd;
             rd = users.ExecuteReader();
             while (rd.Read())
             {
-                usersName.Add(rd.GetString(rd.GetOrdinal("EmployeeName")));
+                usersName.Add(rd.GetString(rd.GetOrdinal("EmployeeName")) + "," + rd.GetInt32(rd.GetOrdinal("UserID")));
             }
 
             FillEmpColumn(usersName);
@@ -46,9 +46,12 @@ namespace pointofsale_application
                     Button newBtn = new Button();
                     if (Emp.Count > count)
                     {
-                        newBtn.Content = Emp[count];
-                        newBtn.Name = Emp[count];
-                        newBtn.Click += (s, e) => { Btn_Click(newBtn.Name.ToString()); };
+                        string[] empInfo = Emp[count].Split(',');
+
+                        newBtn.Content = empInfo[0];
+                        newBtn.Name = empInfo[0];
+                        newBtn.Tag = empInfo[1];
+                        newBtn.Click += (s, e) => { Btn_Click(newBtn.Name.ToString(), newBtn.Tag.ToString()); };
                         Grid.SetColumn(newBtn, j);
                         Grid.SetRow(newBtn, i);
                         ItemGrid.Children.Add(newBtn);
@@ -58,9 +61,9 @@ namespace pointofsale_application
             }
         }
 
-        public void Btn_Click(string name)
+        public void Btn_Click(string userName, string userID)
         {
-            EditUserPopUp eUser = new EditUserPopUp(name);
+            EditUserPopUp eUser = new EditUserPopUp(userName, userID);
             eUser.ShowDialog();
         }
 
