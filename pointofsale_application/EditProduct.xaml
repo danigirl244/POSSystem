@@ -10,26 +10,27 @@
         <Border Height="200" Width="200" BorderBrush="#464543" BorderThickness="2" Background="#b1b7b7" 
                 Margin="10,10,239,61">
             <StackPanel Margin="10" VerticalAlignment="Center">
-                <Label Width="25" VerticalAlignment="Center">ID:</Label>
-                <TextBox Name="prodID" Width="70" Height="20" Margin="0,0,0,10" 
-                                     BorderBrush="#464543" IsReadOnly="True"></TextBox>
-                <Label Width="45" VerticalAlignment="Center">Name:</Label>
-                <TextBox Name="prodName" Width="150" Height="20" Margin="0,0,0,10" 
-                                     BorderBrush="#464543"></TextBox>
-                <Label Width="40" VerticalAlignment="Center">Price:</Label>
-                <TextBox Name="prodPrice" Width="80" Height="20"
-                                     BorderBrush="#464543"></TextBox>
+                <Label VerticalAlignment="Center" 
+                       Content="ID:"/>
+                <TextBox x:Name="prodID" Height="20" Margin="0,0,0,10" 
+                                     BorderBrush="#464543" IsReadOnly="True"/>
+                <Label VerticalAlignment="Center" Content="Name:"/>
+                <TextBox x:Name="prodName" Height="20" Margin="0,0,0,10" 
+                                     BorderBrush="#464543"/>
+                <Label VerticalAlignment="Center" Content="Price:"/>
+                <TextBox x:Name="prodPrice" Height="20"
+                                     BorderBrush="#464543"/>
             </StackPanel>
         </Border>
         <Border Height="200" Width="200" BorderBrush="#464543" BorderThickness="2" Background="#b1b7b7" 
                 Margin="239,10,10,61">
             <StackPanel Margin="10" VerticalAlignment="Center">
-                <Label Width="60" VerticalAlignment="Center">Quantity:</Label>
-                <TextBox Name="prodQuant" Width="100" Height="20" Margin="0,0,0,10" 
-                                     BorderBrush="#464543"></TextBox>
-                <Label Width="75" VerticalAlignment="Center">Description:</Label>
-                <TextBox Name="prodDesc" Width="150" Height="50" BorderBrush="#464543"
-                                     Margin="0,0,0,10" TextWrapping="Wrap"></TextBox>
+                <Label VerticalAlignment="Center" Margin="0,0,58,0">Quantity:</Label>
+                <TextBox Name="prodQuant" Height="20" Margin="0,0,0,10" 
+                                     BorderBrush="#464543"/>
+                <Label VerticalAlignment="Center" Margin="0,0,50,0">Description:</Label>
+                <TextBox Name="prodDesc" Height="50" BorderBrush="#464543"
+                                     Margin="0,0,0,10" TextWrapping="Wrap"/>
                 <ComboBox BorderBrush="#464543" BorderThickness="2" x:Name="cat" IsEditable="True" 
                           IsReadOnly="True" Text="Categories: ">
                     <ComboBoxItem>Best Sellers</ComboBoxItem>

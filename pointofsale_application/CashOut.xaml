@@ -43,7 +43,7 @@
         <TextBlock x:Name="RemainingBalance" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Margin="639,101,0,0" FontSize="20" Height="22" Width="89"/>
         <TextBlock x:Name="ChangeDue" HorizontalAlignment="Left" TextWrapping="Wrap" Text="$ 0.00" VerticalAlignment="Top" Margin="562,125,0,0" FontSize="20" Height="22" Width="146"/>
         <DockPanel Margin="738,91,4,83" Background="White">
-            <StackPanel Orientation="Vertical" Background="White" Height="500" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" Background="White" Height="500" VerticalAlignment="Top" Margin="0,-1,0,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
                     <TextBlock Height="20" VerticalAlignment="Top" Background="White" HorizontalAlignment="Center" Margin="10, 0, 0, 0" FontWeight="Bold">Order Number:</TextBlock>
                     <TextBlock Name="OrderNumberBlock" Height="20" VerticalAlignment="Top" Background="White" HorizontalAlignment="Center" Margin="10, 0, 0, 0">XXX</TextBlock>
