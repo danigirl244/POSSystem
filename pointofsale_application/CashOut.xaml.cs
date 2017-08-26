@@ -143,7 +143,7 @@ namespace pointofsale_application
                     }
                 }
             }
-            Console.WriteLine("fuck off");
+
             SubmitTx();
             SaveTx();
 
