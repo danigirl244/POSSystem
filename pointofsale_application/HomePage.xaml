@@ -11,11 +11,11 @@
             <Image Name="TopLeftLogo" Source="Images\jurassic bar2.png" Height="85" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
         </DockPanel>
-        <Label Content="Home Page" Height="46" VerticalAlignment="Center" Margin="459,18,442,608" FontSize="23" RenderTransformOrigin="0.508,0.239" Foreground="White"/>
+        <Label Content="Home Page" Height="43" VerticalAlignment="Center" Margin="453,20,448.2,607.4" FontSize="23" RenderTransformOrigin="0.508,0.239" Foreground="White"/>
         <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="CategoryColumn">
 
         </StackPanel>
-        <Button Name="LogoutButton" Width="103" Height="43" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,20,47,608" Click="LogoutButton_Click"/>
+        <Button Name="LogoutButton" Width="103" Height="43" FontSize="20" VerticalAlignment="Center" Content="Logout" HorizontalAlignment="Right" Margin="0,20,12.2,607.4" Click="LogoutButton_Click"/>
         <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="130,85,307,5">
             <Grid  ShowGridLines="True" x:Name="ItemGrid" Width="578" Height="1754">
                 <Grid.RowDefinitions>
