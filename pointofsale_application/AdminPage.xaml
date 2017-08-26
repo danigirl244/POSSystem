@@ -16,7 +16,7 @@
         <Button Name="UsersButton" Width="136" Height="44" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,20,319,608" Click="UsersButton_Click">Edit Users</Button>
         <Button Name="InventoryButton" Width="147" Height="44" FontSize="20
                 " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,20,476,608" Click="InventoryButton_Click">Edit Inventory</Button>
-        <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="CategoryColumn">
+        <StackPanel Width="130" HorizontalAlignment="Left" Background="#787A79" Margin="0,90,0,0" x:Name="CategoryColumn">
         </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="130,85,307,5">
             <Grid  ShowGridLines="True" x:Name="ItemGrid" Width="578" Height="1754">
