@@ -87,8 +87,8 @@ namespace pointofsale_application
             }
             else if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                this.Close();
                 EditItem(prodID.Text, prodQuant.Text, prodPrice.Text, prodName.Text, prodDesc.Text, cat.Text);
+                this.Close();
             }
         }
 

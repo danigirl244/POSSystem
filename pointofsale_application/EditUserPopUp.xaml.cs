@@ -16,12 +16,36 @@ namespace pointofsale_application
         {
             InitializeComponent();
             GetEmpInfo(name, userID);
-            
+            DisplayInfo();
         }
 
         public EditUserPopUp()
         {
 
+        }
+
+        public void DisplayInfo()
+        {
+            if (PStatus.Text == "Basic")
+            {
+                PStatus.Text = "Admin";
+                PromoteButton.Content = "Demote";
+            }
+            else
+            {
+                PStatus.Text = "Basic";
+                PromoteButton.Content = "Promote";
+            }
+            if (AStatus.Text == "True")
+            {
+                AStatus.Text = "False";
+                ActivateButton.Content = "Activate";
+            }
+            else
+            {
+                AStatus.Text = "True";
+                ActivateButton.Content = "Deactivate";
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -79,9 +103,11 @@ namespace pointofsale_application
             if(AStatus.Text == "True")
             {
                 AStatus.Text = "False";
+                ActivateButton.Content = "Activate";
             } else
             {
                 AStatus.Text = "True";
+                ActivateButton.Content = "Deactivate";
             }
 
         }
@@ -91,9 +117,11 @@ namespace pointofsale_application
             if(PStatus.Text == "Basic")
             {
                 PStatus.Text = "Admin";
+                PromoteButton.Content = "Demote";
             } else
             {
                 PStatus.Text = "Basic";
+                PromoteButton.Content = "Promote";
             }
 
         }

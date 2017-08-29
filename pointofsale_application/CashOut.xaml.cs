@@ -47,7 +47,7 @@ namespace pointofsale_application
         }
 
         List<Item> cart = new List<Item>();
-        List<Button> cartButton = new List<Button>();
+        List<Label> cartButton = new List<Label>();
         List<Item> Inventory = new List<Item>();
         List<string> duplicates = new List<string>();
         List<string> receiptData = new List<string>();
@@ -68,9 +68,10 @@ namespace pointofsale_application
 
             for (int i = 0; i < cart.Count; i++)
             {
-                Button cartI = new Button();
+                Label cartI = new Label();
                 cartI.Content = cart[i].Name + "  $ " + String.Format("{0:0.00}", cart[i].Price);
-                cartI.Name = "Button" + i;
+                cartI.Name = "Label" + i;
+                cartI.Margin = new Thickness(20, 0, 0, 0);
                 cartButton.Add(cartI);
                 TransactionBlock.Children.Add(cartButton[i]);
 

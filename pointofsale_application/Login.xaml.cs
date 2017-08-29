@@ -75,7 +75,7 @@ namespace pointofsale_application
                     }
                         else
                     {
-                        errormessage.Text = "That user does not exist. Try Again.";
+                        errormessage.Text = "Invalid Entry. Try Again.";
                     }
                 }
             }

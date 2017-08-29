@@ -55,8 +55,8 @@ namespace pointofsale_application
             {
                 if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    this.Close();
                     CreateItem(prodQuant.Text, prodPrice.Text, prodName.Text, prodDesc.Text, cat.Text);
+                    this.Close();
                 }
             }
         }
