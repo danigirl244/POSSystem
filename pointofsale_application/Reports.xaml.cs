@@ -47,6 +47,12 @@ namespace pointofsale_application
             DateTimeTransactionField.Text = DateTime.Now.ToString();
         }
 
+        public void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            tillCount = 10000;
+            Till_Count.Text = "$10,000.00";
+        }
+
         public void InitializeTransactionList()
         {
             SqlCommand transactions = new SqlCommand("SELECT TxID, SKU, Price, Qty, DateTime, UserID, Subtotal, Total, Tender FROM Tx ORDER by TxID DESC", db.AccessDB());

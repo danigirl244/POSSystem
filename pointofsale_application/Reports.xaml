@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Jurassic Bar" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
+        <Button Name="ReportsButton" FontSize="20" Margin="556,19,305.6,496.4" Click="ResetButton_Click">RESET</Button>
         <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="DateColumn"></StackPanel>
         <Image Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="102"/>
         <TextBlock HorizontalAlignment="Left" Margin="258,27,0,0" TextWrapping="Wrap" Text="Till Count:" VerticalAlignment="Top" Height="31" Width="137" FontSize="25" Foreground="White"/>
