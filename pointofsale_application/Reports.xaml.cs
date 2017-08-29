@@ -121,6 +121,8 @@ namespace pointofsale_application
         public void noDupes()
         {
             newTransactions = Transactions;
+
+
             for(int i = 0; i < Transactions.Count; i++)
             {
                 for(int j = 0; j < Transactions.Count; j++)
@@ -179,24 +181,43 @@ namespace pointofsale_application
             TransactionBlock.Text = "";
             int userID;
             string name;
-
-
             OrderNumberBlock.Text = txID.ToString();
-            foreach(Transaction t in Transactions)
+            List<Transaction> sameTrans = new List<Transaction>();
+
+            SqlCommand transactions = new SqlCommand("SELECT TxID, SKU, Price, Qty, DateTime, UserID, Subtotal, Total, Tender FROM Tx ORDER by TxID DESC", db.AccessDB());
+            SqlDataReader rd = transactions.ExecuteReader();
+            while (rd.Read())
             {
-                if(t.TxID == txID)
+                sameTrans.Add(new Transaction()
+                {
+                    TxID = rd.GetInt32(rd.GetOrdinal("TxID")),
+                    SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                    Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                    Qty = rd.GetInt32(rd.GetOrdinal("Qty")),
+                    DateTime = rd.GetDateTime(rd.GetOrdinal("DateTime")),
+                    UserID = rd.GetInt32(rd.GetOrdinal("UserID")),
+                    Subtotal = (double)rd.GetDecimal(rd.GetOrdinal("Subtotal")),
+                    Total = (double)rd.GetDecimal(rd.GetOrdinal("Total")),
+                    Tender = rd.GetString(rd.GetOrdinal("Tender"))
+                });
+            }
+
+
+            foreach (Transaction t in sameTrans)
+            {
+                if(txID == t.TxID)
                 {
                     userID = t.UserID;
                     DateTimeTransactionField.Text = t.DateTime.ToString();
-                    SubtotalTransactionField.Text = t.Subtotal.ToString();
-                    TotalTransactionField.Text = t.Total.ToString();
+                    SubtotalTransactionField.Text = "$ " + String.Format("{0:0.00}", t.Subtotal);
+                    TotalTransactionField.Text = "$ " + String.Format("{0:0.00}", t.Total);
                     PaymentTypeTransactionField.Text = t.Tender;
                     CashierTransactionField.Text = t.UserID.ToString();
 
                     SqlCommand itemName = new SqlCommand("SELECT Name FROM Inventory WHERE SKU = " + t.SKU, db.AccessDB());
                     name = itemName.ExecuteScalar().ToString();
                     
-                    TransactionBlock.Text += name + " $ " + t.Price + " x " + t.Qty + "\n";
+                    TransactionBlock.Text += name + " $ " + String.Format("{0:0.00}", t.Price) + " x " + t.Qty + "\n";
                 }
             }
         }
