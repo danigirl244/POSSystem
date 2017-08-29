@@ -7,14 +7,7 @@
         mc:Ignorable="d"
         Title="Jurassic Bar" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787A79">
-        <TabControl Background="#787A79" TabStripPlacement="Left" Margin="0,74,0,0.4" HorizontalAlignment="Left" Width="737" BorderThickness="2" BorderBrush="#464543">
-            <TabItem Header="8/15/2017" Background="#464543" Foreground="#B1B7B7" Height="30" Width="100" BorderBrush="#464543"></TabItem>
-            <TabItem Header="8/16/2017" Background="#464543" Foreground="#B1B7B7" Height="30" Width="100" BorderBrush="#464543"></TabItem>
-            <TabItem Header="8/17/2017" Background="#464543" Foreground="#B1B7B7" Height="30" Width="100" BorderBrush="#464543"></TabItem>
-            <TabItem Header="8/18/2017" Background="#464543" Foreground="#B1B7B7" Height="30" Width="100" BorderBrush="#464543"></TabItem>
-            <TabItem Header="8/19/2017" Background="#464543" Foreground="#B1B7B7" Height="30" Width="100" BorderBrush="#464543"></TabItem>
-            <TabItem Header="8/20/2017" Background="#464543" Foreground="#B1B7B7" Height="30" Width="100" BorderBrush="#464543"></TabItem>
-        </TabControl>
+        <StackPanel Width="130" HorizontalAlignment="Left" Background="White" Margin="0,90,0,0" x:Name="DateColumn"></StackPanel>
         <Image Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="102"/>
         <TextBlock HorizontalAlignment="Left" Margin="258,27,0,0" TextWrapping="Wrap" Text="Till Count:" VerticalAlignment="Top" Height="31" Width="137" FontSize="25"/>
         <TextBox Name="Till_Count" HorizontalAlignment="Left" Height="31" Margin="395,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131" FontSize="25" IsReadOnly="True"/>
@@ -33,15 +26,11 @@
                     <TextBlock Margin="10,0, 0, 0"><Bold>Date:</Bold></TextBlock>
                     <TextBlock Name="DateTimeTransactionField" Margin="10,0, 0, 0">Temp Date/Time</TextBlock>
                 </StackPanel>
-                <DataGrid Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="236" Height="230" Margin="10">
-                </DataGrid>
+                <TextBlock Name="TransactionBlock" Background="White" HorizontalAlignment="Right" Width="224" Height="230" Margin="10">
+                </TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="0,40, 10,0" HorizontalAlignment="Right" RenderTransformOrigin="0.552,-1.65" ><Bold>Subtotal:</Bold></TextBlock>
                     <TextBlock Name="SubtotalTransactionField" Margin="0,40,10,0" HorizontalAlignment="Right">$Temp Subtotal</TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="0, 5, 10, 0" HorizontalAlignment="Right"><Bold>Tax:</Bold></TextBlock>
-                    <TextBlock Name="TaxTransactionField" Margin="0, 5, 10, 0" HorizontalAlignment="Right">$Temp Tax</TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="0, 5, 0, 0" HorizontalAlignment="Right"><Bold>Total:</Bold></TextBlock>
@@ -55,5 +44,19 @@
                 <TextBlock Name="MerchantTransactionField" Margin="10, 5, 10, 0" HorizontalAlignment="Center"><Bold>Merchant Copy</Bold></TextBlock>
             </StackPanel>
         </DockPanel>
+        <Grid Margin="159,85,283,0" ShowGridLines="True" x:Name="TransactionGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
     </Grid>
 </Window>

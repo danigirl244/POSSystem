@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows;
-
+using System.Windows.Controls;
 
 namespace pointofsale_application
 {
@@ -14,14 +16,23 @@ namespace pointofsale_application
     {
         public static double tillCount = 5000.00;
         DatabaseAccess db = new DatabaseAccess();
+
+        List<Transaction> Transactions = new List<Transaction>();
+        List<DateTime> Dates = new List<DateTime>();
+        List<Transaction> transFromDate = new List<Transaction>();
+        List<Transaction> newTransactions = new List<Transaction>();
+
+
         public Reports()
         {
             InitializeComponent();
+            InitializeTransactionList();
+            FillDateColumn();
+
             UpdateDateTime();
             ChangeOrderNum();
             PrintTill();
         }
-
 
         private void ChangeOrderNum()
         {
@@ -31,10 +42,163 @@ namespace pointofsale_application
             OrderNumberBlock.Text = orderNum.ToString();
         }
 
-
         private void UpdateDateTime()
         {
             DateTimeTransactionField.Text = DateTime.Now.ToString();
+        }
+
+        public void InitializeTransactionList()
+        {
+            SqlCommand transactions = new SqlCommand("SELECT TxID, SKU, Price, Qty, DateTime, UserID, Subtotal, Total, Tender FROM Tx ORDER by TxID DESC", db.AccessDB());
+            SqlDataReader rd = transactions.ExecuteReader();
+            while (rd.Read())
+            {
+                Transactions.Add(new Transaction()
+                {
+                    TxID = rd.GetInt32(rd.GetOrdinal("TxID")),
+                    SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
+                    Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
+                    Qty = rd.GetInt32(rd.GetOrdinal("Qty")),
+                    DateTime = rd.GetDateTime(rd.GetOrdinal("DateTime")),
+                    UserID = rd.GetInt32(rd.GetOrdinal("UserID")),
+                    Subtotal = (double)rd.GetDecimal(rd.GetOrdinal("Subtotal")),
+                    Total = (double)rd.GetDecimal(rd.GetOrdinal("Total")),
+                    Tender = rd.GetString(rd.GetOrdinal("Tender"))
+                });
+            }
+        }
+
+        public void RetrieveDates()
+        {
+            SqlCommand dates = new SqlCommand("SELECT DateTime FROM Tx ORDER BY DateTime DESC", db.AccessDB());
+            SqlDataReader rd = dates.ExecuteReader();
+
+            List<DateTime> tempDates = new List<DateTime>();
+
+            while (rd.Read())
+            {
+                tempDates.Add(Convert.ToDateTime(rd["DateTime"]));
+            }
+
+            for(int i = 0; i < tempDates.Count; i++)
+            {
+                DateTime dateOnly = tempDates[i].Date;
+                Dates.Add(dateOnly);
+            }
+        }
+
+        private void RemoveDuplicateDates()
+        {
+            RetrieveDates();
+            List<DateTime> noDupes = Dates.Distinct().ToList();
+            Dates.Clear();
+            foreach(DateTime val in noDupes)
+            {
+                Dates.Add(val);
+            }
+        }
+
+        public void FillDateColumn() 
+        {
+            RemoveDuplicateDates();
+            for(int i = 0; i < Dates.Count; i++)
+            {
+                DateTime date = Dates[i];
+                Button newBtn = new Button();
+                newBtn.Content = Dates[i];
+                newBtn.Name = "Button" + i;
+                newBtn.Click += (s, e) => { PopulateGrid(date); };
+                DateColumn.Children.Add(newBtn);
+            }
+        }
+
+        private void PopulateGrid(DateTime date)
+        {
+            TransactionGrid.Children.Clear();
+            FillTransactionGrid(date);
+        }
+
+        public void noDupes()
+        {
+            newTransactions = Transactions;
+            for(int i = 0; i < Transactions.Count; i++)
+            {
+                for(int j = 0; j < Transactions.Count; j++)
+                {
+                    if(Transactions[i].TxID == Transactions[j].TxID)
+                    {
+                        newTransactions.Remove(newTransactions[i]);
+                    }
+                }
+            }
+        }
+
+        public void FillTransactionGrid(DateTime dateClicked)
+        {
+            int result;
+            transFromDate.Clear();
+            noDupes();
+            foreach (Transaction t in newTransactions)
+            {
+                result = DateTime.Compare(t.DateTime.Date, dateClicked.Date);
+                if(result == 0)
+                {
+                        transFromDate.Add(t);
+                }
+            }
+           
+            int count = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Button newBtn = new Button();
+                    if(transFromDate.Count > count)
+                    {
+                        newBtn.Content = transFromDate[count].TxID.ToString();
+                        newBtn.Name = "Transaction" + transFromDate[count].TxID;
+                        newBtn.Click += (s, e) => { AddTransactionToReceipt(Convert.ToInt32(newBtn.Content)); };
+                        Grid.SetColumn(newBtn, j);
+                        Grid.SetRow(newBtn, i);
+                        TransactionGrid.Children.Add(newBtn);
+                        count++;
+                    }
+                }
+            }
+
+        }
+
+        /*TO DO
+        1. Select Transactions where txID is the same as t.TxID
+        2. Attach SKUs to item names
+        3. Attach UserID to employee name
+        4. Add necessary info to receipt*/
+
+        private void AddTransactionToReceipt(int txID)
+        {
+            TransactionBlock.Text = "";
+            int userID;
+            string name;
+
+
+            OrderNumberBlock.Text = txID.ToString();
+            foreach(Transaction t in Transactions)
+            {
+                if(t.TxID == txID)
+                {
+                    userID = t.UserID;
+                    DateTimeTransactionField.Text = t.DateTime.ToString();
+                    SubtotalTransactionField.Text = t.Subtotal.ToString();
+                    TotalTransactionField.Text = t.Total.ToString();
+                    PaymentTypeTransactionField.Text = t.Tender;
+                    CashierTransactionField.Text = t.UserID.ToString();
+
+                    SqlCommand itemName = new SqlCommand("SELECT Name FROM Inventory WHERE SKU = " + t.SKU, db.AccessDB());
+                    name = itemName.ExecuteScalar().ToString();
+                    
+                    TransactionBlock.Text += name + " $ " + t.Price + " x " + t.Qty + "\n";
+                }
+            }
         }
 
         public double PrintTill()
