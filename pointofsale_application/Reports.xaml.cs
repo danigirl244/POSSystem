@@ -30,16 +30,7 @@ namespace pointofsale_application
             FillDateColumn();
 
             UpdateDateTime();
-            ChangeOrderNum();
             PrintTill();
-        }
-
-        private void ChangeOrderNum()
-        {
-            SqlCommand retrieveOrderNum = new SqlCommand("SELECT MAX(TxID) FROM Tx", db.AccessDB());
-            int orderNum = (int)retrieveOrderNum.ExecuteScalar() + 1;
-
-            OrderNumberBlock.Text = orderNum.ToString();
         }
 
         private void UpdateDateTime()
@@ -50,7 +41,7 @@ namespace pointofsale_application
         public void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             tillCount = 10000;
-            Till_Count.Text = "$10,000.00";
+            Till_Count.Text = "$10000.00";
         }
 
         public void InitializeTransactionList()
@@ -120,6 +111,7 @@ namespace pointofsale_application
 
         private void PopulateGrid(DateTime date)
         {
+            InitializeTransactionList();
             TransactionGrid.Children.Clear();
             FillTransactionGrid(date);
         }
@@ -176,11 +168,6 @@ namespace pointofsale_application
 
         }
 
-        /*TO DO
-        1. Select Transactions where txID is the same as t.TxID
-        2. Attach SKUs to item names
-        3. Attach UserID to employee name
-        4. Add necessary info to receipt*/
 
         private void AddTransactionToReceipt(int txID)
         {
