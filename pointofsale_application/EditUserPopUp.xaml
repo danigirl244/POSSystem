@@ -16,8 +16,8 @@
         <Button x:Name="delNewUser" Click="Delete_Click" Height="40" Width="65" FontSize="22" Background="#b1b7b7" RenderTransformOrigin="0.762,1.118" Margin="261,7.504,123,10" Grid.Row="1" BorderThickness="1" BorderBrush="#464543">X</Button>
         <Label x:Name="NameLabel1" Content="Name:" HorizontalAlignment="Left" Margin="204,44,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
-        <Button x:Name="ActivateButton" Click="On_ClickAct" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="69,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
-        <Button x:Name="PromtoeButton" Click="On_ClickPerm" Content="Promote/Demote" HorizontalAlignment="Left" Margin="261,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
+        <Button x:Name="ActivateButton" Click="On_ClickAct" Content="" HorizontalAlignment="Left" Margin="69,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
+        <Button x:Name="PromoteButton" Click="On_ClickPerm" Content="" HorizontalAlignment="Left" Margin="261,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
         <Label x:Name="ActivityLabel" Content="Current Employment:" HorizontalAlignment="Left" Margin="69,97,0,0" VerticalAlignment="Top"/>
         <Label x:Name="PermissionsLabel" Content="Permissions:" HorizontalAlignment="Left" Margin="261,97,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="AStatus" HorizontalAlignment="Left" Margin="93,128,0,0" TextWrapping="Wrap" Text="True/False" VerticalAlignment="Top" RenderTransformOrigin="0.706,0.42"/>
