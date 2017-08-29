@@ -7,30 +7,46 @@
         mc:Ignorable="d"
         Title="Jurassic Bar" Height="382" Width="585" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#787a79">
-        <Label Content="Edit Products" VerticalAlignment="Center" FontWeight="Medium" FontSize="18" 
-               Height="30" Width="118" Margin="172,20,162,293"></Label>
-        <Button Content="Add Product" Width="85" Height="30" Margin="424,20,10,289" 
-               Background="#464543" Foreground="#b1b7b7" BorderBrush="Black" Click="AddProduct_Click"></Button>
-        <Image Name="logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="68" 
-               Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>
-        <!--<ScrollViewer Margin="562,0,0,0">-->
-        <Grid Width="585" Height="250" ShowGridLines="True" x:Name="ItemGrid" 
-                  Margin="0,103,-6,0" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <!--</ScrollViewer>-->
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="5">
+            <Grid ScrollViewer.CanContentScroll="True" Width="511" Height="954" ShowGridLines="True" x:Name="ItemGrid" 
+                      Margin="0,100,0,0" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </ScrollViewer>
 
+        <Rectangle Fill="#b1b7b7" x:Name="HeaderBar" HorizontalAlignment="Left" Height="73" Margin="5,5,0,0" VerticalAlignment="Top" Width="545"/>
+        <Label Content="Edit Products" VerticalAlignment="Center" FontWeight="Medium" FontSize="18" 
+               Height="30" Margin="220,25,231,298"/>
+        <Button Content="Add Product" Margin="452,25,39.4,291.8" 
+               Background="#464543" Foreground="white" BorderBrush="Black" Click="AddProduct_Click"/>
+        <Image Name="logo" Source="Images\jurassic bar2.png" HorizontalAlignment="Left" Height="68" 
+               Margin="10,10,0,0" VerticalAlignment="Top" Width="86"/>
     </Grid>
 </Window>
 

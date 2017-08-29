@@ -99,7 +99,7 @@ namespace pointofsale_application
                 Inventory.Add(new Item()
                 {
                     SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
-                    Name = rd.GetString(rd.GetOrdinal("Name")).Replace(" ", String.Empty),
+                    Name = rd.GetString(rd.GetOrdinal("Name")),
                     Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
                     Category = rd.GetString(rd.GetOrdinal("Category")),
                     NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
@@ -224,9 +224,9 @@ namespace pointofsale_application
         public void FillItemColumn(List<Item> category)
         {
             int count = 0;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 5; j++)
                 {
                     Button newBtn = new Button();
                     if (category.Count > count)
@@ -329,9 +329,17 @@ namespace pointofsale_application
 
         private void CashoutButton_Click(object sender, RoutedEventArgs e)
         {
-            CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList);
-            cash.Show();
-            this.Close();
+            if (cartList.Count != 0)
+            {
+                CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList, Inventory);
+                cash.Show();
+                App.Current.MainWindow = cash;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Cannot Cash Out When Cart Is Empty", "Error");
+            }
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -340,6 +348,7 @@ namespace pointofsale_application
             {
                 Login login = new Login();
                 login.Show();
+                App.Current.MainWindow = login;
                 this.Close();
             }
         }

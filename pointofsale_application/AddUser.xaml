@@ -17,8 +17,8 @@
         <Label x:Name="NameLabel" Content="Name:" HorizontalAlignment="Left" Margin="204,44,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
         <Label x:Name="PermLabel" Content="Permissions:" HorizontalAlignment="Left" Margin="190,121,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="BasicRB" Content="Basic" HorizontalAlignment="Left" Margin="129,168,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <RadioButton x:Name="AdminRB" Content="Admin" HorizontalAlignment="Left" Margin="261,168,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="BasicRB" Content="Basic" HorizontalAlignment="Left" Margin="151,168,0,0" VerticalAlignment="Top" IsChecked="True" RenderTransformOrigin="0.992,0.437"/>
+        <RadioButton x:Name="AdminRB" Content="Admin" HorizontalAlignment="Left" Margin="247,168,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

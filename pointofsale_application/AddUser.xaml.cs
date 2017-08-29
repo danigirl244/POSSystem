@@ -29,13 +29,29 @@ namespace pointofsale_application
                 
             }
         }
+        bool IsAllAlphabetic(string value)
+        {
+            foreach (char c in value)
+            {
+                if (!char.IsLetter(c))
+                    return false;
+            }
 
+            return true;
+        }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                this.Close();
-                SortEmpData();
+                if (IsAllAlphabetic(Name.Text))
+                {
+                    this.Close();
+                    SortEmpData();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Name Input. Try Again.", "Error");
+                }
             }
         }
 
@@ -95,5 +111,6 @@ namespace pointofsale_application
             ShowID(empName);
 
         }
+
     }
 }

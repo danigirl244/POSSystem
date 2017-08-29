@@ -59,6 +59,9 @@ namespace pointofsale_application
         List<Item> BourbonItems = new List<Item>();
         List<Item> WineItems = new List<Item>();
 
+
+
+
         public AdminPage(string p)
         {
             Permission = p;
@@ -72,12 +75,14 @@ namespace pointofsale_application
             InitializeDrinkList("Tequila", TequilaItems);
             InitializeDrinkList("Bourbon", BourbonItems);
             InitializeDrinkList("Whiskey", WhiskeyItems);
+
             InitializeDrinkList("Wine", WineItems);
             DateTimeTransactionField.Text = DateTime.Now.ToString();
        
             ChangeCashierName(Login.StaticVars.CashierName);
             UpdateDateTime();
             ChangeOrderNum();
+
 
             FillItemColumn(BestSellers);
 
@@ -93,7 +98,7 @@ namespace pointofsale_application
                 Inventory.Add(new Item()
                 {
                     SKU = rd.GetInt32(rd.GetOrdinal("SKU")),
-                    Name = rd.GetString(rd.GetOrdinal("Name")).Replace(" ", String.Empty),
+                    Name = rd.GetString(rd.GetOrdinal("Name")),
                     Price = (double)rd.GetDecimal(rd.GetOrdinal("Price")),
                     Category = rd.GetString(rd.GetOrdinal("Category")),
                     NumPurchased = rd.GetInt32(rd.GetOrdinal("NumPurchased"))
@@ -180,6 +185,8 @@ namespace pointofsale_application
         {
             ItemGrid.Children.Clear();
             FillItemColumn(BestSellers);
+           
+            
         }
         private void Btn_Click1(object sender, RoutedEventArgs e)
         {
@@ -221,9 +228,9 @@ namespace pointofsale_application
         {
 
             int count = 0;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 5; j++)
                 {
                     Button newBtn = new Button();
                     if (category.Count > count)
@@ -325,41 +332,46 @@ namespace pointofsale_application
 
         private void CashoutButton_Click(object sender, RoutedEventArgs e)
         {
-            CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList);
-            cash.Show();
-            this.Close();
+            if (cartList.Count != 0)
+            {
+                CashOut cash = new CashOut(SubTotal, TaxTotal, Total, Permission, cartList, Inventory);
+                cash.Show();
+                App.Current.MainWindow = cash;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Cannot cash out when cart is empty", "Error");
+            }
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+
                 Login login = new Login();
                 login.Show();
+                App.Current.MainWindow = login;
                 this.Close();
             }
         }
-
         private void UsersButton_Click(object sender, RoutedEventArgs e)
         {
             EditUser user = new EditUser();
-            user.Show();
-       
+            user.ShowDialog();
         }
 
         private void ReportsButton_Click(object sender, RoutedEventArgs e)
         {
-
             Reports report = new Reports();
-            report.Show();
-
+            report.ShowDialog();
         }
 
         private void InventoryButton_Click(object sender, RoutedEventArgs e)
         {
-
             EditInventory editInventory = new EditInventory(Inventory);
-            editInventory.Show();
+            editInventory.ShowDialog();
 
         }
 

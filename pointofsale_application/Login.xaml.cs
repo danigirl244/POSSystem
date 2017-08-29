@@ -22,7 +22,7 @@ namespace pointofsale_application
         public static class StaticVars
         {
             public static string CashierName { get; set; }
-
+            public static string CashierID { get; set; }
         }
 
         private void Enter_Button_Click(object sender, RoutedEventArgs e)
@@ -55,17 +55,20 @@ namespace pointofsale_application
                         SqlCommand userName = new SqlCommand("SELECT EmployeeName FROM Users WHERE UserID = " + textBoxEmpID.Text, db.AccessDB());
                         StaticVars.CashierName = userName.ExecuteScalar().ToString();
                         //cashierName = name;
+                        StaticVars.CashierID = textBoxEmpID.Text;
 
                         HomePage homepage = new HomePage(perm);
                         AdminPage adminpage = new AdminPage(perm);
                         if (permission == "admin")
                         {
                             adminpage.Show();
+                            App.Current.MainWindow = adminpage;
                             this.Close();
                         }
                         else
                         {
                             homepage.Show();
+                            App.Current.MainWindow = homepage;
                             this.Close();
                         }
 
@@ -90,6 +93,7 @@ namespace pointofsale_application
         private void Clear_Button_Click(object sender, RoutedEventArgs e)
         {
             sb.Clear();
+            errormessage.Text = "";
             textBoxEmpID.Text = sb.ToString();
         }
 

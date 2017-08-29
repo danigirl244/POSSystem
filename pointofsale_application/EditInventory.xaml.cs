@@ -27,9 +27,9 @@ namespace pointofsale_application
         {
 
             int count = 0;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 5; j++)
                 {
                     Button newBtn = new Button();
                     if (Inventory.Count > count)
@@ -56,7 +56,7 @@ namespace pointofsale_application
                 {
                     //MessageBox.Show(Inventory[x].Name.ToString());
                     EditProduct editProd = new EditProduct(Inventory[i]);
-                    editProd.Show();
+                    editProd.ShowDialog();
                     break;
                 }
             }
@@ -74,7 +74,7 @@ namespace pointofsale_application
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
             AddProduct addprod = new AddProduct();
-            addprod.Show();
+            addprod.ShowDialog();
         }
     }
 }

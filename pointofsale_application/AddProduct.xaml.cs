@@ -1,5 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 
@@ -26,13 +28,36 @@ namespace pointofsale_application
             }
         }
 
+        private static bool IsTextAllowed(string text)
+        {
+            double x;
+            if (double.TryParse(text, out x) && x > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
 
-                this.Close();
-                CreateItem(prodQuant.Text, prodPrice.Text, prodName.Text, prodDesc.Text, cat.Text);
+            if (!IsTextAllowed(prodPrice.Text))
+            {
+                MessageBox.Show("Invalid price. Try again.", "Error");
+            }
+            else if (!IsTextAllowed(prodQuant.Text))
+            {
+                MessageBox.Show("Invalid quantity. Try again.", "Error");
+            }
+            else
+            {
+                if (MessageBox.Show("Would you like to save these changes?", "Wait!", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    this.Close();
+                    CreateItem(prodQuant.Text, prodPrice.Text, prodName.Text, prodDesc.Text, cat.Text);
+                }
             }
         }
 

@@ -213,7 +213,7 @@ namespace pointofsale_application
             {
                 tillCount = 5000;
             }
-            Till_Count.Text = tillCount.ToString();
+            Till_Count.Text = "$"  + tillCount.ToString();
             return tillCount;
         }
     }

@@ -18,10 +18,10 @@
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Margin="151,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="20"/>
         <Button x:Name="ActivateButton" Click="On_ClickAct" Content="Activate/Deactivate" HorizontalAlignment="Left" Margin="69,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
         <Button x:Name="PromtoeButton" Click="On_ClickPerm" Content="Promote/Demote" HorizontalAlignment="Left" Margin="261,159,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.36,0.247" Height="28"/>
-        <Label x:Name="ActivityLabel" Content="Status:" HorizontalAlignment="Left" Margin="84,97,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="AStatus" HorizontalAlignment="Left" Height="23" Margin="69,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" IsReadOnly="True"/>
+        <Label x:Name="ActivityLabel" Content="Current Employment:" HorizontalAlignment="Left" Margin="69,97,0,0" VerticalAlignment="Top"/>
         <Label x:Name="PermissionsLabel" Content="Permissions:" HorizontalAlignment="Left" Margin="261,97,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PStatus" HorizontalAlignment="Left" Height="23" Margin="261,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" IsReadOnly="True"/>
+        <TextBlock x:Name="AStatus" HorizontalAlignment="Left" Margin="93,128,0,0" TextWrapping="Wrap" Text="True/False" VerticalAlignment="Top" RenderTransformOrigin="0.706,0.42"/>
+        <TextBlock x:Name="PStatus" HorizontalAlignment="Left" Margin="276,131,0,0" TextWrapping="Wrap" Text="Basic/Admin" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

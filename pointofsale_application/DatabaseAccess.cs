@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace pointofsale_application
 {
-    class DatabaseAccess
+    public class DatabaseAccess
     {
         //https://www.codeproject.com/Articles/4416/Beginners-guide-to-accessing-SQL-Server-through-C
 
