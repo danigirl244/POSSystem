@@ -28,13 +28,13 @@ namespace pointofsale_application
         {
             if (PStatus.Text == "Basic")
             {
-                PStatus.Text = "Admin";
-                PromoteButton.Content = "Demote";
+                PStatus.Text = "Basic";
+                PromoteButton.Content = "Promote";
             }
             else
             {
-                PStatus.Text = "Basic";
-                PromoteButton.Content = "Promote";
+                PStatus.Text = "Admin";
+                PromoteButton.Content = "Demote";
             }
             if (AStatus.Text == "True")
             {
